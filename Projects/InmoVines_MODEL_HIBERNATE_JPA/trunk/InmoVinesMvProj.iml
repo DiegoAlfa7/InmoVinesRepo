@@ -13,7 +13,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="InmoVinesCRMPU" value="a57d2226-b21d-4bae-b174-0e63118af53f" />
+          <factory-entry name="InmoVinesCRMPU" value="10b68ea7-5de7-4355-8226-6b1775652c3b" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/conf/persistence.xml" />
       </configuration>

@@ -21,21 +21,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(catalog = "inmovinescrm", schema = "")
 @XmlRootElement
 @NamedQueries({
-<<<<<<< HEAD
-    @NamedQuery(name = "Provincias.findAll", query = "SELECT p FROM Provincias p")
-    , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
-    , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
-    , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
-    , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidad = :comunidadId")
-    })
-=======
         @NamedQuery(name = "Provincias.findAll", query = "SELECT p FROM Provincias p")
         , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
         , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
         , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
         , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidadId = :comunidadId")
         , @NamedQuery(name = "Provincias.findByCapitalId", query = "SELECT p FROM Provincias p WHERE p.capitalId = :capitalId")})
->>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
 public class Provincias implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,22 +38,15 @@ public class Provincias implements Serializable {
     private String slug;
     @Basic(optional = false)
     private String provincia;
-<<<<<<< HEAD
-
     @ManyToOne
+    @JoinColumn(name = "comunidad_id", referencedColumnName = "ID")
     private Comunidades comunidad;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_provincia")
-=======
-    @Basic(optional = false)
-    @Column(name = "comunidad_id")
-    @ManyToOne
-    private int comunidadId;
-    @Basic(optional = false)
-    @Column(name = "capital_id")
-    private int capitalId;
+    @OneToOne
+    private Municipios capitalId;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProvincia")
->>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
+
     private List<Intereses> interesesList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;

@@ -36,13 +36,12 @@ public class InmueblesTest {
         session = NewHibernateUtil.getSessionFactory().openSession();
     }
 
-<<<<<<< HEAD
+
         Direccion direccion = new Direccion();
 
         direccion.setDireccionCalle("C/DE TU PUTA MADRE");
         direccion.setDireccionEscalera("hehe");
 
-=======
     @Test
     public void insertarInmuebleOK() throws SQLException {
 
