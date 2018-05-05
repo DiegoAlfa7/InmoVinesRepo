@@ -57,8 +57,11 @@ public class Inmuebles implements Serializable {
     private Long id;
     @Column(name = "referencia_catastral")
     private String referenciaCatastral;
+    @Column(name = "referencia")
     private String referencia;
+    @Column(name = "tipo")
     private int tipo;
+    @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "texto_reclamo")
     private String textoReclamo;

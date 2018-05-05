@@ -114,6 +114,7 @@ public class Caracteristicas {
         this.carpinteriaInterior = carpinteriaInterior;
     }
 
+
     public Short getnHabitaciones() {
         return nHabitaciones;
     }

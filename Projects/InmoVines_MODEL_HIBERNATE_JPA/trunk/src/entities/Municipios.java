@@ -9,17 +9,7 @@ import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -45,9 +35,9 @@ public class Municipios implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Long id;
-    @Basic(optional = false)
-    @Column(name = "id_provincia")
-    private long idProvincia;
+    @ManyToOne
+    @JoinColumn(name = "id_provincia", referencedColumnName = "id_provincia")
+    private Provincias idProvincia;
     @Basic(optional = false)
     private String municipio;
     @Basic(optional = false)
@@ -63,13 +53,14 @@ public class Municipios implements Serializable {
     private List<Inmuebles> inmueblesList;
 
     public Municipios() {
+
     }
 
     public Municipios(Long id) {
         this.id = id;
     }
 
-    public Municipios(Long id, long idProvincia, String municipio, String slug) {
+    public Municipios(Long id, Provincias idProvincia, String municipio, String slug) {
         this.id = id;
         this.idProvincia = idProvincia;
         this.municipio = municipio;
@@ -84,11 +75,11 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
-    public long getIdProvincia() {
+    public Provincias getIdProvincia() {
         return idProvincia;
     }
 
-    public void setIdProvincia(long idProvincia) {
+    public void setIdProvincia(Provincias idProvincia) {
         this.idProvincia = idProvincia;
     }
 

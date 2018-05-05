@@ -7,36 +7,26 @@ package entities;
 
 import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
+
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(catalog = "inmovinescrm", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Provincias.findAll", query = "SELECT p FROM Provincias p")
-    , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
-    , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
-    , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
-    , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidadId = :comunidadId")
-    , @NamedQuery(name = "Provincias.findByCapitalId", query = "SELECT p FROM Provincias p WHERE p.capitalId = :capitalId")})
+        @NamedQuery(name = "Provincias.findAll", query = "SELECT p FROM Provincias p")
+        , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
+        , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
+        , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
+        , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidadId = :comunidadId")
+        , @NamedQuery(name = "Provincias.findByCapitalId", query = "SELECT p FROM Provincias p WHERE p.capitalId = :capitalId")})
 public class Provincias implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +40,7 @@ public class Provincias implements Serializable {
     private String provincia;
     @Basic(optional = false)
     @Column(name = "comunidad_id")
+    @ManyToOne
     private int comunidadId;
     @Basic(optional = false)
     @Column(name = "capital_id")
@@ -156,5 +147,5 @@ public class Provincias implements Serializable {
     public String toString() {
         return "entities.cliente.Provincias[ id=" + id + " ]";
     }
-    
+
 }
