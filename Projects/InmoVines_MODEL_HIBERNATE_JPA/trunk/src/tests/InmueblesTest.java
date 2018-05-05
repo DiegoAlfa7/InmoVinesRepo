@@ -13,7 +13,6 @@ import hibernateUtil.NewHibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -25,18 +24,12 @@ import static org.junit.Assert.assertNotNull;
 @DisplayName("Prueba de Inserción de Inmuebles")
 public class InmueblesTest {
 
-    @BeforeAll
-
-
     @Test
     public void insertarInmueble() throws SQLException {
 
         Inmuebles inmuebles = new Inmuebles();
 
-
-
         Direccion direccion = new Direccion();
-
 
         direccion.setDireccionCalle("C/DE TU PUTA MADRE");
         direccion.setDireccionEscalera("hehe");

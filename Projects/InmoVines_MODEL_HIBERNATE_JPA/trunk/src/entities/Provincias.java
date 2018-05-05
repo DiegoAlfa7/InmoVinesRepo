@@ -9,17 +9,7 @@ import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -35,26 +25,24 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
     , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
     , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
-    , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidadId = :comunidadId")
-    , @NamedQuery(name = "Provincias.findByCapitalId", query = "SELECT p FROM Provincias p WHERE p.capitalId = :capitalId")})
+    , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidad = :comunidadId")
+    })
 public class Provincias implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+
     private Long id;
     @Basic(optional = false)
     private String slug;
     @Basic(optional = false)
     private String provincia;
-    @Basic(optional = false)
-    @Column(name = "comunidad_id")
-    private int comunidadId;
-    @Basic(optional = false)
-    @Column(name = "capital_id")
-    private int capitalId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProvincia")
+
+    @ManyToOne
+    private Comunidades comunidad;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_provincia")
     private List<Intereses> interesesList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;
@@ -66,12 +54,11 @@ public class Provincias implements Serializable {
         this.id = id;
     }
 
-    public Provincias(Long id, String slug, String provincia, int comunidadId, int capitalId) {
+    public Provincias(Long id, String slug, String provincia, Comunidades comunidad) {
         this.id = id;
         this.slug = slug;
         this.provincia = provincia;
-        this.comunidadId = comunidadId;
-        this.capitalId = capitalId;
+        this.comunidad = comunidad;
     }
 
     public Long getId() {
@@ -98,21 +85,14 @@ public class Provincias implements Serializable {
         this.provincia = provincia;
     }
 
-    public int getComunidadId() {
-        return comunidadId;
+    public Comunidades getComunidad() {
+        return comunidad;
     }
 
-    public void setComunidadId(int comunidadId) {
-        this.comunidadId = comunidadId;
+    public void setComunidad(Comunidades comunidadId) {
+        this.comunidad = comunidadId;
     }
 
-    public int getCapitalId() {
-        return capitalId;
-    }
-
-    public void setCapitalId(int capitalId) {
-        this.capitalId = capitalId;
-    }
 
     @XmlTransient
     public List<Intereses> getInteresesList() {

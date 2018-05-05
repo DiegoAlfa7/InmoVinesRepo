@@ -9,17 +9,7 @@ import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -33,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Municipios.findAll", query = "SELECT m FROM Municipios m")
     , @NamedQuery(name = "Municipios.findById", query = "SELECT m FROM Municipios m WHERE m.id = :id")
-    , @NamedQuery(name = "Municipios.findByIdProvincia", query = "SELECT m FROM Municipios m WHERE m.idProvincia = :idProvincia")
+    , @NamedQuery(name = "Municipios.findByIdProvincia", query = "SELECT m FROM Municipios m WHERE m.provincia = :idProvincia")
     , @NamedQuery(name = "Municipios.findByMunicipio", query = "SELECT m FROM Municipios m WHERE m.municipio = :municipio")
     , @NamedQuery(name = "Municipios.findBySlug", query = "SELECT m FROM Municipios m WHERE m.slug = :slug")
     , @NamedQuery(name = "Municipios.findByLatitud", query = "SELECT m FROM Municipios m WHERE m.latitud = :latitud")
@@ -45,9 +35,9 @@ public class Municipios implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Long id;
-    @Basic(optional = false)
-    @Column(name = "id_provincia")
-    private long idProvincia;
+
+    @ManyToOne
+    private Provincias provincia;
     @Basic(optional = false)
     private String municipio;
     @Basic(optional = false)
@@ -55,9 +45,9 @@ public class Municipios implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     private Double latitud;
     private Double longitud;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMunicipio")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_municipio")
     private List<Zonas> zonasList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMunicipio")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_municipio")
     private List<Intereses> interesesList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;
@@ -69,9 +59,9 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
-    public Municipios(Long id, long idProvincia, String municipio, String slug) {
+    public Municipios(Long id, Provincias provincia, String municipio, String slug) {
         this.id = id;
-        this.idProvincia = idProvincia;
+        this.provincia = provincia;
         this.municipio = municipio;
         this.slug = slug;
     }
@@ -84,12 +74,12 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
-    public long getIdProvincia() {
-        return idProvincia;
+    public Provincias getProvincia() {
+        return provincia;
     }
 
-    public void setIdProvincia(long idProvincia) {
-        this.idProvincia = idProvincia;
+    public void setProvincia(Provincias idProvincia) {
+        this.provincia = idProvincia;
     }
 
     public String getMunicipio() {

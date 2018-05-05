@@ -54,7 +54,6 @@ public class Agentes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     private Long id;
     @Basic(optional = false)
     private String nombre;
@@ -224,8 +223,8 @@ public class Agentes implements Serializable {
         return idCargo;
     }
 
-    public void setIdCargo(Cargos idCargo) {
-        this.idCargo = idCargo;
+    public void setCargo(Cargos cargo) {
+        this.idCargo = cargo;
     }
 
     @XmlTransient

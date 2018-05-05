@@ -113,7 +113,31 @@ public class Clientes implements Serializable {
         return id;
     }
 
-//    public void setId(Long id) {
+    public DatosPersonales getDatosPersonales() {
+        return datosPersonales;
+    }
+
+    public void setDatosPersonales(DatosPersonales datosPersonales) {
+        this.datosPersonales = datosPersonales;
+    }
+
+    public boolean isInquilino() {
+        return inquilino;
+    }
+
+    public boolean isArrendatario() {
+        return arrendatario;
+    }
+
+    public boolean isComprador() {
+        return comprador;
+    }
+
+    public boolean isVendedor() {
+        return vendedor;
+    }
+
+    //    public void setId(Long id) {
 //        this.id = id;
 //    }
 //
