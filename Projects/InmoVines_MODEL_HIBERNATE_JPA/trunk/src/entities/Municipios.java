@@ -35,9 +35,15 @@ public class Municipios implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     private Long id;
+<<<<<<< HEAD
 
     @ManyToOne
     private Provincias provincia;
+=======
+    @ManyToOne
+    @JoinColumn(name = "id_provincia", referencedColumnName = "id_provincia")
+    private Provincias idProvincia;
+>>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
     @Basic(optional = false)
     private String municipio;
     @Basic(optional = false)
@@ -53,13 +59,18 @@ public class Municipios implements Serializable {
     private List<Inmuebles> inmueblesList;
 
     public Municipios() {
+
     }
 
     public Municipios(Long id) {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public Municipios(Long id, Provincias provincia, String municipio, String slug) {
+=======
+    public Municipios(Long id, Provincias idProvincia, String municipio, String slug) {
+>>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
         this.id = id;
         this.provincia = provincia;
         this.municipio = municipio;
@@ -74,12 +85,21 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public Provincias getProvincia() {
         return provincia;
     }
 
     public void setProvincia(Provincias idProvincia) {
         this.provincia = idProvincia;
+=======
+    public Provincias getIdProvincia() {
+        return idProvincia;
+    }
+
+    public void setIdProvincia(Provincias idProvincia) {
+        this.idProvincia = idProvincia;
+>>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
     }
 
     public String getMunicipio() {

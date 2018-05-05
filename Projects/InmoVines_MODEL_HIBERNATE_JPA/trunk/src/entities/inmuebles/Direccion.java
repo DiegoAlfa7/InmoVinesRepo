@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Embeddable
@@ -20,7 +19,7 @@ public class Direccion {
     @Column(name = "direccion_calle")
     private String direccionCalle;
     @Column(name = "direccion_numero")
-    private String direccionNumero;
+    private int direccionNumero;
     @Column(name = "direccion_piso")
     private String direccionPiso;
     @Column(name = "direccion_letra")
@@ -31,7 +30,7 @@ public class Direccion {
     public Direccion() {
     }
 
-    public Direccion(String direccionTipoVia, String direccionCalle, String direccionNumero, String direccionPiso, String direccionLetra, String direccionEscalera) {
+    public Direccion(String direccionTipoVia, String direccionCalle, int direccionNumero, String direccionPiso, String direccionLetra, String direccionEscalera) {
         this.direccionTipoVia = direccionTipoVia;
         this.direccionCalle = direccionCalle;
         this.direccionNumero = direccionNumero;
@@ -56,11 +55,11 @@ public class Direccion {
         this.direccionCalle = direccionCalle;
     }
 
-    public String getDireccionNumero() {
+    public int getDireccionNumero() {
         return direccionNumero;
     }
 
-    public void setDireccionNumero(String direccionNumero) {
+    public void setDireccionNumero(int direccionNumero) {
         this.direccionNumero = direccionNumero;
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="inmovinescrm@localhost" uuid="a57d2226-b21d-4bae-b174-0e63118af53f">
+    <data-source source="LOCAL" name="inmovinescrm@localhost" uuid="10b68ea7-5de7-4355-8226-6b1775652c3b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
