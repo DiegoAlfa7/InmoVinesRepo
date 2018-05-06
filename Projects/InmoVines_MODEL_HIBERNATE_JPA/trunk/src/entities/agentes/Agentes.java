@@ -81,7 +81,7 @@ public class Agentes implements Serializable {
     private List<Clientes> clientesList;
     @OneToMany(mappedBy = "idAgenteEntrada")
     private List<Clientes> clientesList1;
-    @OneToMany(mappedBy = "idAgente")
+    @OneToMany(mappedBy = "agente")
     private List<Inmuebles> inmueblesList;
 
     public Agentes() {

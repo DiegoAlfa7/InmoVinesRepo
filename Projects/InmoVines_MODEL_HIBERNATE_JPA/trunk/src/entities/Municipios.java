@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "")
+@Table(name = "municipios", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Municipios.findAll", query = "SELECT m FROM Municipios m")
@@ -33,6 +33,7 @@ public class Municipios implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
 
@@ -50,9 +51,9 @@ public class Municipios implements Serializable {
     private Double latitud;
     @Column(name = "longitud")
     private Double longitud;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_municipio")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "municipio")
     private List<Zonas> zonasList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id_municipio")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idMunicipio")
     private List<Intereses> interesesList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;

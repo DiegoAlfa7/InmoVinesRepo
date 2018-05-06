@@ -37,28 +37,34 @@ public class InmueblesTest {
     }
 
 
-        Direccion direccion = new Direccion();
-
-        direccion.setDireccionCalle("C/DE TU PUTA MADRE");
-        direccion.setDireccionEscalera("hehe");
-
+    /**
+     * This test should be all ok.
+     * It inserts an Inmueble instance to the database with all its necessary relationships
+     * ClientePropietario, AgenteCargo, Localización (Comunidad, Provincia, Municipio, Zona).
+     * When test finishes, transaction is rolled back so no rubbish data is published
+     * @throws SQLException
+     */
     @Test
     public void insertarInmuebleOK() throws SQLException {
 
         Date date = new Date();
-
         Inmuebles inmuebles = new Inmuebles();
         Agentes agentes = new Agentes(Long.valueOf(1));
-        Direccion direccion = new Direccion();
->>>>>>> 500b6a4047dce29aef8ab578857f395d190a9eeb
-        Caracteristicas caracteristicas = new Caracteristicas();
-        Localizacion localizacion = new Localizacion();
-        Comunidades comunidades = session.get(Comunidades.class,19l);
-        Municipios municipios = new Municipios(Long.valueOf(4));
-        Provincias provincias = new Provincias(Long.valueOf(3));
-        Zonas zonas = new Zonas(Long.valueOf(2));
+        agentes.setNombre("Diego");
+
+
+
+        Comunidades comunidades = session.get(Comunidades.class,1l);
+
+        Provincias provincia = comunidades.getProvinciasList().get(0);
+
+        Municipios municipio = provincia.getCapitalId();
+
+        Zonas zona = municipio.getZonasList().get(0);
+
+
         //CARACTERISTICAS DE INMUEBLES
-        inmuebles.setIdAgente(agentes);
+        inmuebles.setAgente(agentes);
         inmuebles.setReferenciaCatastral("Referencia catastral");
         inmuebles.setReferencia("Referencia");
         inmuebles.setTipo(1);
@@ -66,27 +72,34 @@ public class InmueblesTest {
         inmuebles.setTextoReclamo("Texto reclamo");
         inmuebles.setGastosComunidad(100);
         inmuebles.setAlturaEdificio(Short.valueOf("1"));
-        inmuebles.setPrecioCompra(42.0);
-        inmuebles.setPrecioAlquiler(42.0);
-        inmuebles.setPrecioAlquilerOpcionCompra(42.0);
+        inmuebles.setPrecioCompra(4200000.0);
+        inmuebles.setPrecioAlquiler(420.0);
+        inmuebles.setPrecioAlquilerOpcionCompra(500.0);
         //LOCALIZACIONES
+        Localizacion localizacion = new Localizacion();
         localizacion.setComunidad(comunidades);
-        localizacion.setProvincia(provincias);
-        localizacion.setMunicipio(municipios);
-        localizacion.setZona(zonas);
-        localizacion.setCp(28012);
-        localizacion.setLatitud(12);
-        localizacion.setLongitud(12);
+        localizacion.setProvincia(provincia);
+        localizacion.setMunicipio(municipio);
+        localizacion.setZona(zona);
+        localizacion.setCp(47879);
+        localizacion.setLatitud(municipio.getLatitud());
+        localizacion.setLongitud(municipio.getLongitud());
+
         //DIRECCION
+        Direccion direccion = new Direccion();
         direccion.setDireccionTipoVia("calle");
-        direccion.setDireccionCalle("calle falsa");
+        direccion.setDireccionCalle("DE TU PUTA MADRE");
         direccion.setDireccionNumero(3);
         direccion.setDireccionPiso("Direccion Piso");
         direccion.setDireccionLetra("Direccion Letra");
         direccion.setDireccionEscalera("Direccion Escalera");
         localizacion.setDireccion(direccion);
         inmuebles.setLocalizacion(localizacion);
+
+
         //CARACTERISTICAS
+        Caracteristicas caracteristicas = new Caracteristicas();
+
         caracteristicas.setnHabitaciones(Short.valueOf("4"));
         caracteristicas.setnBanos(Short.valueOf("2"));
         caracteristicas.setnAseos(Short.valueOf("1"));
@@ -127,7 +140,16 @@ public class InmueblesTest {
 
         Long i_insertado = (Long) session.save(inmuebles);
 
+        //TEST ASSERTS
+
         assertNotNull(i_insertado);
+        assertEquals(session.get(Inmuebles.class, i_insertado), inmuebles );
+        assertEquals(comunidades, inmuebles.getLocalizacion().getComunidad());
+        assertEquals( provincia, inmuebles.getLocalizacion().getProvincia());
+        assertEquals(municipio , inmuebles.getLocalizacion().getPoblacion() );
+        assertEquals( zona, inmuebles.getLocalizacion().getZona());
+        assertEquals("Zona Melilla Prueba", inmuebles.getLocalizacion().getZona().getNombre());
+        assertEquals( (Double) 4200000.0, (Double) inmuebles.getPrecioCompra());
 
         transaction.rollback();
 
@@ -135,14 +157,18 @@ public class InmueblesTest {
 
     }
 
-    @Test()
+    /**
+     * This test is supposed to fail upon ConstraintViolationException throw as its query data is not coherence
+     */
+    @Test
     public void insertarInmuebleKO() {
 
         Executable insertarInmueble = () -> {
 
             Inmuebles inmuebles = new Inmuebles();
 
-            inmuebles.setClientePropietario(new Clientes(Long.valueOf(1l)));
+            //This cliente is expected to not exist in database
+            inmuebles.setClientePropietario(new Clientes(Long.valueOf(420l)));
 
             Direccion direccion = new Direccion();
 
@@ -155,6 +181,7 @@ public class InmueblesTest {
             caracteristicas.setEstadoConservacion(1);
 
             Localizacion localizacion = new Localizacion();
+            //This location values may not be in the database
             Comunidades comunidades = new Comunidades(Long.valueOf(19));
             Municipios municipios = new Municipios(Long.valueOf(4));
             Provincias provincias = new Provincias(Long.valueOf(3));

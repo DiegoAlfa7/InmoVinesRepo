@@ -18,14 +18,14 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "")
+@Table(name = "provincias", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Provincias.findAll", query = "SELECT p FROM Provincias p")
         , @NamedQuery(name = "Provincias.findById", query = "SELECT p FROM Provincias p WHERE p.id = :id")
         , @NamedQuery(name = "Provincias.findBySlug", query = "SELECT p FROM Provincias p WHERE p.slug = :slug")
         , @NamedQuery(name = "Provincias.findByProvincia", query = "SELECT p FROM Provincias p WHERE p.provincia = :provincia")
-        , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidadId = :comunidadId")
+        , @NamedQuery(name = "Provincias.findByComunidadId", query = "SELECT p FROM Provincias p WHERE p.comunidad = :comunidadId")
         , @NamedQuery(name = "Provincias.findByCapitalId", query = "SELECT p FROM Provincias p WHERE p.capitalId = :capitalId")})
 public class Provincias implements Serializable {
 
@@ -34,20 +34,27 @@ public class Provincias implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+
     @Basic(optional = false)
     private String slug;
+
     @Basic(optional = false)
     private String provincia;
+
     @ManyToOne
     @JoinColumn(name = "comunidad_id", referencedColumnName = "ID")
     private Comunidades comunidad;
 
     @OneToOne
+    @JoinColumn(name = "capital_id", referencedColumnName = "ID")
     private Municipios capitalId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProvincia")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Municipios> municipiosList;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProvincia")
     private List<Intereses> interesesList;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;
 
@@ -97,6 +104,21 @@ public class Provincias implements Serializable {
         this.comunidad = comunidadId;
     }
 
+    public Municipios getCapitalId() {
+        return capitalId;
+    }
+
+    public void setCapitalId(Municipios capitalId) {
+        this.capitalId = capitalId;
+    }
+
+    public List<Municipios> getMunicipiosList() {
+        return municipiosList;
+    }
+
+    public void setMunicipiosList(List<Municipios> municipiosList) {
+        this.municipiosList = municipiosList;
+    }
 
     @XmlTransient
     public List<Intereses> getInteresesList() {

@@ -44,9 +44,9 @@ public class Localizacion {
     @Column(name = "cp")
     private int cp;
     @Column(name = "latitud")
-    private float latitud;
+    private double latitud;
     @Column(name = "longitud")
-    private float longitud;
+    private double longitud;
 
     /**
      * ******************************OBJETO DIRECCIÓN*****************************************
@@ -108,19 +108,19 @@ public class Localizacion {
         this.cp = cp;
     }
 
-    public float getLatitud() {
+    public double getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(float latitud) {
+    public void setLatitud(double latitud) {
         this.latitud = latitud;
     }
 
-    public float getLongitud() {
+    public double getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(float longitud) {
+    public void setLongitud(double longitud) {
         this.longitud = longitud;
     }
 

@@ -8,16 +8,7 @@ package entities;
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -26,7 +17,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "")
+@Table(name = "comunidades", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Comunidades.findAll", query = "SELECT c FROM Comunidades c")
@@ -36,16 +27,28 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Comunidades implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+
     @Basic(optional = false)
+    @Column(name = "slug")
     private String slug;
+
     @Basic(optional = false)
+    @Column(name = "comunidad")
     private String comunidad;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<Provincias> provinciasList;
+
+
+
 
     public Comunidades() {
     }
@@ -59,6 +62,7 @@ public class Comunidades implements Serializable {
         this.slug = slug;
         this.comunidad = comunidad;
     }
+
 
     public Long getId() {
         return id;
@@ -91,6 +95,14 @@ public class Comunidades implements Serializable {
 
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
+    }
+
+    public List<Provincias> getProvinciasList() {
+        return provinciasList;
+    }
+
+    public void setProvinciasList(List<Provincias> provinciasList) {
+        this.provinciasList = provinciasList;
     }
 
     @Override

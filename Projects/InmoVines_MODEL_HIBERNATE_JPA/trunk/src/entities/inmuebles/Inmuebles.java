@@ -19,7 +19,7 @@ import java.util.List;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "inmovinescrm")
+@Table(name = "inmuebles", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Inmuebles.findAll", query = "SELECT i FROM Inmuebles i")
@@ -41,6 +41,7 @@ public class Inmuebles implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
     @Column(name = "referencia_catastral")
     private String referenciaCatastral;
@@ -66,9 +67,10 @@ public class Inmuebles implements Serializable {
     private Double precioAlquilerOpcionCompra;
     @OneToMany(mappedBy = "idInmuebleInteres")
     private List<Clientes> clientesList;
-    @JoinColumn(name = "id_agente", referencedColumnName = "id")
+
     @ManyToOne
-    private Agentes idAgente;
+    @JoinColumn(name = "id_agente", referencedColumnName = "id")
+    private Agentes agente;
     @JoinColumn(name = "id_cliente_propietario", referencedColumnName = "id")
     @ManyToOne
     private Clientes idClientePropietario;
@@ -207,12 +209,12 @@ public class Inmuebles implements Serializable {
         this.clientesList = clientesList;
     }
 
-    public Agentes getIdAgente() {
-        return idAgente;
+    public Agentes getAgente() {
+        return agente;
     }
 
-    public void setIdAgente(Agentes idAgente) {
-        this.idAgente = idAgente;
+    public void setAgente(Agentes agente) {
+        this.agente = agente;
     }
 
     public Clientes getClientePropietario() {
