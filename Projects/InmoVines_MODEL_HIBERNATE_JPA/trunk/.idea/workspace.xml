@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dc1949a-25f3-4060-b1ee-ddd73f2f00ec" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/entities/Municipios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Municipios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Provincias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Provincias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/agentes/Agentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/agentes/Agentes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/clientes/Clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/clientes/Clientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/ClientesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/ClientesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/InmueblesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/InmueblesTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,7 +32,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="inmovinescrm@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="inmovinescrm@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="inmovinescrm@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="inmovinescrm: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FavoritesManager">
@@ -34,11 +56,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Caracteristicas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java">
+      <file leaf-file-name="Agentes.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/agentes/Agentes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
+            <state relative-caret-position="294">
+              <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Clientes.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/clientes/Clientes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1806">
+              <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+              <folding>
+                <element signature="e#7523#7524#0" expanded="true" />
+                <element signature="e#7559#7560#0" expanded="true" />
+                <element signature="e#7626#7627#0" expanded="true" />
+                <element signature="e#7676#7677#0" expanded="true" />
+                <element signature="e#8712#8713#0" expanded="true" />
+                <element signature="e#8779#8780#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comunidades" pinned="false" current-in-tab="false">
+        <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/comunidades">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Inmuebles.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,8 +109,8 @@
       <file leaf-file-name="InmueblesTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+            <state relative-caret-position="152">
+              <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,14 +118,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Intereses.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/clientes/Intereses.java">
+      <file leaf-file-name="Municipios.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1098">
-              <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+            <state relative-caret-position="79">
+              <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5087#5088#0" expanded="true" />
+                <element signature="e#5163#5164#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="municipios" pinned="false" current-in-tab="false">
+        <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/municipios">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true">
+                <filter text="id_provincia = 5" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Provincias.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/Provincias.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="provincias" pinned="false" current-in-tab="false">
+        <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/provincias">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true">
+                <filter text="comunidad_id = 1" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zonas.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/Zonas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="109" column="37" lean-forward="true" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -88,6 +196,7 @@
       <find>provincias0_.comunidades_ID</find>
       <find>ZONA</find>
       <find>datosPersonales</find>
+      <find>openSession</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,22 +226,22 @@
         <option value="$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java" />
         <option value="$PROJECT_DIR$/src/entities/inmuebles/Direccion.java" />
         <option value="$PROJECT_DIR$/src/entities/clientes/Intereses.java" />
-        <option value="$PROJECT_DIR$/src/entities/Municipios.java" />
         <option value="$PROJECT_DIR$/src/entities/Comunidades.java" />
         <option value="$PROJECT_DIR$/src/hibernate.reveng.xml" />
-        <option value="$PROJECT_DIR$/src/entities/Provincias.java" />
         <option value="$PROJECT_DIR$/src/conf/persistence.xml" />
         <option value="$PROJECT_DIR$/src/javax/persistence/Persistence.java" />
         <option value="$PROJECT_DIR$/src/tests/LocalizacionTest.java" />
         <option value="$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java" />
         <option value="$PROJECT_DIR$/src/entities/Zonas.java" />
         <option value="$PROJECT_DIR$/src/entities/inmuebles/Localizacion.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
-        <option value="$PROJECT_DIR$/src/tests/ClientesTest.java" />
-        <option value="$PROJECT_DIR$/src/entities/clientes/Clientes.java" />
         <option value="$PROJECT_DIR$/src/entities/agentes/Agentes.java" />
         <option value="$PROJECT_DIR$/src/entities/agentes/Cargos.java" />
+        <option value="$PROJECT_DIR$/src/tests/ClientesTest.java" />
+        <option value="$PROJECT_DIR$/src/entities/clientes/Clientes.java" />
+        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
+        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
+        <option value="$PROJECT_DIR$/src/entities/Municipios.java" />
+        <option value="$PROJECT_DIR$/src/entities/Provincias.java" />
         <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
         <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
       </list>
@@ -210,6 +319,12 @@
               <item name="entities" type="462c0819:PsiDirectoryNode" />
               <item name="inmuebles" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trunk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -260,7 +375,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ClientesTest.insertCliente">
+  <component name="RunManager" selected="JUnit.InmueblesTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -357,7 +472,23 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="LocalizacionTest.testZonasOK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="tests in InmoVinesMvProj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InmoVinesMvProj" />
       <extension name="coverage">
         <pattern>
@@ -368,25 +499,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LocalizacionTest" />
-      <option name="METHOD_NAME" value="testZonasOK" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -423,18 +538,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.InmueblesTest" />
-      <item itemvalue="JUnit.LocalizacionTest.testZonasOK" />
       <item itemvalue="JUnit.LocalizacionTest.testZonasKO" />
       <item itemvalue="JUnit.ClientesTest.insertCliente" />
       <item itemvalue="JUnit.ClientesTest" />
+      <item itemvalue="JUnit.tests in InmoVinesMvProj" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.InmueblesTest" />
+        <item itemvalue="JUnit.tests in InmoVinesMvProj" />
         <item itemvalue="JUnit.ClientesTest.insertCliente" />
         <item itemvalue="JUnit.ClientesTest" />
         <item itemvalue="JUnit.LocalizacionTest.testZonasKO" />
-        <item itemvalue="JUnit.InmueblesTest" />
-        <item itemvalue="JUnit.LocalizacionTest.testZonasOK" />
       </list>
     </recent_temporary>
   </component>
@@ -460,35 +575,11 @@
       <workItem from="1525678054463" duration="16819000" />
       <workItem from="1525703499859" duration="3601000" />
       <workItem from="1525707334858" duration="4161000" />
-      <workItem from="1525712930713" duration="1338000" />
+      <workItem from="1525712930713" duration="3438000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ClientesTest - 2018.05.07 at 14h 12m 06s.xml">
-      <configuration name="ClientesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 14h 22m 28s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 14h 24m 18s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 16h 32m 23s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 16h 34m 20s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 16h 35m 21s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 16h 41m 45s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 16h 54m 15s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 18h 20m 02s.xml">
       <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
     </history-entry>
@@ -498,9 +589,33 @@
     <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 18h 22m 22s.xml">
       <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 32m 26s.xml">
+      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 55m 03s.xml">
+      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 59m 15s.xml">
+      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InmueblesTest - 2018.05.07 at 20h 00m 29s.xml">
+      <configuration name="InmueblesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InmueblesTest - 2018.05.07 at 20h 01m 44s.xml">
+      <configuration name="InmueblesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InmueblesTest - 2018.05.07 at 20h 04m 19s.xml">
+      <configuration name="InmueblesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InmueblesTest - 2018.05.07 at 20h 04m 47s.xml">
+      <configuration name="InmueblesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="InmueblesTest - 2018.05.07 at 20h 06m 08s.xml">
+      <configuration name="InmueblesTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54519000" />
+    <option name="totallyTimeSpent" value="56619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -513,23 +628,24 @@
       <window_info anchor="right" id="CDI" order="5" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="3" weight="0.27449393" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.2742279" />
       <window_info id="Structure" order="6" sideWeight="0.30410448" side_tool="true" weight="0.17894737" />
       <window_info anchor="right" id="JSF" order="2" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.63432837" />
+      <window_info active="true" anchor="bottom" id="Debug" order="10" visible="true" weight="0.49657536" />
       <window_info anchor="bottom" id="TODO" order="13" />
-      <window_info active="true" anchor="bottom" id="Messages" order="2" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32876712" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.5895522" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.28767124" />
       <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
       <window_info id="Persistence" order="8" sideWeight="0.30410448" side_tool="true" weight="0.19595142" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
       <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6958955" visible="true" weight="0.18743344" />
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.32955465" />
       <window_info id="Web" order="4" side_tool="true" />
@@ -542,7 +658,6 @@
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="9" sideWeight="0.39117646" side_tool="true" visible="true" weight="0.20090635" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32990867" />
-      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SVN Repositories" order="14" weight="0.3298791" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3283582" />
@@ -565,19 +680,17 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/tests/InmueblesTest.java</url>
+          <line>94</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/comunidades" />
-    <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1295">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/insertarTest/Insertando.java" />
     <entry file="das://a57d2226-b21d-4bae-b174-0e63118af53f/schema/inmovinescrm/table/inmuebles" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -626,88 +739,7 @@
         <state relative-caret-position="248">
           <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
-            <element signature="e#0#8648#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#3993#3994#0" expanded="true" />
-            <element signature="e#4021#4022#0" expanded="true" />
-            <element signature="e#4308#4309#0" expanded="true" />
-            <element signature="e#4333#4334#0" expanded="true" />
-            <element signature="e#4367#4368#0" expanded="true" />
-            <element signature="e#4395#4396#0" expanded="true" />
-            <element signature="e#4428#4429#0" expanded="true" />
-            <element signature="e#4457#4458#0" expanded="true" />
-            <element signature="e#4501#4502#0" expanded="true" />
-            <element signature="e#4537#4538#0" expanded="true" />
-            <element signature="e#4573#4574#0" expanded="true" />
-            <element signature="e#4605#4606#0" expanded="true" />
-            <element signature="e#4655#4656#0" expanded="true" />
-            <element signature="e#4697#4698#0" expanded="true" />
-            <element signature="e#4728#4729#0" expanded="true" />
-            <element signature="e#4755#4756#0" expanded="true" />
-            <element signature="e#4795#4796#0" expanded="true" />
-            <element signature="e#4827#4828#0" expanded="true" />
-            <element signature="e#4857#4858#0" expanded="true" />
-            <element signature="e#4883#4884#0" expanded="true" />
-            <element signature="e#4921#4922#0" expanded="true" />
-            <element signature="e#4951#4952#0" expanded="true" />
-            <element signature="e#4985#4986#0" expanded="true" />
-            <element signature="e#5015#5016#0" expanded="true" />
-            <element signature="e#5061#5062#0" expanded="true" />
-            <element signature="e#5099#5100#0" expanded="true" />
-            <element signature="e#5134#5135#0" expanded="true" />
-            <element signature="e#5165#5166#0" expanded="true" />
-            <element signature="e#5213#5214#0" expanded="true" />
-            <element signature="e#5253#5254#0" expanded="true" />
-            <element signature="e#5288#5289#0" expanded="true" />
-            <element signature="e#5319#5320#0" expanded="true" />
-            <element signature="e#5367#5368#0" expanded="true" />
-            <element signature="e#5407#5408#0" expanded="true" />
-            <element signature="e#5443#5444#0" expanded="true" />
-            <element signature="e#5475#5476#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-            <element signature="e#5567#5568#0" expanded="true" />
-            <element signature="e#5598#5599#0" expanded="true" />
-            <element signature="e#5625#5626#0" expanded="true" />
-            <element signature="e#5665#5666#0" expanded="true" />
-            <element signature="e#5697#5698#0" expanded="true" />
-            <element signature="e#5731#5732#0" expanded="true" />
-            <element signature="e#5761#5762#0" expanded="true" />
-            <element signature="e#5807#5808#0" expanded="true" />
-            <element signature="e#5845#5846#0" expanded="true" />
-            <element signature="e#5884#5885#0" expanded="true" />
-            <element signature="e#5919#5920#0" expanded="true" />
-            <element signature="e#5975#5976#0" expanded="true" />
-            <element signature="e#6023#6024#0" expanded="true" />
-            <element signature="e#6061#6062#0" expanded="true" />
-            <element signature="e#6094#6095#0" expanded="true" />
-            <element signature="e#6147#6148#0" expanded="true" />
-            <element signature="e#6191#6192#0" expanded="true" />
-            <element signature="e#6225#6226#0" expanded="true" />
-            <element signature="e#6256#6257#0" expanded="true" />
-            <element signature="e#6303#6304#0" expanded="true" />
-            <element signature="e#6343#6344#0" expanded="true" />
-            <element signature="e#6378#6379#0" expanded="true" />
-            <element signature="e#6409#6410#0" expanded="true" />
-            <element signature="e#6457#6458#0" expanded="true" />
-            <element signature="e#6497#6498#0" expanded="true" />
-            <element signature="e#6531#6532#0" expanded="true" />
-            <element signature="e#6561#6562#0" expanded="true" />
-            <element signature="e#6603#6604#0" expanded="true" />
-            <element signature="e#6639#6640#0" expanded="true" />
-            <element signature="e#6709#6710#0" expanded="true" />
-            <element signature="e#6749#6750#0" expanded="true" />
-            <element signature="e#6818#6819#0" expanded="true" />
-            <element signature="e#6871#6872#0" expanded="true" />
-            <element signature="e#7096#7097#0" expanded="true" />
-            <element signature="e#7135#7136#0" expanded="true" />
-            <element signature="e#7204#7205#0" expanded="true" />
-            <element signature="e#7257#7258#0" expanded="true" />
-            <element signature="e#7486#7487#0" expanded="true" />
-            <element signature="e#7522#7523#0" expanded="true" />
-            <element signature="e#7589#7590#0" expanded="true" />
-            <element signature="e#7639#7640#0" expanded="true" />
-            <element signature="e#8577#8578#0" expanded="true" />
-            <element signature="e#8643#8644#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -773,19 +805,10 @@
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/municipios" />
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/provincias" />
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/zonas" />
-    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/provincias" />
-    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/zonas" />
     <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Zonas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
         </state>
       </provider>
     </entry>
@@ -816,49 +839,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Provincias.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
-          <caret line="224" selection-start-line="224" selection-end-line="224" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/agentes/Cargos.java">
@@ -872,108 +855,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/agentes/Agentes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2430">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#8648#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#3993#3994#0" expanded="true" />
-            <element signature="e#4021#4022#0" expanded="true" />
-            <element signature="e#4308#4309#0" expanded="true" />
-            <element signature="e#4333#4334#0" expanded="true" />
-            <element signature="e#4367#4368#0" expanded="true" />
-            <element signature="e#4395#4396#0" expanded="true" />
-            <element signature="e#4428#4429#0" expanded="true" />
-            <element signature="e#4457#4458#0" expanded="true" />
-            <element signature="e#4501#4502#0" expanded="true" />
-            <element signature="e#4537#4538#0" expanded="true" />
-            <element signature="e#4573#4574#0" expanded="true" />
-            <element signature="e#4605#4606#0" expanded="true" />
-            <element signature="e#4655#4656#0" expanded="true" />
-            <element signature="e#4697#4698#0" expanded="true" />
-            <element signature="e#4728#4729#0" expanded="true" />
-            <element signature="e#4755#4756#0" expanded="true" />
-            <element signature="e#4795#4796#0" expanded="true" />
-            <element signature="e#4827#4828#0" expanded="true" />
-            <element signature="e#4857#4858#0" expanded="true" />
-            <element signature="e#4883#4884#0" expanded="true" />
-            <element signature="e#4921#4922#0" expanded="true" />
-            <element signature="e#4951#4952#0" expanded="true" />
-            <element signature="e#4985#4986#0" expanded="true" />
-            <element signature="e#5015#5016#0" expanded="true" />
-            <element signature="e#5061#5062#0" expanded="true" />
-            <element signature="e#5099#5100#0" expanded="true" />
-            <element signature="e#5134#5135#0" expanded="true" />
-            <element signature="e#5165#5166#0" expanded="true" />
-            <element signature="e#5213#5214#0" expanded="true" />
-            <element signature="e#5253#5254#0" expanded="true" />
-            <element signature="e#5288#5289#0" expanded="true" />
-            <element signature="e#5319#5320#0" expanded="true" />
-            <element signature="e#5367#5368#0" expanded="true" />
-            <element signature="e#5407#5408#0" expanded="true" />
-            <element signature="e#5443#5444#0" expanded="true" />
-            <element signature="e#5475#5476#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-            <element signature="e#5567#5568#0" expanded="true" />
-            <element signature="e#5598#5599#0" expanded="true" />
-            <element signature="e#5625#5626#0" expanded="true" />
-            <element signature="e#5665#5666#0" expanded="true" />
-            <element signature="e#5697#5698#0" expanded="true" />
-            <element signature="e#5731#5732#0" expanded="true" />
-            <element signature="e#5761#5762#0" expanded="true" />
-            <element signature="e#5807#5808#0" expanded="true" />
-            <element signature="e#5845#5846#0" expanded="true" />
-            <element signature="e#5884#5885#0" expanded="true" />
-            <element signature="e#5919#5920#0" expanded="true" />
-            <element signature="e#5975#5976#0" expanded="true" />
-            <element signature="e#6023#6024#0" expanded="true" />
-            <element signature="e#6061#6062#0" expanded="true" />
-            <element signature="e#6094#6095#0" expanded="true" />
-            <element signature="e#6147#6148#0" expanded="true" />
-            <element signature="e#6191#6192#0" expanded="true" />
-            <element signature="e#6225#6226#0" expanded="true" />
-            <element signature="e#6256#6257#0" expanded="true" />
-            <element signature="e#6303#6304#0" expanded="true" />
-            <element signature="e#6343#6344#0" expanded="true" />
-            <element signature="e#6378#6379#0" expanded="true" />
-            <element signature="e#6409#6410#0" expanded="true" />
-            <element signature="e#6457#6458#0" expanded="true" />
-            <element signature="e#6497#6498#0" expanded="true" />
-            <element signature="e#6531#6532#0" expanded="true" />
-            <element signature="e#6561#6562#0" expanded="true" />
-            <element signature="e#6603#6604#0" expanded="true" />
-            <element signature="e#6639#6640#0" expanded="true" />
-            <element signature="e#6709#6710#0" expanded="true" />
-            <element signature="e#6749#6750#0" expanded="true" />
-            <element signature="e#6818#6819#0" expanded="true" />
-            <element signature="e#6871#6872#0" expanded="true" />
-            <element signature="e#7096#7097#0" expanded="true" />
-            <element signature="e#7135#7136#0" expanded="true" />
-            <element signature="e#7204#7205#0" expanded="true" />
-            <element signature="e#7257#7258#0" expanded="true" />
-            <element signature="e#7486#7487#0" expanded="true" />
-            <element signature="e#7522#7523#0" expanded="true" />
-            <element signature="e#7589#7590#0" expanded="true" />
-            <element signature="e#7639#7640#0" expanded="true" />
-            <element signature="e#8577#8578#0" expanded="true" />
-            <element signature="e#8643#8644#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/clientes/Clientes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1386">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1206">
           <caret line="93" column="5" lean-forward="true" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="91" column="23" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -997,10 +892,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/agentes/Agentes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Zonas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="109" column="37" lean-forward="true" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/clientes/Clientes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1806">
+          <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+          <folding>
+            <element signature="e#7523#7524#0" expanded="true" />
+            <element signature="e#7559#7560#0" expanded="true" />
+            <element signature="e#7626#7627#0" expanded="true" />
+            <element signature="e#7676#7677#0" expanded="true" />
+            <element signature="e#8712#8713#0" expanded="true" />
+            <element signature="e#8779#8780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/zonas">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5087#5088#0" expanded="true" />
+            <element signature="e#5163#5164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/municipios">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="id_provincia = 5" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/provincias">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="comunidad_id = 1" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/comunidades">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Provincias.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+        <state relative-caret-position="152">
+          <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -66,7 +66,7 @@ public class Inmuebles implements Serializable {
     private Double precioTraspaso;
     @Column(name = "precio_alquiler_opcion_compra")
     private Double precioAlquilerOpcionCompra;
-    @OneToMany(mappedBy = "idInmuessadsleInteres")
+    @OneToMany(mappedBy = "idInmuebleInteres")
     private List<Clientes> clientesList;
 
     @ManyToOne

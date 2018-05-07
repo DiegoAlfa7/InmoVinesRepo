@@ -78,9 +78,9 @@ public class Agentes implements Serializable {
     @JoinColumn(name = "id_cargo", referencedColumnName = "id_cargo")
     @ManyToOne(optional = false)
     private Cargos idCargo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAgente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Clientes> clientesAsignados;
-    @OneToMany(mappedBy = "idAgenteEntrada")
+    @OneToMany(mappedBy = "agenteEntrada")
     private List<Clientes> clientesCaptados;
     @OneToMany(mappedBy = "agente")
     private List<Inmuebles> inmuebles;
@@ -241,7 +241,7 @@ public class Agentes implements Serializable {
 
 
             this.clientesAsignados.add(clientes);
-            clientes.setIdAgente(this);
+            clientes.setAgente(this);
 
 
 
@@ -261,7 +261,7 @@ public class Agentes implements Serializable {
 
 
             this.clientesCaptados.add(clientes);
-            clientes.setIdAgenteEntrada(this);
+            clientes.setAgenteEntrada(this);
 
 
     }

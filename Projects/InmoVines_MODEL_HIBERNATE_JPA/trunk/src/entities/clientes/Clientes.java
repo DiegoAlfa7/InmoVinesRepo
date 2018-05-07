@@ -30,6 +30,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -83,10 +84,10 @@ public class Clientes implements Serializable {
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    private Agentes idAgente;
+    private Agentes agente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
     @ManyToOne
-    private Agentes idAgenteEntrada;
+    private Agentes agenteEntrada;
     @JoinColumn(name = "id_inmueble_interes", referencedColumnName = "ID")
     @ManyToOne
     private Inmuebles idInmuebleInteres;
@@ -210,20 +211,23 @@ public class Clientes implements Serializable {
         this.canalEntrada = canalEntrada;
     }
 
-    public Agentes getIdAgente() {
-        return idAgente;
+    public Agentes getAgente() {
+        return agente;
     }
 
-    public void setIdAgente(Agentes idAgente) {
-        this.idAgente = idAgente;
+    public void setAgente(Agentes idAgente) {
+
+       this.agente = idAgente;
     }
 
-    public Agentes getIdAgenteEntrada() {
-        return idAgenteEntrada;
+    public Agentes getAgenteEntrada() {
+        return agenteEntrada;
     }
 
-    public void setIdAgenteEntrada(Agentes idAgenteEntrada) {
-        this.idAgenteEntrada = idAgenteEntrada;
+    public void setAgenteEntrada(Agentes idAgenteEntrada) {
+
+        this.agenteEntrada = agenteEntrada;
+
     }
 
     public Inmuebles getIdInmuebleInteres() {
@@ -246,10 +250,19 @@ public class Clientes implements Serializable {
     public void addInteresesList(Intereses intereses) {
 
 
+        if(this.interesesList!=null) {
+
 
             this.interesesList.add(intereses);
             intereses.setIdCliente(this);
 
+        }else{
+
+            this.interesesList = new ArrayList<Intereses>();
+            addInteresesList(intereses);
+
+
+        }
 
 
 
@@ -264,13 +277,19 @@ public class Clientes implements Serializable {
         this.inmueblesList = inmueblesList;
     }
 
-    public void addInmueblesList(Inmuebles inmuebles) {
+    public void addInmueble(Inmuebles inmuebles) {
 
+            if(this.inmueblesList != null) {
 
+                this.inmueblesList.add(inmuebles);
+                inmuebles.setClientePropietario(this);
 
-            this.inmueblesList.add(inmuebles);
-            inmuebles.setClientePropietario(this);
+            }else{
 
+                this.inmueblesList = new ArrayList<Inmuebles>();
+                addInmueble(inmuebles);
+
+            }
 
     }
 

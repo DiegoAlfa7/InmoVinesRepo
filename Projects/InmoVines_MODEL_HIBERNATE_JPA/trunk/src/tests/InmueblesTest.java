@@ -38,12 +38,7 @@ public class InmueblesTest {
 
     static Session session;
 
-    @BeforeAll
-    public static void openSesion() {
-        session = NewHibernateUtil.getSessionFactory().openSession();
-    }
-
-    /**
+   /**
      * This inmueble is a dummy entity for testing purposes
      */
     static Inmuebles inmueblePrueba;
@@ -86,8 +81,8 @@ public class InmueblesTest {
         DatosPersonales pdata = new DatosPersonales();
         cliente.setDatosPersonales(pdata);
         cliente.getDatosPersonales().setNombre("Cliente de Prueba");
-        cliente.setIdAgenteEntrada(agente);
-        cliente.setIdAgente(agente);
+        cliente.setAgenteEntrada(agente);
+        cliente.setAgente(agente);
         inmueblePrueba.setClientePropietario(cliente);
         inmueblePrueba.setAgente(agente);
 
@@ -95,7 +90,7 @@ public class InmueblesTest {
 
         Provincias provincia = comunidades.getProvinciasList().get(0);
 
-        Municipios municipio = provincia.getCapitalId();
+        Municipios municipio = provincia.getMunicipiosList().get(0);
 
         Zonas zona = municipio.getZonasList().get(0);
 
@@ -171,7 +166,7 @@ public class InmueblesTest {
         caracteristicas.setCarpinteriaInterior("Carpinteria Interior");
         inmueblePrueba.setCaracteristicas(caracteristicas);
 
-        Transaction transaction = session.beginTransaction();
+
 
 
 
@@ -211,7 +206,7 @@ public class InmueblesTest {
         assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
         assertEquals((Double) 4200000.0, inmueblePrueba.getPrecioCompra());
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), is(inmueblePrueba.getClientePropietario()));
-        assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getIdAgente(), is(inmueblePrueba.getClientePropietario().getIdAgente()));
+        assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getAgente(), is(inmueblePrueba.getClientePropietario().getAgente()));
 
 
         transaction.rollback();
