@@ -138,6 +138,36 @@ public class Clientes implements Serializable {
         return vendedor;
     }
 
+<<<<<<< HEAD
+=======
+//        public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getNombre() {
+//        return nombre;
+//    }
+//
+//    public void setNombre(String nombre) {
+//        this.nombre = nombre;
+//    }
+//
+//    public String getApellidos() {
+//        return apellidos;
+//    }
+//
+//    public void setApellidos(String apellidos) {
+//        this.apellidos = apellidos;
+//    }
+//
+//    public String getMail() {
+//        return mail;
+//    }
+//
+//    public void setMail(String mail) {
+//        this.mail = mail;
+//    }
+>>>>>>> 376f0847afcd6042ed2d5779d616bac0ac63ed02
     public boolean getInquilino() {
         return inquilino;
     }
