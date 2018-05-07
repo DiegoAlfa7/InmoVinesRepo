@@ -66,6 +66,7 @@ public class Localizacion {
         this.latitud = latitud;
         this.longitud = longitud;
         this.direccion = direccion;
+
     }
 
     public Provincias getProvincia() {

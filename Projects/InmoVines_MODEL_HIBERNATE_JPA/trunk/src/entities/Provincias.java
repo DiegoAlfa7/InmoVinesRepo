@@ -9,6 +9,7 @@ import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -136,6 +137,16 @@ public class Provincias implements Serializable {
 
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
+    }
+
+    public void addInmueble(Inmuebles i){
+
+
+            this.inmueblesList.add(i);
+            i.getLocalizacion().setComunidad(this.getComunidad());
+            i.getLocalizacion().setProvincia(this);
+
+
     }
 
     @Override

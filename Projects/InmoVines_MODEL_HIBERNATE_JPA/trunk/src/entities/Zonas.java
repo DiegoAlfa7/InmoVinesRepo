@@ -7,6 +7,7 @@ package entities;
 
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -116,6 +117,27 @@ public class Zonas implements Serializable {
 
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
+    }
+
+    public void addInmueble(Inmuebles i){
+
+
+
+
+
+            this.inmueblesList.add(i);
+            i.getLocalizacion().setComunidad(this.getMunicipio().getProvincia().getComunidad());
+            i.getLocalizacion().setProvincia(this.getMunicipio().getProvincia());
+            i.getLocalizacion().setMunicipio(this.getMunicipio());
+            i.getLocalizacion().setZona(this);
+
+
+
+
+
+
+
+
     }
 
     @Override

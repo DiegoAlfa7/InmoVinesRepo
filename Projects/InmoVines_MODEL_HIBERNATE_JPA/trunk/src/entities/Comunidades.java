@@ -7,6 +7,7 @@ package entities;
 
 import entities.inmuebles.Inmuebles;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -103,6 +104,22 @@ public class Comunidades implements Serializable {
 
     public void setProvinciasList(List<Provincias> provinciasList) {
         this.provinciasList = provinciasList;
+    }
+
+    public void addInmueble(Inmuebles i){
+
+
+
+
+
+                this.inmueblesList.add(i);
+                i.getLocalizacion().setComunidad(this);
+
+
+
+
+
+
     }
 
     @Override
