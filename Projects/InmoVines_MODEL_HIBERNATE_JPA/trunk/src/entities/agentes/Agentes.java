@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "")
+@Table(name = "agentes", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
         @NamedQuery(name = "Agentes.findAll", query = "SELECT a FROM Agentes a")
@@ -62,11 +62,11 @@ public class Agentes implements Serializable {
     private String mail;
     private String tlf;
     private String twitter;
-    @Basic(optional = false)
+
     private String facebook;
-    @Basic(optional = false)
+
     private String linkedin;
-    @Basic(optional = false)
+
     private String instagram;
     private String foto;
     private String eslogan;

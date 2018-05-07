@@ -44,7 +44,7 @@ public class Comunidades implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Inmuebles> inmueblesList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "comunidad")
     private List<Provincias> provinciasList;
 
 

@@ -82,6 +82,7 @@ public class Clientes implements Serializable {
 
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
     @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Agentes idAgente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
     @ManyToOne

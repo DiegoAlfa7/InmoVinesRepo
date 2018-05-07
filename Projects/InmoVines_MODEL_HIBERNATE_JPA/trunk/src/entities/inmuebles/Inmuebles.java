@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -65,14 +66,14 @@ public class Inmuebles implements Serializable {
     private Double precioTraspaso;
     @Column(name = "precio_alquiler_opcion_compra")
     private Double precioAlquilerOpcionCompra;
-    @OneToMany(mappedBy = "idInmuebleInteres")
+    @OneToMany(mappedBy = "idInmuessadsleInteres")
     private List<Clientes> clientesList;
 
     @ManyToOne
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
     private Agentes agente;
     @JoinColumn(name = "id_cliente_propietario", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Clientes idClientePropietario;
 
     @Embedded
@@ -207,6 +208,25 @@ public class Inmuebles implements Serializable {
 
     public void setClientesList(List<Clientes> clientesList) {
         this.clientesList = clientesList;
+    }
+
+    public void addClienteInteresado(Clientes c){
+
+        if(this.clientesList != null){
+
+            this.clientesList.add(c);
+            c.setIdInmuebleInteres(this);
+
+
+        }else{
+
+            this.clientesList = new ArrayList<Clientes>();
+            this.addClienteInteresado(c);
+
+        }
+
+
+
     }
 
     public Agentes getAgente() {
