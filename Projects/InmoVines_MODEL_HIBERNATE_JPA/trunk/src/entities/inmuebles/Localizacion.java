@@ -9,11 +9,9 @@ import entities.Comunidades;
 import entities.Municipios;
 import entities.Provincias;
 import entities.Zonas;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 
 /**
  *
@@ -39,7 +37,7 @@ public class Localizacion {
      * *****************************CARACTERÍSTICAS DE LA ZONA******************************************
      */
     @JoinColumn(name = "id_zona", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Zonas zona;
     @Column(name = "cp")
     private int cp;

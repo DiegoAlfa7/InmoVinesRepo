@@ -1351,7 +1351,6 @@
       <Position>6</Position>
       <Comment>Compra (0), Alquiler (1), AoC (2)</Comment>
       <DataType>int(4)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="319" parent="249" name="descripcion">
@@ -1402,12 +1401,12 @@
     </column>
     <column id="328" parent="249" name="latitud">
       <Position>16</Position>
-      <DataType>double|0s</DataType>
+      <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="329" parent="249" name="longitud">
       <Position>17</Position>
-      <DataType>double|0s</DataType>
+      <DataType>float|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="330" parent="249" name="direccion_tipo_via">
@@ -1789,7 +1788,7 @@
     </column>
     <column id="398" parent="251" name="id_provincia">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1840,123 +1839,96 @@ municipio</ColNames>
       <ColNames>slug</ColNames>
       <UnderlyingIndexName>slug</UnderlyingIndexName>
     </key>
-    <foreign-key id="408" parent="251" name="municipios_provincias_ID_FK">
-      <ColNames>id_provincia</ColNames>
-      <RefSchemaName>inmovinescrm</RefSchemaName>
-      <RefTableName>provincias</RefTableName>
-      <RefColNames>ID</RefColNames>
-    </foreign-key>
-    <column id="409" parent="252" name="ID">
+    <column id="408" parent="252" name="ID">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="252" name="slug">
+    <column id="409" parent="252" name="slug">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="252" name="provincia">
+    <column id="410" parent="252" name="provincia">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="412" parent="252" name="comunidad_id">
+    <column id="411" parent="252" name="comunidad_id">
       <Position>4</Position>
-      <DataType>bigint(10)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="413" parent="252" name="capital_id">
+    <column id="412" parent="252" name="capital_id">
       <Position>5</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;-1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="414" parent="252" name="IDX_provincia">
+    <index id="413" parent="252" name="IDX_provincia">
       <ColNames>provincia</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="415" parent="252" name="FK_provincias">
+    <index id="414" parent="252" name="FK_provincias">
       <ColNames>comunidad_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="416" parent="252" name="provincias_municipios_capital_FK">
-      <ColNames>capital_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="417" parent="252" name="PRIMARY">
+    <key id="415" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="418" parent="252" name="IDX_provincia">
+    <key id="416" parent="252" name="IDX_provincia">
       <ColNames>provincia</ColNames>
       <UnderlyingIndexName>IDX_provincia</UnderlyingIndexName>
     </key>
-    <foreign-key id="419" parent="252" name="provincias_comunidades_ID_FK">
-      <ColNames>comunidad_id</ColNames>
-      <RefSchemaName>inmovinescrm</RefSchemaName>
-      <RefTableName>comunidades</RefTableName>
-      <RefColNames>ID</RefColNames>
-    </foreign-key>
-    <foreign-key id="420" parent="252" name="provincias_municipios_capital_FK">
-      <ColNames>capital_id</ColNames>
-      <RefSchemaName>inmovinescrm</RefSchemaName>
-      <RefTableName>municipios</RefTableName>
-      <RefColNames>ID</RefColNames>
-    </foreign-key>
-    <column id="421" parent="253" name="id">
+    <column id="417" parent="253" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="253" name="nombre">
+    <column id="418" parent="253" name="nombre">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="423" parent="253" name="id_municipio">
+    <column id="419" parent="253" name="id_municipio">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="253" name="activa">
+    <column id="420" parent="253" name="activa">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="253" name="nombre_admin">
+    <column id="421" parent="253" name="nombre_admin">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="253" name="descripcion">
-      <Position>6</Position>
-      <DataType>text|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="427" parent="253" name="id_municipio">
+    <index id="422" parent="253" name="id_municipio">
       <ColNames>id_municipio</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="428" parent="253" name="PRIMARY">
+    <key id="423" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="429" parent="253" name="FK_municip">
+    <foreign-key id="424" parent="253" name="FK_municip">
       <ColNames>id_municipio</ColNames>
       <RefSchemaName>inmovinescrm</RefSchemaName>
       <RefTableName>municipios</RefTableName>

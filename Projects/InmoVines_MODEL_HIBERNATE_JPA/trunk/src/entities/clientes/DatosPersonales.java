@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Embeddable
@@ -45,6 +44,7 @@ public class DatosPersonales {
         this.nacionalidad = nacionalidad;
         this.edad = edad;
     }
+
     public DatosPersonales() {
 
     }

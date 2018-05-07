@@ -6,6 +6,7 @@
 package entities.agentes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -22,16 +23,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(name = "cargos", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Cargos.findAll", query = "SELECT c FROM Cargos c")
-    , @NamedQuery(name = "Cargos.findByIdCargo", query = "SELECT c FROM Cargos c WHERE c.idCargo = :idCargo")
-    , @NamedQuery(name = "Cargos.findByNombre", query = "SELECT c FROM Cargos c WHERE c.nombre = :nombre")})
+        @NamedQuery(name = "Cargos.findAll", query = "SELECT c FROM Cargos c")
+        , @NamedQuery(name = "Cargos.findByIdCargo", query = "SELECT c FROM Cargos c WHERE c.idCargo = :idCargo")
+        , @NamedQuery(name = "Cargos.findByNombre", query = "SELECT c FROM Cargos c WHERE c.nombre = :nombre")})
 public class Cargos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -81,6 +81,22 @@ public class Cargos implements Serializable {
         this.agentesList = agentesList;
     }
 
+    public void addAgentesList(Agentes agentes) {
+
+        if (this.agentesList != null) {
+
+            this.agentesList.add(agentes);
+            agentes.setCargo(this);
+
+        } else {
+
+            this.agentesList = new ArrayList<>();
+            addAgentesList(agentes);
+        }
+
+
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -105,5 +121,5 @@ public class Cargos implements Serializable {
     public String toString() {
         return "entities.cliente.Cargos[ idCargo=" + idCargo + " ]";
     }
-    
+
 }

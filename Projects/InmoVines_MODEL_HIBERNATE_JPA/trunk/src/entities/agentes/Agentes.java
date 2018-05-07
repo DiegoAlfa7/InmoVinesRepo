@@ -9,6 +9,7 @@ import entities.clientes.Clientes;
 import entities.inmuebles.Inmuebles;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -236,6 +237,22 @@ public class Agentes implements Serializable {
         this.clientesList = clientesList;
     }
 
+    public void addClientesList(Clientes clientes) {
+
+        if (this.clientesList != null) {
+
+            this.clientesList.add(clientes);
+            clientes.setIdAgente(this);
+
+        } else {
+
+            this.inmueblesList = new ArrayList<>();
+            this.addClientesList(clientes);
+        }
+
+
+    }
+
     @XmlTransient
     public List<Clientes> getClientesList1() {
         return clientesList1;
@@ -245,6 +262,18 @@ public class Agentes implements Serializable {
         this.clientesList1 = clientesList1;
     }
 
+    public void addClientesList1(Clientes clientes) {
+
+        if (this.clientesList1 != null) {
+            this.clientesList1.add(clientes);
+            clientes.setIdAgenteEntrada(this);
+        } else {
+            this.inmueblesList = new ArrayList<>();
+            this.addClientesList1(clientes);
+        }
+
+    }
+
     @XmlTransient
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
@@ -252,6 +281,18 @@ public class Agentes implements Serializable {
 
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
+    }
+
+    public void addInmuebleList(Inmuebles inmuebles) {
+
+        if (this.inmueblesList != null) {
+            this.inmueblesList.add(inmuebles);
+            inmuebles.setAgente(this);
+        } else {
+            this.inmueblesList = new ArrayList<>();
+            this.addInmuebleList(inmuebles);
+        }
+
     }
 
     @Override
