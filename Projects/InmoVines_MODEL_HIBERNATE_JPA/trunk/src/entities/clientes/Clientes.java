@@ -7,8 +7,10 @@ package entities.clientes;
 
 import entities.agentes.Agentes;
 import entities.inmuebles.Inmuebles;
+
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -32,33 +34,32 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(name="clientes", schema = "inmovinescrm")
+@Table(name = "clientes", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Clientes.findAll", query = "SELECT c FROM Clientes c")
-    , @NamedQuery(name = "Clientes.findById", query = "SELECT c FROM Clientes c WHERE c.id = :id")
-    , @NamedQuery(name = "Clientes.findByInquilino", query = "SELECT c FROM Clientes c WHERE c.inquilino = :inquilino")
-    , @NamedQuery(name = "Clientes.findByArrendatario", query = "SELECT c FROM Clientes c WHERE c.arrendatario = :arrendatario")
-    , @NamedQuery(name = "Clientes.findByComprador", query = "SELECT c FROM Clientes c WHERE c.comprador = :comprador")
-    , @NamedQuery(name = "Clientes.findByVendedor", query = "SELECT c FROM Clientes c WHERE c.vendedor = :vendedor")
-    , @NamedQuery(name = "Clientes.findByFechaEntrada", query = "SELECT c FROM Clientes c WHERE c.fechaEntrada = :fechaEntrada")
-    , @NamedQuery(name = "Clientes.findByPresupuestoMin", query = "SELECT c FROM Clientes c WHERE c.presupuestoMin = :presupuestoMin")
-    , @NamedQuery(name = "Clientes.findByPresupuestoMax", query = "SELECT c FROM Clientes c WHERE c.presupuestoMax = :presupuestoMax")
-    , @NamedQuery(name = "Clientes.findByCanalEntrada", query = "SELECT c FROM Clientes c WHERE c.canalEntrada = :canalEntrada")})
+        @NamedQuery(name = "Clientes.findAll", query = "SELECT c FROM Clientes c")
+        , @NamedQuery(name = "Clientes.findById", query = "SELECT c FROM Clientes c WHERE c.id = :id")
+        , @NamedQuery(name = "Clientes.findByInquilino", query = "SELECT c FROM Clientes c WHERE c.inquilino = :inquilino")
+        , @NamedQuery(name = "Clientes.findByArrendatario", query = "SELECT c FROM Clientes c WHERE c.arrendatario = :arrendatario")
+        , @NamedQuery(name = "Clientes.findByComprador", query = "SELECT c FROM Clientes c WHERE c.comprador = :comprador")
+        , @NamedQuery(name = "Clientes.findByVendedor", query = "SELECT c FROM Clientes c WHERE c.vendedor = :vendedor")
+        , @NamedQuery(name = "Clientes.findByFechaEntrada", query = "SELECT c FROM Clientes c WHERE c.fechaEntrada = :fechaEntrada")
+        , @NamedQuery(name = "Clientes.findByPresupuestoMin", query = "SELECT c FROM Clientes c WHERE c.presupuestoMin = :presupuestoMin")
+        , @NamedQuery(name = "Clientes.findByPresupuestoMax", query = "SELECT c FROM Clientes c WHERE c.presupuestoMax = :presupuestoMax")
+        , @NamedQuery(name = "Clientes.findByCanalEntrada", query = "SELECT c FROM Clientes c WHERE c.canalEntrada = :canalEntrada")})
+
 public class Clientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+
     private Long id;
     @Embedded
     private DatosPersonales datosPersonales;
-
     @Basic(optional = false)
     private boolean inquilino;
     @Basic(optional = false)
@@ -67,7 +68,6 @@ public class Clientes implements Serializable {
     private boolean comprador;
     @Basic(optional = false)
     private boolean vendedor;
-
     @Lob
     private String comentarios;
     @Column(name = "fecha_entrada")
@@ -137,33 +137,6 @@ public class Clientes implements Serializable {
         return vendedor;
     }
 
-    //    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getNombre() {
-//        return nombre;
-//    }
-//
-//    public void setNombre(String nombre) {
-//        this.nombre = nombre;
-//    }
-//
-//    public String getApellidos() {
-//        return apellidos;
-//    }
-//
-//    public void setApellidos(String apellidos) {
-//        this.apellidos = apellidos;
-//    }
-//
-//    public String getMail() {
-//        return mail;
-//    }
-//
-//    public void setMail(String mail) {
-//        this.mail = mail;
-//    }
     public boolean getInquilino() {
         return inquilino;
     }
@@ -196,29 +169,6 @@ public class Clientes implements Serializable {
         this.vendedor = vendedor;
     }
 
-//    public String getTelefono() {
-//        return telefono;
-//    }
-//
-//    public void setTelefono(String telefono) {
-//        this.telefono = telefono;
-//    }
-//
-//    public String getTelefono1() {
-//        return telefono1;
-//    }
-//
-//    public void setTelefono1(String telefono1) {
-//        this.telefono1 = telefono1;
-//    }
-//
-//    public String getMail1() {
-//        return mail1;
-//    }
-//
-//    public void setMail1(String mail1) {
-//        this.mail1 = mail1;
-//    }
     public String getComentarios() {
         return comentarios;
     }
@@ -251,13 +201,6 @@ public class Clientes implements Serializable {
         this.presupuestoMax = presupuestoMax;
     }
 
-//    public String getDni() {
-//        return dni;
-//    }
-//
-//    public void setDni(String dni) {
-//        this.dni = dni;
-//    }
     public Short getCanalEntrada() {
         return canalEntrada;
     }
@@ -266,21 +209,6 @@ public class Clientes implements Serializable {
         this.canalEntrada = canalEntrada;
     }
 
-//    public String getNacionalidad() {
-//        return nacionalidad;
-//    }
-//
-//    public void setNacionalidad(String nacionalidad) {
-//        this.nacionalidad = nacionalidad;
-//    }
-//
-//    public Integer getEdad() {
-//        return edad;
-//    }
-//
-//    public void setEdad(Integer edad) {
-//        this.edad = edad;
-//    }
     public Agentes getIdAgente() {
         return idAgente;
     }
@@ -314,6 +242,22 @@ public class Clientes implements Serializable {
         this.interesesList = interesesList;
     }
 
+    public void addInteresesList(Intereses intereses) {
+
+        if (this.interesesList != null) {
+
+            this.interesesList.add(intereses);
+            intereses.setIdCliente(this);
+
+        } else {
+
+            this.interesesList = new ArrayList<>();
+            this.addInteresesList(intereses);
+        }
+
+
+    }
+
     @XmlTransient
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
@@ -322,6 +266,23 @@ public class Clientes implements Serializable {
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
     }
+
+    public void addInmueblesList(Inmuebles inmuebles) {
+
+        if (this.interesesList != null) {
+
+            this.inmueblesList.add(inmuebles);
+            inmuebles.setClientePropietario(this);
+
+        } else {
+
+            this.interesesList = new ArrayList<>();
+            this.addInmueblesList(inmuebles);
+
+        }
+
+    }
+
 
     @Override
     public int hashCode() {

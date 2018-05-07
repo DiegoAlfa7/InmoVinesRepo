@@ -7,7 +7,9 @@ package entities.agentes;
 
 import entities.clientes.Clientes;
 import entities.inmuebles.Inmuebles;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -26,29 +28,28 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(catalog = "inmovinescrm", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Agentes.findAll", query = "SELECT a FROM Agentes a")
-    , @NamedQuery(name = "Agentes.findById", query = "SELECT a FROM Agentes a WHERE a.id = :id")
-    , @NamedQuery(name = "Agentes.findByNombre", query = "SELECT a FROM Agentes a WHERE a.nombre = :nombre")
-    , @NamedQuery(name = "Agentes.findByApellidos", query = "SELECT a FROM Agentes a WHERE a.apellidos = :apellidos")
-    , @NamedQuery(name = "Agentes.findByMail", query = "SELECT a FROM Agentes a WHERE a.mail = :mail")
-    , @NamedQuery(name = "Agentes.findByTlf", query = "SELECT a FROM Agentes a WHERE a.tlf = :tlf")
-    , @NamedQuery(name = "Agentes.findByTwitter", query = "SELECT a FROM Agentes a WHERE a.twitter = :twitter")
-    , @NamedQuery(name = "Agentes.findByFacebook", query = "SELECT a FROM Agentes a WHERE a.facebook = :facebook")
-    , @NamedQuery(name = "Agentes.findByLinkedin", query = "SELECT a FROM Agentes a WHERE a.linkedin = :linkedin")
-    , @NamedQuery(name = "Agentes.findByInstagram", query = "SELECT a FROM Agentes a WHERE a.instagram = :instagram")
-    , @NamedQuery(name = "Agentes.findByFoto", query = "SELECT a FROM Agentes a WHERE a.foto = :foto")
-    , @NamedQuery(name = "Agentes.findByEslogan", query = "SELECT a FROM Agentes a WHERE a.eslogan = :eslogan")
-    , @NamedQuery(name = "Agentes.findByCodigoAgente", query = "SELECT a FROM Agentes a WHERE a.codigoAgente = :codigoAgente")
-    , @NamedQuery(name = "Agentes.findByActivacion", query = "SELECT a FROM Agentes a WHERE a.activacion = :activacion")
-    , @NamedQuery(name = "Agentes.findByPermisos", query = "SELECT a FROM Agentes a WHERE a.permisos = :permisos")
-    , @NamedQuery(name = "Agentes.findByPassword", query = "SELECT a FROM Agentes a WHERE a.password = :password")})
+        @NamedQuery(name = "Agentes.findAll", query = "SELECT a FROM Agentes a")
+        , @NamedQuery(name = "Agentes.findById", query = "SELECT a FROM Agentes a WHERE a.id = :id")
+        , @NamedQuery(name = "Agentes.findByNombre", query = "SELECT a FROM Agentes a WHERE a.nombre = :nombre")
+        , @NamedQuery(name = "Agentes.findByApellidos", query = "SELECT a FROM Agentes a WHERE a.apellidos = :apellidos")
+        , @NamedQuery(name = "Agentes.findByMail", query = "SELECT a FROM Agentes a WHERE a.mail = :mail")
+        , @NamedQuery(name = "Agentes.findByTlf", query = "SELECT a FROM Agentes a WHERE a.tlf = :tlf")
+        , @NamedQuery(name = "Agentes.findByTwitter", query = "SELECT a FROM Agentes a WHERE a.twitter = :twitter")
+        , @NamedQuery(name = "Agentes.findByFacebook", query = "SELECT a FROM Agentes a WHERE a.facebook = :facebook")
+        , @NamedQuery(name = "Agentes.findByLinkedin", query = "SELECT a FROM Agentes a WHERE a.linkedin = :linkedin")
+        , @NamedQuery(name = "Agentes.findByInstagram", query = "SELECT a FROM Agentes a WHERE a.instagram = :instagram")
+        , @NamedQuery(name = "Agentes.findByFoto", query = "SELECT a FROM Agentes a WHERE a.foto = :foto")
+        , @NamedQuery(name = "Agentes.findByEslogan", query = "SELECT a FROM Agentes a WHERE a.eslogan = :eslogan")
+        , @NamedQuery(name = "Agentes.findByCodigoAgente", query = "SELECT a FROM Agentes a WHERE a.codigoAgente = :codigoAgente")
+        , @NamedQuery(name = "Agentes.findByActivacion", query = "SELECT a FROM Agentes a WHERE a.activacion = :activacion")
+        , @NamedQuery(name = "Agentes.findByPermisos", query = "SELECT a FROM Agentes a WHERE a.permisos = :permisos")
+        , @NamedQuery(name = "Agentes.findByPassword", query = "SELECT a FROM Agentes a WHERE a.password = :password")})
 public class Agentes implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -236,6 +237,22 @@ public class Agentes implements Serializable {
         this.clientesList = clientesList;
     }
 
+    public void addClientesList(Clientes clientes) {
+
+        if (this.clientesList != null) {
+
+            this.clientesList.add(clientes);
+            clientes.setIdAgente(this);
+
+        } else {
+
+            this.inmueblesList = new ArrayList<>();
+            this.addClientesList(clientes);
+        }
+
+
+    }
+
     @XmlTransient
     public List<Clientes> getClientesList1() {
         return clientesList1;
@@ -245,6 +262,18 @@ public class Agentes implements Serializable {
         this.clientesList1 = clientesList1;
     }
 
+    public void addClientesList1(Clientes clientes) {
+
+        if (this.clientesList1 != null) {
+            this.clientesList1.add(clientes);
+            clientes.setIdAgenteEntrada(this);
+        } else {
+            this.inmueblesList = new ArrayList<>();
+            this.addClientesList1(clientes);
+        }
+
+    }
+
     @XmlTransient
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
@@ -252,6 +281,18 @@ public class Agentes implements Serializable {
 
     public void setInmueblesList(List<Inmuebles> inmueblesList) {
         this.inmueblesList = inmueblesList;
+    }
+
+    public void addInmuebleList(Inmuebles inmuebles) {
+
+        if (this.inmueblesList != null) {
+            this.inmueblesList.add(inmuebles);
+            inmuebles.setAgente(this);
+        } else {
+            this.inmueblesList = new ArrayList<>();
+            this.addInmuebleList(inmuebles);
+        }
+
     }
 
     @Override
@@ -278,5 +319,5 @@ public class Agentes implements Serializable {
     public String toString() {
         return "entities.cliente.Agentes[ id=" + id + " ]";
     }
-    
+
 }

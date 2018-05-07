@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.SQLException;
@@ -42,6 +43,7 @@ public class InmueblesTest {
      * It inserts an Inmueble instance to the database with all its necessary relationships
      * ClientePropietario, AgenteCargo, Localización (Comunidad, Provincia, Municipio, Zona).
      * When test finishes, transaction is rolled back so no rubbish data is published
+     *
      * @throws SQLException
      */
     @Test
@@ -53,8 +55,7 @@ public class InmueblesTest {
         agentes.setNombre("Diego");
 
 
-
-        Comunidades comunidades = session.get(Comunidades.class,1l);
+        Comunidades comunidades = session.get(Comunidades.class, 1l);
 
         Provincias provincia = comunidades.getProvinciasList().get(0);
 
@@ -99,7 +100,6 @@ public class InmueblesTest {
 
         //CARACTERISTICAS
         Caracteristicas caracteristicas = new Caracteristicas();
-
         caracteristicas.setnHabitaciones(Short.valueOf("4"));
         caracteristicas.setnBanos(Short.valueOf("2"));
         caracteristicas.setnAseos(Short.valueOf("1"));
@@ -137,19 +137,19 @@ public class InmueblesTest {
         System.out.println("DATOS DE LAS LOCALIZACIONES -->" + localizacion.toString());
         System.out.println("DATOS DE LAS DIRECCIONES --> " + direccion.toString());
         System.out.println("DATOS DE LAS CARACTERISTICAS --> " + caracteristicas.toString());
-
         Long i_insertado = (Long) session.save(inmuebles);
+
 
         //TEST ASSERTS
 
         assertNotNull(i_insertado);
-        assertEquals(session.get(Inmuebles.class, i_insertado), inmuebles );
+        assertEquals(session.get(Inmuebles.class, i_insertado), inmuebles);
         assertEquals(comunidades, inmuebles.getLocalizacion().getComunidad());
-        assertEquals( provincia, inmuebles.getLocalizacion().getProvincia());
-        assertEquals(municipio , inmuebles.getLocalizacion().getPoblacion() );
-        assertEquals( zona, inmuebles.getLocalizacion().getZona());
+        assertEquals(provincia, inmuebles.getLocalizacion().getProvincia());
+        assertEquals(municipio, inmuebles.getLocalizacion().getPoblacion());
+        assertEquals(zona, inmuebles.getLocalizacion().getZona());
         assertEquals("Zona Melilla Prueba", inmuebles.getLocalizacion().getZona().getNombre());
-        assertEquals( (Double) 4200000.0, (Double) inmuebles.getPrecioCompra());
+        assertEquals((Double) 4200000.0, (Double) inmuebles.getPrecioCompra());
 
         transaction.rollback();
 
@@ -199,11 +199,11 @@ public class InmueblesTest {
 
             Transaction transaction;
 
-            if(session.getTransaction()!=null){
+            if (session.getTransaction() != null) {
 
                 transaction = session.getTransaction();
 
-            }else{
+            } else {
 
                 transaction = session.beginTransaction();
 
@@ -218,8 +218,6 @@ public class InmueblesTest {
         };
 
         assertThrows(ConstraintViolationException.class, insertarInmueble);
-
-
 
 
     }
