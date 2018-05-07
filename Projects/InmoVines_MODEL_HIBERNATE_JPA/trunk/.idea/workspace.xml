@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7dc1949a-25f3-4060-b1ee-ddd73f2f00ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/agentes/Agentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/agentes/Agentes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/agentes/Cargos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/agentes/Cargos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/clientes/Clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/clientes/Clientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/InmueblesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/InmueblesTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +34,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Intereses.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Caracteristicas.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InmueblesTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Intereses.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entities/clientes/Intereses.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1098">
@@ -106,8 +123,6 @@
         <option value="$PROJECT_DIR$/src/entities/Provincias.java" />
         <option value="$PROJECT_DIR$/src/conf/persistence.xml" />
         <option value="$PROJECT_DIR$/src/javax/persistence/Persistence.java" />
-        <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
-        <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
         <option value="$PROJECT_DIR$/src/tests/LocalizacionTest.java" />
         <option value="$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java" />
         <option value="$PROJECT_DIR$/src/entities/Zonas.java" />
@@ -118,6 +133,8 @@
         <option value="$PROJECT_DIR$/src/entities/clientes/Clientes.java" />
         <option value="$PROJECT_DIR$/src/entities/agentes/Agentes.java" />
         <option value="$PROJECT_DIR$/src/entities/agentes/Cargos.java" />
+        <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
+        <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
       </list>
     </option>
   </component>
@@ -443,7 +460,7 @@
       <workItem from="1525678054463" duration="16819000" />
       <workItem from="1525703499859" duration="3601000" />
       <workItem from="1525707334858" duration="4161000" />
-      <workItem from="1525712930713" duration="707000" />
+      <workItem from="1525712930713" duration="1338000" />
     </task>
     <servers />
   </component>
@@ -483,7 +500,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53888000" />
+    <option name="totallyTimeSpent" value="54519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -503,6 +520,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.63432837" />
       <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info active="true" anchor="bottom" id="Messages" order="2" visible="true" weight="0.32876712" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
@@ -512,7 +530,7 @@
       <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
       <window_info id="Persistence" order="8" sideWeight="0.30410448" side_tool="true" weight="0.19595142" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6958955" visible="true" weight="0.18743344" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6958955" visible="true" weight="0.18743344" />
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.32955465" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Learn" order="4" />
@@ -527,7 +545,6 @@
       <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SVN Repositories" order="14" weight="0.3298791" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32899022" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3283582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="6" />
@@ -758,13 +775,6 @@
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/zonas" />
     <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/provincias" />
     <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/zonas" />
-    <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
@@ -790,16 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="81" column="61" lean-forward="true" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2702">
-          <caret line="195" column="61" selection-start-line="195" selection-start-column="61" selection-end-line="195" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -984,6 +984,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1098">
           <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="313" column="16" selection-start-line="313" selection-start-column="16" selection-end-line="313" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
