@@ -79,11 +79,11 @@ public class Agentes implements Serializable {
     @ManyToOne(optional = false)
     private Cargos idCargo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAgente")
-    private List<Clientes> clientesList;
+    private List<Clientes> clientesAsignados;
     @OneToMany(mappedBy = "idAgenteEntrada")
-    private List<Clientes> clientesList1;
+    private List<Clientes> clientesCaptados;
     @OneToMany(mappedBy = "agente")
-    private List<Inmuebles> inmueblesList;
+    private List<Inmuebles> inmuebles;
 
     public Agentes() {
     }
@@ -229,67 +229,59 @@ public class Agentes implements Serializable {
     }
 
     @XmlTransient
-    public List<Clientes> getClientesList() {
-        return clientesList;
+    public List<Clientes> getClientesAsignados() {
+        return clientesAsignados;
     }
 
-    public void setClientesList(List<Clientes> clientesList) {
-        this.clientesList = clientesList;
+    public void setClientesAsignados(List<Clientes> clientesList) {
+        this.clientesAsignados = clientesList;
     }
 
-    public void addClientesList(Clientes clientes) {
+    public void addClienteAsignado(Clientes clientes) {
 
-        if (this.clientesList != null) {
 
-            this.clientesList.add(clientes);
+            this.clientesAsignados.add(clientes);
             clientes.setIdAgente(this);
 
-        } else {
 
-            this.inmueblesList = new ArrayList<>();
-            this.addClientesList(clientes);
-        }
 
 
     }
 
     @XmlTransient
-    public List<Clientes> getClientesList1() {
-        return clientesList1;
+    public List<Clientes> getClientesCaptados() {
+        return clientesCaptados;
     }
 
-    public void setClientesList1(List<Clientes> clientesList1) {
-        this.clientesList1 = clientesList1;
+    public void setClientesCaptados(List<Clientes> clientesList1) {
+        this.clientesCaptados = clientesList1;
     }
 
-    public void addClientesList1(Clientes clientes) {
+    public void addClienteCaptado(Clientes clientes) {
 
-        if (this.clientesList1 != null) {
-            this.clientesList1.add(clientes);
+
+            this.clientesCaptados.add(clientes);
             clientes.setIdAgenteEntrada(this);
-        } else {
-            this.inmueblesList = new ArrayList<>();
-            this.addClientesList1(clientes);
-        }
+
 
     }
 
     @XmlTransient
-    public List<Inmuebles> getInmueblesList() {
-        return inmueblesList;
+    public List<Inmuebles> getInmuebles() {
+        return inmuebles;
     }
 
-    public void setInmueblesList(List<Inmuebles> inmueblesList) {
-        this.inmueblesList = inmueblesList;
+    public void setInmuebles(List<Inmuebles> inmueblesList) {
+        this.inmuebles = inmueblesList;
     }
 
     public void addInmuebleList(Inmuebles inmuebles) {
 
-        if (this.inmueblesList != null) {
-            this.inmueblesList.add(inmuebles);
+        if (this.inmuebles != null) {
+            this.inmuebles.add(inmuebles);
             inmuebles.setAgente(this);
         } else {
-            this.inmueblesList = new ArrayList<>();
+            this.inmuebles = new ArrayList<>();
             this.addInmuebleList(inmuebles);
         }
 

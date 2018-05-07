@@ -81,7 +81,7 @@ public class Clientes implements Serializable {
     private Short canalEntrada;
 
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Agentes idAgente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
@@ -138,36 +138,6 @@ public class Clientes implements Serializable {
         return vendedor;
     }
 
-<<<<<<< HEAD
-=======
-//        public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getNombre() {
-//        return nombre;
-//    }
-//
-//    public void setNombre(String nombre) {
-//        this.nombre = nombre;
-//    }
-//
-//    public String getApellidos() {
-//        return apellidos;
-//    }
-//
-//    public void setApellidos(String apellidos) {
-//        this.apellidos = apellidos;
-//    }
-//
-//    public String getMail() {
-//        return mail;
-//    }
-//
-//    public void setMail(String mail) {
-//        this.mail = mail;
-//    }
->>>>>>> 376f0847afcd6042ed2d5779d616bac0ac63ed02
     public boolean getInquilino() {
         return inquilino;
     }
@@ -275,16 +245,12 @@ public class Clientes implements Serializable {
 
     public void addInteresesList(Intereses intereses) {
 
-        if (this.interesesList != null) {
+
 
             this.interesesList.add(intereses);
             intereses.setIdCliente(this);
 
-        } else {
 
-            this.interesesList = new ArrayList<>();
-            this.addInteresesList(intereses);
-        }
 
 
     }
@@ -300,17 +266,11 @@ public class Clientes implements Serializable {
 
     public void addInmueblesList(Inmuebles inmuebles) {
 
-        if (this.interesesList != null) {
+
 
             this.inmueblesList.add(inmuebles);
             inmuebles.setClientePropietario(this);
 
-        } else {
-
-            this.interesesList = new ArrayList<>();
-            this.addInmueblesList(inmuebles);
-
-        }
 
     }
 

@@ -81,18 +81,14 @@ public class Cargos implements Serializable {
         this.agentesList = agentesList;
     }
 
-    public void addAgentesList(Agentes agentes) {
+    public void addAgente(Agentes agentes) {
 
-        if (this.agentesList != null) {
+
 
             this.agentesList.add(agentes);
             agentes.setCargo(this);
 
-        } else {
 
-            this.agentesList = new ArrayList<>();
-            addAgentesList(agentes);
-        }
 
 
     }
