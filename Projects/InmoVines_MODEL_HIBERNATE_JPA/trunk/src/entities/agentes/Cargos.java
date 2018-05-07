@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario 2 DAM
  */
 @Entity
-@Table(catalog = "inmovinescrm", schema = "")
+@Table(name = "cargos", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cargos.findAll", query = "SELECT c FROM Cargos c")
@@ -37,7 +37,6 @@ public class Cargos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id_cargo")
     private Long idCargo;
     @Basic(optional = false)

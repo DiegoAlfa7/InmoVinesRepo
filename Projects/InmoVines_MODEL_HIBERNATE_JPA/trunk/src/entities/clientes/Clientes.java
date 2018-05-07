@@ -81,7 +81,7 @@ public class Clientes implements Serializable {
     private Short canalEntrada;
 
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Agentes idAgente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
     @ManyToOne
@@ -137,7 +137,7 @@ public class Clientes implements Serializable {
         return vendedor;
     }
 
-    //    public void setId(Long id) {
+//        public void setId(Long id) {
 //        this.id = id;
 //    }
 //
