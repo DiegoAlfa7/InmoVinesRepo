@@ -4,12 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java" line="91" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dc1949a-25f3-4060-b1ee-ddd73f2f00ec" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d1c0a9cd-c36b-4a78-ad69-e7f2c96835d1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/InmueblesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/InmueblesTest.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,48 +49,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Agentes.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/agentes/Agentes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
-            <state relative-caret-position="258">
-              <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
-            <state relative-caret-position="294">
-              <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+      <file leaf-file-name="agentes" pinned="false" current-in-tab="false">
+        <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/agentes">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientesTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
       <file leaf-file-name="Clientes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entities/clientes/Clientes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2412">
               <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
-              <folding>
-                <element signature="e#7523#7524#0" expanded="true" />
-                <element signature="e#7559#7560#0" expanded="true" />
-                <element signature="e#7626#7627#0" expanded="true" />
-                <element signature="e#7676#7677#0" expanded="true" />
-                <element signature="e#8712#8713#0" expanded="true" />
-                <element signature="e#8779#8780#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Comunidades.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
       <file leaf-file-name="comunidades" pinned="false" current-in-tab="false">
         <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/comunidades">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -106,9 +80,6 @@
         <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1008">
-            <state relative-caret-position="2240">
-              <caret line="224" selection-start-line="224" selection-end-line="224" />
-            <state relative-caret-position="149">
               <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -120,12 +91,8 @@
       <file leaf-file-name="InmueblesTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-            <state relative-caret-position="420">
-              <caret line="40" column="23" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="23" />
-            <state relative-caret-position="152">
-              <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
+            <state relative-caret-position="346">
+              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,17 +104,11 @@
         <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2646">
-            <state relative-caret-position="1554">
-              <caret line="160" selection-start-line="160" selection-end-line="160" />
-              <folding>
-                <element signature="imports" expanded="true" />
-            <state relative-caret-position="79">
               <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5087#5088#0" expanded="true" />
                 <element signature="e#5179#5180#0" expanded="true" />
-                <element signature="e#5163#5164#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,9 +129,6 @@
         <entry file="file://$PROJECT_DIR$/src/entities/Provincias.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
-            <state relative-caret-position="1344">
-              <caret line="142" selection-start-line="142" selection-end-line="142" />
-            <state relative-caret-position="77">
               <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -195,37 +153,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1188">
               <caret line="109" column="37" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
-            <state relative-caret-position="1232">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
-            <state relative-caret-position="450">
-              <caret line="109" column="37" lean-forward="true" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Arquillian JUnit Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>desc</find>
-      <find>esta</find>
-      <find>inmuebles.setCaracteristicas(caracteristicas);</find>
-      <find>from</find>
-      <find>provincias0_.comunidadesID</find>
-      <find>comunidades</find>
-      <find>provincias0_.comunidades_ID</find>
-      <find>ZONA</find>
-      <find>datosPersonales</find>
-      <find>openSession</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -233,44 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/java/entities/inmuebles/Direccion.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/inmuebles/Caracteristicas.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/Municipios.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/agentes/Agentes.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/agentes/Cargos.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/clientes/Clientes.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/clientes/DatosPersonales.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/clientes/Intereses.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/inmuebles/Inmuebles.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/inmuebles/Localizacion.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/Comunidades.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/Provincias.java" />
-        <option value="$PROJECT_DIR$/src/java/entities/Zonas.java" />
-        <option value="$PROJECT_DIR$/src/java/insertarTest/Insertando.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java" />
-        <option value="$PROJECT_DIR$/src/insertarTest/Insertando.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/InmueblesTest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Caracteristicas.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Direccion.java" />
-        <option value="$PROJECT_DIR$/src/entities/clientes/Intereses.java" />
-        <option value="$PROJECT_DIR$/src/entities/Comunidades.java" />
-        <option value="$PROJECT_DIR$/src/hibernate.reveng.xml" />
-        <option value="$PROJECT_DIR$/src/conf/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/javax/persistence/Persistence.java" />
-        <option value="$PROJECT_DIR$/src/tests/LocalizacionTest.java" />
-        <option value="$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java" />
-        <option value="$PROJECT_DIR$/src/entities/Zonas.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Localizacion.java" />
-        <option value="$PROJECT_DIR$/src/entities/agentes/Agentes.java" />
-        <option value="$PROJECT_DIR$/src/entities/agentes/Cargos.java" />
-        <option value="$PROJECT_DIR$/src/tests/ClientesTest.java" />
-        <option value="$PROJECT_DIR$/src/entities/clientes/Clientes.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
-        <option value="$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java" />
-        <option value="$PROJECT_DIR$/src/entities/Municipios.java" />
-        <option value="$PROJECT_DIR$/src/entities/Provincias.java" />
-        <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
         <option value="$PROJECT_DIR$/src/tests/InmueblesTest.java" />
       </list>
     </option>
@@ -281,17 +175,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="InmoVinesMvProj" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
@@ -300,10 +183,6 @@
     <option name="y" value="-16" />
     <option name="width" value="840" />
     <option name="height" value="414" />
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1943" />
-    <option name="height" value="1043" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -314,10 +193,6 @@
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -325,51 +200,10 @@
               <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
               <item name="trunk" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="agentes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="clientes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-              <item name="inmuebles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trunk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
->>>>>>> 782ee108b75a6b580e4fbe108eea6e56b15b3154
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -387,21 +221,6 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="entities.inmuebles" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\p-dalfaro\Desktop\INMOVINES\Recursos_LOCALES\Generated Projects\InmoVinesCRMMv-master\InmoVinesMvProj\src" />
-    </key>
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -414,55 +233,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.InmueblesTest">
+  <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <configuration name="ClientesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InmoVinesMvProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ClientesTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ClientesTest.insertCliente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InmoVinesMvProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.ClientesTest" />
-      <option name="METHOD_NAME" value="insertCliente" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration name="InmueblesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InmoVinesMvProj" />
@@ -487,30 +260,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="InmueblesTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true" />
-    <configuration name="LocalizacionTest.testZonasKO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InmoVinesMvProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LocalizacionTest" />
-      <option name="METHOD_NAME" value="testZonasKO" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -518,29 +267,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="tests in InmoVinesMvProj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InmoVinesMvProj" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -572,23 +298,9 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-    </configuration>
-    <list>
-      <item itemvalue="JUnit.InmueblesTest" />
-      <item itemvalue="JUnit.LocalizacionTest.testZonasKO" />
-      <item itemvalue="JUnit.ClientesTest.insertCliente" />
-      <item itemvalue="JUnit.ClientesTest" />
-      <item itemvalue="JUnit.tests in InmoVinesMvProj" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.InmueblesTest" />
-        <item itemvalue="JUnit.tests in InmoVinesMvProj" />
-        <item itemvalue="JUnit.ClientesTest.insertCliente" />
-        <item itemvalue="JUnit.ClientesTest" />
-        <item itemvalue="JUnit.LocalizacionTest.testZonasKO" />
       </list>
     </recent_temporary>
   </component>
@@ -616,79 +328,34 @@
       <workItem from="1525707334858" duration="4161000" />
       <workItem from="1525712930713" duration="3611000" />
       <workItem from="1525716674361" duration="29000" />
-      <workItem from="1525716735401" duration="2161000" />
-      <workItem from="1525714363352" duration="603000" />
-      <workItem from="1525712930713" duration="3438000" />
+      <workItem from="1525716735401" duration="5548000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 18h 21m 18s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ClientesTest_insertCliente - 2018.05.07 at 18h 22m 22s.xml">
-      <configuration name="ClientesTest.insertCliente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 32m 26s.xml">
-      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 55m 03s.xml">
-      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="tests_in_InmoVinesMvProj - 2018.05.07 at 19h 59m 15s.xml">
-      <configuration name="tests in InmoVinesMvProj" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 00m 29s.xml">
+    <history-entry file="InmueblesTest - 2018.05.08 at 16h 28m 53s.xml">
       <configuration name="InmueblesTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 01m 44s.xml">
-      <configuration name="InmueblesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 04m 19s.xml">
-      <configuration name="InmueblesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 04m 47s.xml">
-      <configuration name="InmueblesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 06m 08s.xml">
-      <configuration name="InmueblesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="InmueblesTest - 2018.05.07 at 20h 06m 47s.xml">
+    <history-entry file="InmueblesTest - 2018.05.08 at 16h 29m 43s.xml">
       <configuration name="InmueblesTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58982000" />
-    <option name="totallyTimeSpent" value="53784000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <option name="totallyTimeSpent" value="56619000" />
+    <option name="totallyTimeSpent" value="2761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50121456" side_tool="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1687966" side_tool="true" visible="true" weight="0.28767124" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.32955465" />
-      <window_info anchor="right" id="CDI" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="7" />
-      <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="3" weight="0.27449393" />
-      <window_info anchor="right" id="JSF" order="2" />
-      <window_info id="Structure" order="6" sideWeight="0.30410448" side_tool="true" weight="0.17894737" />
-      <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.63432837" />
-      <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="5" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.2742279" />
-      <window_info active="true" id="Structure" order="6" sideWeight="0.30593607" side_tool="true" visible="true" weight="0.19062833" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.15814696" />
+      <window_info id="Structure" order="6" sideWeight="0.30608973" side_tool="true" visible="true" weight="0.19062833" />
       <window_info anchor="right" id="JSF" order="2" />
       <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -699,19 +366,13 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.5895522" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
-      <window_info id="Persistence" order="8" sideWeight="0.30410448" side_tool="true" weight="0.19595142" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6958955" visible="true" weight="0.1854251" />
-      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32955465" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.28767124" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.8312034" visible="true" weight="0.28767124" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
       <window_info id="Persistence" order="8" sideWeight="0.30410448" side_tool="true" weight="0.19595142" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6940639" visible="true" weight="0.19062833" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.69391024" visible="true" weight="0.19062833" />
       <window_info anchor="right" id="Bean Validation" order="7" weight="0.32955465" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Learn" order="4" />
@@ -721,27 +382,14 @@
       <window_info anchor="bottom" id="Inspection Results" order="9" sideWeight="0.73036253" weight="0.4113475" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="9" sideWeight="0.39117646" side_tool="true" visible="true" weight="0.20090635" />
-      <window_info id="Learn" order="4" />
-      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="SVN Repositories" order="14" weight="0.3298791" />
-      <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32990867" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32899022" />
-      <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32990867" />
-      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SVN Repositories" order="14" weight="0.3298791" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32876712" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3283582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="9" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="6" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -757,7 +405,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/tests/InmueblesTest.java</url>
-          <line>149</line>
+          <line>151</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -766,7 +414,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/insertarTest/Insertando.java" />
     <entry file="das://a57d2226-b21d-4bae-b174-0e63118af53f/schema/inmovinescrm/table/inmuebles" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -882,15 +529,6 @@
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/zonas" />
     <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/Zonas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
         <state relative-caret-position="1440">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
         </state>
@@ -961,8 +599,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/clientes/Intereses.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="40" column="23" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="23" />
         <state relative-caret-position="-1098">
           <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
         </state>
@@ -996,29 +632,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2412">
           <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
-        <state relative-caret-position="1344">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-          <folding>
-            <element signature="imports" expanded="true" />
-        <state relative-caret-position="1806">
-          <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
-          <folding>
-            <element signature="e#7523#7524#0" expanded="true" />
-            <element signature="e#7559#7560#0" expanded="true" />
-            <element signature="e#7626#7627#0" expanded="true" />
-            <element signature="e#7676#7677#0" expanded="true" />
-            <element signature="e#8712#8713#0" expanded="true" />
-            <element signature="e#8779#8780#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
-        <state relative-caret-position="2240">
-          <caret line="224" selection-start-line="224" selection-end-line="224" />
-        <state relative-caret-position="149">
           <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1036,17 +655,11 @@
     <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2646">
-        <state relative-caret-position="1554">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="imports" expanded="true" />
-        <state relative-caret-position="79">
           <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5087#5088#0" expanded="true" />
             <element signature="e#5179#5180#0" expanded="true" />
-            <element signature="e#5163#5164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1086,118 +699,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/agentes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/InmueblesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-        <state relative-caret-position="258">
-          <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+        <state relative-caret-position="346">
+          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-        <state relative-caret-position="152">
-          <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>InmoVinesMvProj:war</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web (InmoVinesMvProj)|Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>JPA|InmoVinesMvProj</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.40068886" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

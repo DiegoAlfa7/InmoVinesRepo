@@ -11,6 +11,7 @@ import entities.inmuebles.Direccion;
 import entities.inmuebles.Inmuebles;
 import entities.inmuebles.Localizacion;
 import hibernateUtil.NewHibernateUtil;
+import org.hamcrest.CoreMatchers;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -231,6 +233,7 @@ public class InmueblesTest {
     }
 
 
+
     /**
      * This test should be all ok.
      * It inserts an Inmueble instance to the database with all its necessary relationships
@@ -258,8 +261,9 @@ public class InmueblesTest {
         assertEquals(inmueblePrueba.getLocalizacion().getProvincia(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getProvincia());
         assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
         assertEquals((Double) 4200000.0, inmueblePrueba.getPrecioCompra());
-        assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), is(inmueblePrueba.getClientePropietario()));
+        assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), CoreMatchers.is(equalTo(inmueblePrueba.getClientePropietario())));
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getAgente(), is(inmueblePrueba.getClientePropietario().getAgente()));
+
 
 
         transaction.rollback();
