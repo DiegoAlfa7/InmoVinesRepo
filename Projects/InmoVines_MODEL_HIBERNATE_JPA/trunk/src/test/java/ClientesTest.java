@@ -11,15 +11,22 @@ import entities.inmuebles.Localizacion;
 import hibernateUtil.NewHibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.exception.ConstraintViolationException;
+import org.junit.FixMethodOrder;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.runners.MethodSorters;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @DisplayName("Prueba de Inserción de Clientes")
 public class ClientesTest {
 
-    private static Session s;
+    private static Session session;
     private static Clientes clientePrueba;
     private static Executable insertarCliente;
 
@@ -29,18 +36,18 @@ public class ClientesTest {
     @BeforeAll
     public static void setUp() {
 
-        s = NewHibernateUtil.getSessionFactory().openSession();
+        session = NewHibernateUtil.getSessionFactory().openSession();
 
         clientePrueba = new Clientes();
         Localizacion localizacion = new Localizacion();
         DatosPersonales datosPersonales = new DatosPersonales();
-        Comunidades comunidades = s.get(Comunidades.class, 2l);
+        Comunidades comunidades = session.get(Comunidades.class, 2l);
         Provincias provincias = comunidades.getProvinciasList().get(0);
         Municipios municipios = provincias.getMunicipiosList().get(0);
-        Zonas zonas = new Zonas();
+        Zonas zonas = new Zonas(42l);
         Inmuebles inmueble1 = new Inmuebles();
         Inmuebles inmueble2 = new Inmuebles();
-        Agentes agentes = s.get(Agentes.class, 1l);
+        Agentes agentes = session.get(Agentes.class, 1l);
         Caracteristicas caracteristicas = new Caracteristicas();
 
         caracteristicas.setEstadoConservacion(6);
@@ -63,6 +70,7 @@ public class ClientesTest {
 
         clientePrueba.addInmueble(inmueble1);
         clientePrueba.addInmueble(inmueble2);
+
         //DATOS PERSONALES
         datosPersonales.setApellidos("apellidos");
         datosPersonales.setDni("dni");
@@ -84,27 +92,71 @@ public class ClientesTest {
 
         insertarCliente = () -> {
 
-            Transaction transaction = s.beginTransaction();
+            Transaction transaction = session.beginTransaction();
+            clientePrueba.setAgente(new Agentes(420l));
 
-            s.save(clientePrueba);
+            session.save(clientePrueba);
 
             transaction.rollback();
-
-            s.close();
-
 
         };
 
 
     }
 
+    @AfterAll
+    public static void manageShutDown() {
+
+        session.close();
+    }
+
+    /**
+     * En este test no debería producirse ningún error
+     * Inserta un cliente con los datos seteados anteriormente
+     * El cliente nunca es insertado finalmente
+     */
     @Test
-    public void insertarClienteOK() {
+    public void a() {
 
 
+        Transaction transaction;
+
+        if (session.getTransaction() != null) {
+
+            transaction = session.getTransaction();
+
+        } else {
+
+            transaction = session.beginTransaction();
+
+        }
+
+        Long cliente_insertado = (Long) session.save(this.clientePrueba);
+
+        // Comprueba que el cliente insertado no venga vacío
+        assertNotNull(cliente_insertado);
+        // Comprueba que el agente vinculado al cliente coincide con el esperado
+        assertEquals(this.clientePrueba.getAgente(), session.get(Clientes.class, this.clientePrueba.getId()).getAgente());
+        // Comprueba que los inmuebles asociados al clientes no vengan vacios
+        assertNotNull(this.clientePrueba.getInmueblesList());
+        // Comrpueba que los inmuebles asociados coinciden con los esperados
+        assertEquals(this.clientePrueba.getInmueblesList(), session.get(Clientes.class, this.clientePrueba.getId()).getInmueblesList());
+        // Comprueba que los datos personales no vengan vacíos
+        assertNotNull(this.clientePrueba.getDatosPersonales());
+
+        transaction.rollback();
 
 
+    }
 
+    /**
+     * Este test debería...
+     */
+    @Test
+    public void b() {
+
+        clientePrueba.setAgente(null);
+        assertThrows(ConstraintViolationException.class, insertarCliente);
 
     }
 }
