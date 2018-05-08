@@ -55,6 +55,9 @@
         <entry file="file://$PROJECT_DIR$/src/entities/agentes/Agentes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2970">
+            <state relative-caret-position="258">
+              <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+            <state relative-caret-position="294">
               <caret line="263" column="32" selection-start-line="263" selection-start-column="32" selection-end-line="263" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -63,15 +66,33 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ClientesTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
       <file leaf-file-name="Clientes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entities/clientes/Clientes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2412">
               <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+              <folding>
+                <element signature="e#7523#7524#0" expanded="true" />
+                <element signature="e#7559#7560#0" expanded="true" />
+                <element signature="e#7626#7627#0" expanded="true" />
+                <element signature="e#7676#7677#0" expanded="true" />
+                <element signature="e#8712#8713#0" expanded="true" />
+                <element signature="e#8779#8780#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Comunidades.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1120">
+              <caret line="112" selection-start-line="112" selection-end-line="112" />
       <file leaf-file-name="comunidades" pinned="false" current-in-tab="false">
         <entry file="das://36b98794-aeb1-4385-96be-ebe22ccfcbea/schema/inmovinescrm/table/comunidades">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -85,6 +106,9 @@
         <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1008">
+            <state relative-caret-position="2240">
+              <caret line="224" selection-start-line="224" selection-end-line="224" />
+            <state relative-caret-position="149">
               <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -98,6 +122,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
               <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            <state relative-caret-position="420">
+              <caret line="40" column="23" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="23" />
+            <state relative-caret-position="152">
+              <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,11 +137,17 @@
         <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2646">
+            <state relative-caret-position="1554">
+              <caret line="160" selection-start-line="160" selection-end-line="160" />
+              <folding>
+                <element signature="imports" expanded="true" />
+            <state relative-caret-position="79">
               <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5087#5088#0" expanded="true" />
                 <element signature="e#5179#5180#0" expanded="true" />
+                <element signature="e#5163#5164#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,6 +168,9 @@
         <entry file="file://$PROJECT_DIR$/src/entities/Provincias.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
+            <state relative-caret-position="1344">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="77">
               <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -158,6 +195,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1188">
               <caret line="109" column="37" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
+            <state relative-caret-position="1232">
+              <caret line="136" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="450">
+              <caret line="109" column="37" lean-forward="true" selection-start-line="108" selection-start-column="52" selection-end-line="109" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -259,6 +300,10 @@
     <option name="y" value="-16" />
     <option name="width" value="840" />
     <option name="height" value="414" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1943" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -269,6 +314,10 @@
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -314,10 +363,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
+>>>>>>> 782ee108b75a6b580e4fbe108eea6e56b15b3154
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -565,6 +617,8 @@
       <workItem from="1525712930713" duration="3611000" />
       <workItem from="1525716674361" duration="29000" />
       <workItem from="1525716735401" duration="2161000" />
+      <workItem from="1525714363352" duration="603000" />
+      <workItem from="1525712930713" duration="3438000" />
     </task>
     <servers />
   </component>
@@ -605,6 +659,11 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="58982000" />
+    <option name="totallyTimeSpent" value="53784000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <option name="totallyTimeSpent" value="56619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -613,6 +672,17 @@
       <window_info anchor="right" id="Palette" order="8" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50121456" side_tool="true" weight="0.3283582" />
       <window_info anchor="right" id="Maven Projects" order="0" weight="0.32955465" />
+      <window_info anchor="right" id="CDI" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Database" order="3" weight="0.27449393" />
+      <window_info anchor="right" id="JSF" order="2" />
+      <window_info id="Structure" order="6" sideWeight="0.30410448" side_tool="true" weight="0.17894737" />
+      <window_info anchor="right" id="Ant Build" order="10" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.63432837" />
+      <window_info anchor="bottom" id="TODO" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="right" id="CDI" order="5" />
       <window_info id="Capture Tool" order="7" />
@@ -624,10 +694,18 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.49657536" />
       <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32876712" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.5895522" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
+      <window_info id="Persistence" order="8" sideWeight="0.30410448" side_tool="true" weight="0.19595142" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6958955" visible="true" weight="0.1854251" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32955465" />
+      <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49959514" weight="0.28767124" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
@@ -643,6 +721,14 @@
       <window_info anchor="bottom" id="Inspection Results" order="9" sideWeight="0.73036253" weight="0.4113475" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="9" sideWeight="0.39117646" side_tool="true" visible="true" weight="0.20090635" />
+      <window_info id="Learn" order="4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="SVN Repositories" order="14" weight="0.3298791" />
+      <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32990867" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32899022" />
+      <window_info anchor="bottom" id="Spring" order="14" sideWeight="0.4988645" weight="0.32978722" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="SQL Generator" order="0" weight="0.32990867" />
       <window_info anchor="bottom" id="Database Console" order="4" weight="0.3283582" />
@@ -796,6 +882,15 @@
     <entry file="das://10b68ea7-5de7-4355-8226-6b1775652c3b/schema/inmovinescrm/table/zonas" />
     <entry file="file://$PROJECT_DIR$/src/entities/Comunidades.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1120">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/Zonas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
         <state relative-caret-position="1440">
           <caret line="112" selection-start-line="112" selection-end-line="112" />
         </state>
@@ -866,6 +961,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/clientes/Intereses.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="23" />
         <state relative-caret-position="-1098">
           <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
         </state>
@@ -899,12 +996,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2412">
           <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+        <state relative-caret-position="1344">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+          <folding>
+            <element signature="imports" expanded="true" />
+        <state relative-caret-position="1806">
+          <caret line="219" column="30" selection-start-line="219" selection-start-column="30" selection-end-line="219" selection-end-column="30" />
+          <folding>
+            <element signature="e#7523#7524#0" expanded="true" />
+            <element signature="e#7559#7560#0" expanded="true" />
+            <element signature="e#7626#7627#0" expanded="true" />
+            <element signature="e#7676#7677#0" expanded="true" />
+            <element signature="e#8712#8713#0" expanded="true" />
+            <element signature="e#8779#8780#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/inmuebles/Inmuebles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
+        <state relative-caret-position="2240">
+          <caret line="224" selection-start-line="224" selection-end-line="224" />
+        <state relative-caret-position="149">
           <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -922,11 +1036,17 @@
     <entry file="file://$PROJECT_DIR$/src/entities/Municipios.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2646">
+        <state relative-caret-position="1554">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
+          <folding>
+            <element signature="imports" expanded="true" />
+        <state relative-caret-position="79">
           <caret line="197" column="78" selection-start-line="197" selection-start-column="78" selection-end-line="197" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5087#5088#0" expanded="true" />
             <element signature="e#5179#5180#0" expanded="true" />
+            <element signature="e#5163#5164#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -970,6 +1090,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        <state relative-caret-position="258">
+          <caret line="241" column="40" lean-forward="true" selection-start-line="241" selection-start-column="40" selection-end-line="241" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tests/ClientesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        <state relative-caret-position="152">
+          <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
