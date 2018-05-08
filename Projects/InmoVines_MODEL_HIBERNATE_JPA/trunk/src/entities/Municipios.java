@@ -195,7 +195,7 @@ public class Municipios implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.cliente.Municipios[ id=" + id + " ]";
+        return "entities.cliente.Municipios[ id=" + id + " " + this.municipio + " ]";
     }
     
 }

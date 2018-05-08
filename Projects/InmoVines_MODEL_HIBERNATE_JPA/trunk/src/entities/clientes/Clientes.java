@@ -30,6 +30,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -81,12 +82,12 @@ public class Clientes implements Serializable {
     private Short canalEntrada;
 
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    private Agentes idAgente;
+    private Agentes agente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
     @ManyToOne
-    private Agentes idAgenteEntrada;
+    private Agentes agenteEntrada;
     @JoinColumn(name = "id_inmueble_interes", referencedColumnName = "ID")
     @ManyToOne
     private Inmuebles idInmuebleInteres;
@@ -138,36 +139,6 @@ public class Clientes implements Serializable {
         return vendedor;
     }
 
-<<<<<<< HEAD
-=======
-//        public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getNombre() {
-//        return nombre;
-//    }
-//
-//    public void setNombre(String nombre) {
-//        this.nombre = nombre;
-//    }
-//
-//    public String getApellidos() {
-//        return apellidos;
-//    }
-//
-//    public void setApellidos(String apellidos) {
-//        this.apellidos = apellidos;
-//    }
-//
-//    public String getMail() {
-//        return mail;
-//    }
-//
-//    public void setMail(String mail) {
-//        this.mail = mail;
-//    }
->>>>>>> 376f0847afcd6042ed2d5779d616bac0ac63ed02
     public boolean getInquilino() {
         return inquilino;
     }
@@ -240,20 +211,23 @@ public class Clientes implements Serializable {
         this.canalEntrada = canalEntrada;
     }
 
-    public Agentes getIdAgente() {
-        return idAgente;
+    public Agentes getAgente() {
+        return agente;
     }
 
-    public void setIdAgente(Agentes idAgente) {
-        this.idAgente = idAgente;
+    public void setAgente(Agentes idAgente) {
+
+       this.agente = idAgente;
     }
 
-    public Agentes getIdAgenteEntrada() {
-        return idAgenteEntrada;
+    public Agentes getAgenteEntrada() {
+        return agenteEntrada;
     }
 
-    public void setIdAgenteEntrada(Agentes idAgenteEntrada) {
-        this.idAgenteEntrada = idAgenteEntrada;
+    public void setAgenteEntrada(Agentes idAgenteEntrada) {
+
+        this.agenteEntrada = agenteEntrada;
+
     }
 
     public Inmuebles getIdInmuebleInteres() {
@@ -275,16 +249,21 @@ public class Clientes implements Serializable {
 
     public void addInteresesList(Intereses intereses) {
 
-        if (this.interesesList != null) {
+
+        if(this.interesesList!=null) {
+
 
             this.interesesList.add(intereses);
             intereses.setIdCliente(this);
 
-        } else {
+        }else{
 
-            this.interesesList = new ArrayList<>();
-            this.addInteresesList(intereses);
+            this.interesesList = new ArrayList<Intereses>();
+            addInteresesList(intereses);
+
+
         }
+
 
 
     }
@@ -298,19 +277,19 @@ public class Clientes implements Serializable {
         this.inmueblesList = inmueblesList;
     }
 
-    public void addInmueblesList(Inmuebles inmuebles) {
+    public void addInmueble(Inmuebles inmuebles) {
 
-        if (this.interesesList != null) {
+            if(this.inmueblesList != null) {
 
-            this.inmueblesList.add(inmuebles);
-            inmuebles.setClientePropietario(this);
+                this.inmueblesList.add(inmuebles);
+                inmuebles.setClientePropietario(this);
 
-        } else {
+            }else{
 
-            this.interesesList = new ArrayList<>();
-            this.addInmueblesList(inmuebles);
+                this.inmueblesList = new ArrayList<Inmuebles>();
+                addInmueble(inmuebles);
 
-        }
+            }
 
     }
 

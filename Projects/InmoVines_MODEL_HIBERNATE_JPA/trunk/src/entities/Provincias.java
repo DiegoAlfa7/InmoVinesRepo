@@ -50,7 +50,7 @@ public class Provincias implements Serializable {
     @JoinColumn(name = "capital_id", referencedColumnName = "ID")
     private Municipios capitalId;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "provincia")
     private List<Municipios> municipiosList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProvincia")

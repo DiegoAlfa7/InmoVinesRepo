@@ -38,7 +38,7 @@ public class ClientesTest {
     @Test
     public void insertCliente() {
 
-        Clientes clientes = s.get(Clientes.class,6l);
+        Clientes clientes = new Clientes();
         Localizacion localizacion = new Localizacion();
         DatosPersonales datosPersonales = new DatosPersonales();
         Comunidades comunidades = s.get(Comunidades.class, 2l);
@@ -69,21 +69,9 @@ public class ClientesTest {
         inmueble2.setDescripcion("Descripcion del inmueble 2");
         inmueble2.setCaracteristicas(caracteristicas);
 
-        Transaction transaction = s.beginTransaction();
-
-        Inmuebles i1 = s.get(Inmuebles.class, 15l);
-        Inmuebles i2 = s.get(Inmuebles.class, 16l);
-
-        ArrayList <Inmuebles> inmueblesList = new ArrayList<>();
-
-        inmueblesList.add(i1);
-        inmueblesList.add(i2);
-
-
-        clientes.addInmueblesList(i1);
-        clientes.addInmueblesList(i2);
-
-
+        clientes.setInmueblesList(new ArrayList<Inmuebles>());
+        clientes.addInmueble(inmueble1);
+        clientes.addInmueble(inmueble2);
         //DATOS PERSONALES
         datosPersonales.setApellidos("apellidos");
         datosPersonales.setDni("dni");
@@ -97,12 +85,18 @@ public class ClientesTest {
 
         //CLIENTE
         clientes.setDatosPersonales(datosPersonales);
-        clientes.setInmueblesList(inmueblesList);
         clientes.setInquilino(true);
         clientes.setArrendatario(false);
         clientes.setComprador(false);
         clientes.setVendedor(true);
-        clientes.setIdAgente(agentes);
+        clientes.setAgente(agentes);
+
+        Transaction transaction = s.beginTransaction();
+
+
+
+
+
 
 
         s.save(clientes);
