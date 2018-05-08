@@ -42,6 +42,7 @@ public class InmueblesTest {
      * This inmueble is a dummy entity for testing purposes
      */
     static Inmuebles inmueblePrueba;
+    static Executable insertarInmueble;
 
     /**
 
@@ -59,6 +60,60 @@ public class InmueblesTest {
     @BeforeAll
     public static void setUp() {
         session = NewHibernateUtil.getSessionFactory().openSession();
+
+        insertarInmueble = () -> {
+
+            Inmuebles inmuebles = new Inmuebles();
+
+            //This cliente is expected to not exist in database
+            inmuebles.setClientePropietario(new Clientes(Long.valueOf(420l)));
+
+            Direccion direccion = new Direccion();
+
+            direccion.setDireccionCalle("C/DE TU PUTA MADRE");
+            direccion.setDireccionEscalera("hehe");
+
+            Caracteristicas caracteristicas = new Caracteristicas();
+
+            caracteristicas.setCarpinteriaExterior("to guapa");
+            caracteristicas.setEstadoConservacion(1);
+
+            Localizacion localizacion = new Localizacion();
+            //This location values may not be in the database
+            Comunidades comunidades = new Comunidades(Long.valueOf(19));
+            Municipios municipios = new Municipios(Long.valueOf(4));
+            Provincias provincias = new Provincias(Long.valueOf(3));
+
+            localizacion.setDireccion(direccion);
+            localizacion.setComunidad(comunidades);
+            localizacion.setMunicipio(municipios);
+            localizacion.setProvincia(provincias);
+
+            inmuebles.setCaracteristicas(caracteristicas);
+            inmuebles.setLocalizacion(localizacion);
+            inmuebles.setTextoReclamo("insertarInmuebleFailed -> InmueblesTest");
+            inmuebles.setDescripcion("Gracias a este edificio nos van a dar un 10 jajajajajjj");
+            inmuebles.setTipo(1);
+
+            Transaction transaction;
+
+            if (session.getTransaction() != null) {
+
+                transaction = session.getTransaction();
+
+            } else {
+
+                transaction = session.beginTransaction();
+
+            }
+            System.out.println(inmuebles);
+            session.save(inmuebles);
+
+            transaction.rollback();
+            session.close();
+
+
+        };
 
         Date date = new Date();
 
@@ -200,7 +255,7 @@ public class InmueblesTest {
 
 
         assertNotNull(i_insertado);
-                assertEquals( inmueblePrueba, session.get(Inmuebles.class, i_insertado));
+        assertEquals( inmueblePrueba, session.get(Inmuebles.class, i_insertado));
         assertEquals(inmueblePrueba.getLocalizacion().getComunidad(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getComunidad());
         assertEquals(inmueblePrueba.getLocalizacion().getProvincia(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getProvincia());
         assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
@@ -221,62 +276,6 @@ public class InmueblesTest {
     @Test
     public void insertarInmuebleKO() {
 
-        Executable insertarInmueble = () -> {
-
-            Inmuebles inmuebles = new Inmuebles();
-
-            //This cliente is expected to not exist in database
-            inmuebles.setClientePropietario(new Clientes(Long.valueOf(420l)));
-
-            Direccion direccion = new Direccion();
-
-            direccion.setDireccionCalle("C/DE TU PUTA MADRE");
-            direccion.setDireccionEscalera("hehe");
-
-            Caracteristicas caracteristicas = new Caracteristicas();
-
-            caracteristicas.setCarpinteriaExterior("to guapa");
-            caracteristicas.setEstadoConservacion(1);
-
-            Localizacion localizacion = new Localizacion();
-            //This location values may not be in the database
-            Comunidades comunidades = new Comunidades(Long.valueOf(19));
-            Municipios municipios = new Municipios(Long.valueOf(4));
-            Provincias provincias = new Provincias(Long.valueOf(3));
-
-            localizacion.setDireccion(direccion);
-            localizacion.setComunidad(comunidades);
-            localizacion.setMunicipio(municipios);
-            localizacion.setProvincia(provincias);
-
-            inmuebles.setCaracteristicas(caracteristicas);
-            inmuebles.setLocalizacion(localizacion);
-            inmuebles.setTextoReclamo("insertarInmuebleFailed -> InmueblesTest");
-            inmuebles.setDescripcion("Gracias a este edificio nos van a dar un 10 jajajajajjj");
-            inmuebles.setTipo(1);
-
-            Transaction transaction;
-
-            if (session.getTransaction() != null) {
-
-                transaction = session.getTransaction();
-
-            } else {
-
-                transaction = session.beginTransaction();
-
-            }
-            System.out.println(inmuebles);
-            session.save(inmuebles);
-
-            transaction.rollback();
-            session.close();
-
-
-        };
-
-        assertThrows(ConstraintViolationException.class, insertarInmueble);
-
-
+        assertThrows(ConstraintViolationException.class, this.insertarInmueble);
     }
 }
