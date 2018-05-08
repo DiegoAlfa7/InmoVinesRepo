@@ -15,22 +15,20 @@ import org.hamcrest.CoreMatchers;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.sql.SQLException;
 import java.util.Date;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @DisplayName("Prueba de Inserción de Inmuebles")
@@ -45,16 +43,7 @@ public class InmueblesTest {
     static Executable insertarInmueble;
 
     /**
-
-     * This test should be all ok.
-     * It inserts an Inmueble instance to the database with all its necessary relationships
-     * ClientePropietario, AgenteCargo, Localización (Comunidad, Provincia, Municipio, Zona).
-     * When test finishes, transaction is rolled back so no rubbish data is published
-     *
-     * @throws SQLException
-
-     * This method opens an hibernate session within database and instantiates an entity of Inmuebles
-
+     * This method opens an hibernate session within database and other data operations related to Inmuebles.class
      */
     @Test
     @BeforeAll
@@ -233,6 +222,19 @@ public class InmueblesTest {
     }
 
 
+    /**
+     * Este método sólo ejecuta
+     */
+    @AfterAll
+    public static void manageShutDown(){
+
+
+        session.close();
+
+
+    }
+
+
 
     /**
      * This test should be all ok.
@@ -260,11 +262,12 @@ public class InmueblesTest {
         assertEquals(inmueblePrueba.getLocalizacion().getComunidad(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getComunidad());
         assertEquals(inmueblePrueba.getLocalizacion().getProvincia(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getProvincia());
         assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
+        assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
         assertEquals((Double) 4200000.0, inmueblePrueba.getPrecioCompra());
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), CoreMatchers.is(equalTo(inmueblePrueba.getClientePropietario())));
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getAgente(), is(inmueblePrueba.getClientePropietario().getAgente()));
 
-
+        assertThat(inmueblePrueba, anyOf());
 
         transaction.rollback();
 
