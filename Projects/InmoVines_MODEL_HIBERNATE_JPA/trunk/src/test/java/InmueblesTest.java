@@ -1,5 +1,3 @@
-package tests;
-
 import entities.Comunidades;
 import entities.Municipios;
 import entities.Provincias;

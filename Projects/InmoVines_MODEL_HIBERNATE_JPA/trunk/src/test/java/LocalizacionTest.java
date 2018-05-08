@@ -1,5 +1,3 @@
-package tests;
-
 import entities.Comunidades;
 import entities.Municipios;
 import entities.Provincias;
@@ -9,6 +7,7 @@ import hibernateUtil.NewHibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,6 +25,12 @@ public class LocalizacionTest {
 
         session = NewHibernateUtil.getSessionFactory().openSession();
 
+    }
+
+    @AfterAll
+    public static void manageClose() {
+
+        session.close();
     }
 
     @Test
@@ -67,9 +72,6 @@ public class LocalizacionTest {
 
         transaction.rollback();
 
-        session.close();
-
-
     }
 
     @Test
@@ -103,7 +105,6 @@ public class LocalizacionTest {
             transaction.rollback();
 
 
-            session.close();
         };
 
         assertThrows(ConstraintViolationException.class, insertarZona);

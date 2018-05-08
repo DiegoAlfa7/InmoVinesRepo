@@ -1,5 +1,3 @@
-package tests;
-
 import entities.Comunidades;
 import entities.Municipios;
 import entities.Provincias;
@@ -7,7 +5,6 @@ import entities.Zonas;
 import entities.agentes.Agentes;
 import entities.clientes.Clientes;
 import entities.clientes.DatosPersonales;
-import entities.clientes.Intereses;
 import entities.inmuebles.Caracteristicas;
 import entities.inmuebles.Inmuebles;
 import entities.inmuebles.Localizacion;
@@ -17,35 +14,30 @@ import org.hibernate.Transaction;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
+import org.junit.jupiter.api.function.Executable;
 
 @DisplayName("Prueba de Inserción de Clientes")
 public class ClientesTest {
 
     private static Session s;
+    private static Clientes clientePrueba;
+    private static Executable insertarCliente;
 
     /**
-     * Before executing tests should initialize Hibernate Session
+     * Before executing test should initialize Hibernate Session
      */
     @BeforeAll
     public static void setUp() {
 
         s = NewHibernateUtil.getSessionFactory().openSession();
 
-    }
-
-    @Test
-    public void insertCliente() {
-
-        Clientes clientes = new Clientes();
+        clientePrueba = new Clientes();
         Localizacion localizacion = new Localizacion();
         DatosPersonales datosPersonales = new DatosPersonales();
         Comunidades comunidades = s.get(Comunidades.class, 2l);
         Provincias provincias = comunidades.getProvinciasList().get(0);
         Municipios municipios = provincias.getMunicipiosList().get(0);
         Zonas zonas = new Zonas();
-        Intereses intereses = new Intereses();
         Inmuebles inmueble1 = new Inmuebles();
         Inmuebles inmueble2 = new Inmuebles();
         Agentes agentes = s.get(Agentes.class, 1l);
@@ -69,9 +61,8 @@ public class ClientesTest {
         inmueble2.setDescripcion("Descripcion del inmueble 2");
         inmueble2.setCaracteristicas(caracteristicas);
 
-        clientes.setInmueblesList(new ArrayList<Inmuebles>());
-        clientes.addInmueble(inmueble1);
-        clientes.addInmueble(inmueble2);
+        clientePrueba.addInmueble(inmueble1);
+        clientePrueba.addInmueble(inmueble2);
         //DATOS PERSONALES
         datosPersonales.setApellidos("apellidos");
         datosPersonales.setDni("dni");
@@ -84,26 +75,35 @@ public class ClientesTest {
         datosPersonales.setTelefono1("telefono1");
 
         //CLIENTE
-        clientes.setDatosPersonales(datosPersonales);
-        clientes.setInquilino(true);
-        clientes.setArrendatario(false);
-        clientes.setComprador(false);
-        clientes.setVendedor(true);
-        clientes.setAgente(agentes);
+        clientePrueba.setDatosPersonales(datosPersonales);
+        clientePrueba.setInquilino(true);
+        clientePrueba.setArrendatario(false);
+        clientePrueba.setComprador(false);
+        clientePrueba.setVendedor(true);
+        clientePrueba.setAgente(agentes);
 
-        Transaction transaction = s.beginTransaction();
+        insertarCliente = () -> {
+
+            Transaction transaction = s.beginTransaction();
+
+            s.save(clientePrueba);
+
+            transaction.rollback();
+
+            s.close();
+
+
+        };
+
+
+    }
+
+    @Test
+    public void insertarClienteOK() {
 
 
 
 
-
-
-
-        s.save(clientes);
-
-        transaction.rollback();
-
-        s.close();
 
 
     }
