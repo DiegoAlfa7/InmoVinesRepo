@@ -99,7 +99,7 @@ public class InmueblesTest {
             session.save(inmuebles);
 
             transaction.rollback();
-            session.close();
+
 
 
         };
@@ -267,7 +267,7 @@ public class InmueblesTest {
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), CoreMatchers.is(equalTo(inmueblePrueba.getClientePropietario())));
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getAgente(), is(inmueblePrueba.getClientePropietario().getAgente()));
 
-        assertThat(inmueblePrueba, anyOf());
+
 
         transaction.rollback();
 

@@ -224,7 +224,7 @@ public class Clientes implements Serializable {
         return agenteEntrada;
     }
 
-    public void setAgenteEntrada(Agentes idAgenteEntrada) {
+    public void setAgenteEntrada(Agentes agenteEntrada) {
 
         this.agenteEntrada = agenteEntrada;
 
