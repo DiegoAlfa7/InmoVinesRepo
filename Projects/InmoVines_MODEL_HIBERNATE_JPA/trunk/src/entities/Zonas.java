@@ -6,6 +6,7 @@
 package entities;
 
 import entities.inmuebles.Inmuebles;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,18 +27,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(name = "zonas", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Zonas.findAll", query = "SELECT z FROM Zonas z")
-    , @NamedQuery(name = "Zonas.findById", query = "SELECT z FROM Zonas z WHERE z.id = :id")
-    , @NamedQuery(name = "Zonas.findByNombre", query = "SELECT z FROM Zonas z WHERE z.nombre = :nombre")
-    , @NamedQuery(name = "Zonas.findByActiva", query = "SELECT z FROM Zonas z WHERE z.activa = :activa")
-    , @NamedQuery(name = "Zonas.findByNombreAdmin", query = "SELECT z FROM Zonas z WHERE z.nombreAdmin = :nombreAdmin")})
+        @NamedQuery(name = "Zonas.findAll", query = "SELECT z FROM Zonas z")
+        , @NamedQuery(name = "Zonas.findById", query = "SELECT z FROM Zonas z WHERE z.id = :id")
+        , @NamedQuery(name = "Zonas.findByNombre", query = "SELECT z FROM Zonas z WHERE z.nombre = :nombre")
+        , @NamedQuery(name = "Zonas.findByActiva", query = "SELECT z FROM Zonas z WHERE z.activa = :activa")
+        , @NamedQuery(name = "Zonas.findByNombreAdmin", query = "SELECT z FROM Zonas z WHERE z.nombreAdmin = :nombreAdmin")})
 public class Zonas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -119,23 +119,14 @@ public class Zonas implements Serializable {
         this.inmueblesList = inmueblesList;
     }
 
-    public void addInmueble(Inmuebles i){
+    public void addInmueble(Inmuebles i) {
 
 
-
-
-
-            this.inmueblesList.add(i);
-            i.getLocalizacion().setComunidad(this.getMunicipio().getProvincia().getComunidad());
-            i.getLocalizacion().setProvincia(this.getMunicipio().getProvincia());
-            i.getLocalizacion().setMunicipio(this.getMunicipio());
-            i.getLocalizacion().setZona(this);
-
-
-
-
-
-
+        this.inmueblesList.add(i);
+        i.getLocalizacion().setComunidad(this.getMunicipio().getProvincia().getComunidad());
+        i.getLocalizacion().setProvincia(this.getMunicipio().getProvincia());
+        i.getLocalizacion().setMunicipio(this.getMunicipio());
+        i.getLocalizacion().setZona(this);
 
 
     }
@@ -164,5 +155,5 @@ public class Zonas implements Serializable {
     public String toString() {
         return "entities.cliente.Zonas[ id=" + id + " ]";
     }
-    
+
 }
