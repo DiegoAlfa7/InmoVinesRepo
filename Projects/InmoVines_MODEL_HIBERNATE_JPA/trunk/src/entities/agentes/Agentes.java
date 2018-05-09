@@ -56,11 +56,16 @@ public class Agentes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Basic(optional = false)
     private String nombre;
+
     private String apellidos;
+
     private String mail;
+
     private String tlf;
+
     private String twitter;
 
     private String facebook;
@@ -68,20 +73,31 @@ public class Agentes implements Serializable {
     private String linkedin;
 
     private String instagram;
+
     private String foto;
+
     private String eslogan;
+
     @Column(name = "codigo_agente")
     private String codigoAgente;
+
     private Boolean activacion;
+
     private Short permisos;
+
+    @Column(name = "account_hash")
     private String password;
+
     @JoinColumn(name = "id_cargo", referencedColumnName = "id_cargo")
     @ManyToOne(optional = false)
     private Cargos idCargo;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Clientes> clientesAsignados;
+
     @OneToMany(mappedBy = "agenteEntrada")
     private List<Clientes> clientesCaptados;
+
     @OneToMany(mappedBy = "agente")
     private List<Inmuebles> inmuebles;
 
@@ -240,10 +256,8 @@ public class Agentes implements Serializable {
     public void addClienteAsignado(Clientes clientes) {
 
 
-            this.clientesAsignados.add(clientes);
-            clientes.setAgente(this);
-
-
+        this.clientesAsignados.add(clientes);
+        clientes.setAgente(this);
 
 
     }
@@ -260,8 +274,8 @@ public class Agentes implements Serializable {
     public void addClienteCaptado(Clientes clientes) {
 
 
-            this.clientesCaptados.add(clientes);
-            clientes.setAgenteEntrada(this);
+        this.clientesCaptados.add(clientes);
+        clientes.setAgenteEntrada(this);
 
 
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -40,30 +41,37 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/inmovinescrm?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">inmovinescrm</property>
-    <property name="hibernate.connection.password">melocoton</property>
-    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <property name="hibernate.show_sql">true</property>
-    <!-- ENTITIES MAPPING -->
-    <mapping class="entities.Comunidades" package="entities"/>
-    <mapping class="entities.Municipios" package="entities"/>
-    <mapping class="entities.Provincias" package="entities"/>
-    <mapping class="entities.Zonas" package="entities"/>
-    <!-- ENTITIES.AGENTES MAPPING -->
-    <mapping class="entities.agentes.Agentes" file="" jar="" package="entities.agentes" resource=""/>
-    <mapping class="entities.agentes.Cargos" package="entities.agentes"/>
-    <!-- ENTITIES.CLIENTES MAPPING -->
-    <mapping class="entities.clientes.Clientes" package="entities.clientes"/>
-    <mapping class="entities.clientes.DatosPersonales" package="entities.clientes"/>
-    <mapping class="entities.clientes.Intereses" package="entities.clientes"/>
-    <!-- ENTITIES.INMUEBLES MAPPING -->
-    <mapping class="entities.inmuebles.Caracteristicas" package="entities.inmuebles"/>
-    <mapping class="entities.inmuebles.Direccion" package="entities.inmuebles"/>
-    <mapping class="entities.inmuebles.Inmuebles" package="entities.inmuebles"/>
-    <mapping class="entities.inmuebles.Localizacion" package="entities.inmuebles"/>
-  </session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/inmovinescrm?zeroDateTimeBehavior=convertToNull
+        </property>
+        <property name="hibernate.connection.username">inmovinescrm</property>
+        <property name="hibernate.connection.password">melocoton</property>
+        <property name="hibernate.query.factory_class">
+            org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory
+        </property>
+        <property name="hibernate.show_sql">true</property>
+        <!-- ENTITIES MAPPING -->
+        <mapping class="entities.Comunidades" package="entities"/>
+        <mapping class="entities.Municipios" package="entities"/>
+        <mapping class="entities.Provincias" package="entities"/>
+        <mapping class="entities.Zonas" package="entities"/>
+        <!-- ENTITIES.AGENTES MAPPING -->
+        <mapping class="entities.agentes.Agentes" file="" jar="" package="entities.agentes" resource=""/>
+        <mapping class="entities.agentes.Cargos" package="entities.agentes"/>
+        <!-- ENTITIES.CLIENTES MAPPING -->
+        <mapping class="entities.clientes.Clientes" package="entities.clientes"/>
+        <mapping class="entities.clientes.DatosPersonales" package="entities.clientes"/>
+        <mapping class="entities.clientes.Intereses" package="entities.clientes"/>
+        <!-- ENTITIES.INMUEBLES MAPPING -->
+        <mapping class="entities.inmuebles.Caracteristicas" package="entities.inmuebles"/>
+        <mapping class="entities.inmuebles.Direccion" package="entities.inmuebles"/>
+        <mapping class="entities.inmuebles.Inmuebles" package="entities.inmuebles"/>
+        <mapping class="entities.inmuebles.Localizacion" package="entities.inmuebles"/>
+        <mapping class="entities.inmuebles.Tipos" package="entities.inmuebles"/>
+        <mapping class="entities.inmuebles.Gestiones" package="entities.inmuebles"/>
+        <mapping class="entities.agentes.Tareas" package="entities.agentes"/>
+    </session-factory>
 </hibernate-configuration>

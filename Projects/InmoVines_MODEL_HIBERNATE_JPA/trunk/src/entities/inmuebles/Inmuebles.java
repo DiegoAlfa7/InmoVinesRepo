@@ -7,6 +7,7 @@ package entities.inmuebles;
 
 import entities.agentes.Agentes;
 import entities.clientes.Clientes;
+import org.hibernate.annotations.JoinColumnOrFormula;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,71 +17,91 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(name = "inmuebles", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Inmuebles.findAll", query = "SELECT i FROM Inmuebles i")
-    , @NamedQuery(name = "Inmuebles.findById", query = "SELECT i FROM Inmuebles i WHERE i.id = :id")
-    , @NamedQuery(name = "Inmuebles.findByReferenciaCatastral", query = "SELECT i FROM Inmuebles i WHERE i.referenciaCatastral = :referenciaCatastral")
-    , @NamedQuery(name = "Inmuebles.findByReferencia", query = "SELECT i FROM Inmuebles i WHERE i.referencia = :referencia")
-    , @NamedQuery(name = "Inmuebles.findByTipo", query = "SELECT i FROM Inmuebles i WHERE i.tipo = :tipo")
-    , @NamedQuery(name = "Inmuebles.findByDescripcion", query = "SELECT i FROM Inmuebles i WHERE i.descripcion = :descripcion")
-    , @NamedQuery(name = "Inmuebles.findByTextoReclamo", query = "SELECT i FROM Inmuebles i WHERE i.textoReclamo = :textoReclamo")
-    , @NamedQuery(name = "Inmuebles.findByGastosComunidad", query = "SELECT i FROM Inmuebles i WHERE i.gastosComunidad = :gastosComunidad")
-    , @NamedQuery(name = "Inmuebles.findByAlturaEdificio", query = "SELECT i FROM Inmuebles i WHERE i.alturaEdificio = :alturaEdificio")
-    , @NamedQuery(name = "Inmuebles.findByPrecioCompra", query = "SELECT i FROM Inmuebles i WHERE i.precioCompra = :precioCompra")
-    , @NamedQuery(name = "Inmuebles.findByPrecioAlquiler", query = "SELECT i FROM Inmuebles i WHERE i.precioAlquiler = :precioAlquiler")
-    , @NamedQuery(name = "Inmuebles.findByPrecioTraspaso", query = "SELECT i FROM Inmuebles i WHERE i.precioTraspaso = :precioTraspaso")
-    , @NamedQuery(name = "Inmuebles.findByPrecioAlquilerOpcionCompra", query = "SELECT i FROM Inmuebles i WHERE i.precioAlquilerOpcionCompra = :precioAlquilerOpcionCompra")
+        @NamedQuery(name = "Inmuebles.findAll", query = "SELECT i FROM Inmuebles i")
+        , @NamedQuery(name = "Inmuebles.findById", query = "SELECT i FROM Inmuebles i WHERE i.id = :id")
+        , @NamedQuery(name = "Inmuebles.findByReferenciaCatastral", query = "SELECT i FROM Inmuebles i WHERE i.referenciaCatastral = :referenciaCatastral")
+        , @NamedQuery(name = "Inmuebles.findByReferencia", query = "SELECT i FROM Inmuebles i WHERE i.referencia = :referencia")
+        , @NamedQuery(name = "Inmuebles.findByTipo", query = "SELECT i FROM Inmuebles i WHERE i.tipos = :tipo")
+        , @NamedQuery(name = "Inmuebles.findByDescripcion", query = "SELECT i FROM Inmuebles i WHERE i.descripcion = :descripcion")
+        , @NamedQuery(name = "Inmuebles.findByTextoReclamo", query = "SELECT i FROM Inmuebles i WHERE i.textoReclamo = :textoReclamo")
+        , @NamedQuery(name = "Inmuebles.findByGastosComunidad", query = "SELECT i FROM Inmuebles i WHERE i.gastosComunidad = :gastosComunidad")
+        , @NamedQuery(name = "Inmuebles.findByAlturaEdificio", query = "SELECT i FROM Inmuebles i WHERE i.alturaEdificio = :alturaEdificio")
+        , @NamedQuery(name = "Inmuebles.findByPrecioCompra", query = "SELECT i FROM Inmuebles i WHERE i.precioCompra = :precioCompra")
+        , @NamedQuery(name = "Inmuebles.findByPrecioAlquiler", query = "SELECT i FROM Inmuebles i WHERE i.precioAlquiler = :precioAlquiler")
+        , @NamedQuery(name = "Inmuebles.findByPrecioTraspaso", query = "SELECT i FROM Inmuebles i WHERE i.precioTraspaso = :precioTraspaso")
+        , @NamedQuery(name = "Inmuebles.findByPrecioAlquilerOpcionCompra", query = "SELECT i FROM Inmuebles i WHERE i.precioAlquilerOpcionCompra = :precioAlquilerOpcionCompra")
+        , @NamedQuery(name = "Inmuebles.findByTipoGestion", query = "SELECT i FROM Inmuebles i WHERE i.gestiones = :gestiones")
 })
 public class Inmuebles implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+
     @Column(name = "referencia_catastral")
     private String referenciaCatastral;
+
     @Column(name = "referencia")
     private String referencia;
-    @Column(name = "tipo")
-    private int tipo;
+
     @Column(name = "descripcion")
     private String descripcion;
+
     @Column(name = "texto_reclamo")
     private String textoReclamo;
+
     @Column(name = "gastos_comunidad")
     private Integer gastosComunidad;
+
     @Column(name = "altura_edificio")
     private Short alturaEdificio;
+
     @Column(name = "precio_compra")
     private Double precioCompra;
+
     @Column(name = "precio_alquiler")
     private Double precioAlquiler;
+
     @Column(name = "precio_traspaso")
     private Double precioTraspaso;
+
     @Column(name = "precio_alquiler_opcion_compra")
     private Double precioAlquilerOpcionCompra;
+
     @OneToMany(mappedBy = "idInmuebleInteres")
     private List<Clientes> clientesList;
 
     @ManyToOne
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
     private Agentes agente;
+
     @JoinColumn(name = "id_cliente_propietario", referencedColumnName = "id")
     @ManyToOne(cascade = CascadeType.ALL)
     private Clientes idClientePropietario;
+
+    @JoinColumn(name = "tipo", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Tipos tipos;
+
+    @JoinColumn(name = "tipo_gestion", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Gestiones gestiones;
 
     @Embedded
     private Caracteristicas caracteristicas;
 
     @Embedded
     private Localizacion localizacion;
+
 
     public Inmuebles() {
     }
@@ -111,14 +132,6 @@ public class Inmuebles implements Serializable {
 
     public void setReferencia(String referencia) {
         this.referencia = referencia;
-    }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
     }
 
     public String getDescripcion() {
@@ -201,6 +214,22 @@ public class Inmuebles implements Serializable {
         this.localizacion = localizacion;
     }
 
+    public Tipos getTipos() {
+        return tipos;
+    }
+
+    public void setTipos(Tipos tipos) {
+        this.tipos = tipos;
+    }
+
+    public Gestiones getGestiones() {
+        return gestiones;
+    }
+
+    public void setGestiones(Gestiones gestiones) {
+        this.gestiones = gestiones;
+    }
+
     @XmlTransient
     public List<Clientes> getClientesList() {
         return clientesList;
@@ -210,21 +239,20 @@ public class Inmuebles implements Serializable {
         this.clientesList = clientesList;
     }
 
-    public void addClienteInteresado(Clientes c){
+    public void addClienteInteresado(Clientes c) {
 
-        if(this.clientesList != null){
+        if (this.clientesList != null) {
 
             this.clientesList.add(c);
             c.setIdInmuebleInteres(this);
 
 
-        }else{
+        } else {
 
             this.clientesList = new ArrayList<Clientes>();
             this.addClienteInteresado(c);
 
         }
-
 
 
     }

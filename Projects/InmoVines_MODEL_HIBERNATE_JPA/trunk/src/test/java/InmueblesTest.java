@@ -6,10 +6,7 @@ import entities.agentes.Agentes;
 import entities.agentes.Cargos;
 import entities.clientes.Clientes;
 import entities.clientes.DatosPersonales;
-import entities.inmuebles.Caracteristicas;
-import entities.inmuebles.Direccion;
-import entities.inmuebles.Inmuebles;
-import entities.inmuebles.Localizacion;
+import entities.inmuebles.*;
 import hibernateUtil.NewHibernateUtil;
 import org.hamcrest.CoreMatchers;
 import org.hibernate.Session;
@@ -36,7 +33,7 @@ public class InmueblesTest {
 
     static Session session;
 
-   /**
+    /**
      * This inmueble is a dummy entity for testing purposes
      */
     static Inmuebles inmueblePrueba;
@@ -55,7 +52,7 @@ public class InmueblesTest {
             Inmuebles inmuebles = new Inmuebles();
 
             //This cliente is expected to not exist in database
-            inmuebles.setClientePropietario(new Clientes(Long.valueOf(420l)));
+            inmuebles.setClientePropietario(new Clientes(Long.valueOf(1l)));
 
             Direccion direccion = new Direccion();
 
@@ -82,7 +79,7 @@ public class InmueblesTest {
             inmuebles.setLocalizacion(localizacion);
             inmuebles.setTextoReclamo("insertarInmuebleFailed -> InmueblesTest");
             inmuebles.setDescripcion("Gracias a este edificio nos van a dar un 10 jajajajajjj");
-            inmuebles.setTipo(1);
+            inmuebles.setTipos(new Tipos(Long.valueOf(20l)));
 
             Transaction transaction;
 
@@ -101,36 +98,17 @@ public class InmueblesTest {
             transaction.rollback();
 
 
-
         };
 
-        Date date = new Date();
-
-        Agentes agentes = new Agentes(Long.valueOf(1));
-        agentes.setNombre("Diego");
         inmueblePrueba = new Inmuebles();
 
-        Agentes agente = new Agentes();
-        agente.setNombre("Agente de Prueba");
-        agente.setFacebook("FacebookAgentePrueba");
-        agente.setTwitter("TwitterAgentePrueba");
-        agente.setLinkedin("LinkedInAgentePrueba");
-        agente.setInstagram("InstagramAgentePrueba");
-        agente.setCargo(new Cargos(1l));
-
-
+        Date date = new Date();
+        Agentes agentes = session.get(Agentes.class,1l);
         Comunidades comunidades = session.get(Comunidades.class, 1l);
+        Clientes clientes = session.get(Clientes.class, 420l);
 
-        Clientes cliente = new Clientes();
-        DatosPersonales pdata = new DatosPersonales();
-        cliente.setDatosPersonales(pdata);
-        cliente.getDatosPersonales().setNombre("Cliente de Prueba");
-        cliente.setAgenteEntrada(agente);
-        cliente.setAgente(agente);
-        cliente.setIdInmuebleInteres(inmueblePrueba);
-        inmueblePrueba.setClientePropietario(cliente);
-        inmueblePrueba.setAgente(agente);
-
+        inmueblePrueba.setClientePropietario(clientes);
+        inmueblePrueba.setAgente(agentes);
 
 
         Provincias provincia = comunidades.getProvinciasList().get(0);
@@ -139,12 +117,17 @@ public class InmueblesTest {
 
         Zonas zona = municipio.getZonasList().get(0);
 
+        //TIPO DE INMUEBLE
+        Tipos tipos = session.get(Tipos.class,1l);
 
+        //GESTION INMUEBLE
+        Gestiones gestiones = session.get(Gestiones.class,1l);
 
         //CARACTERISTICAS DE INMUEBLES
         inmueblePrueba.setReferenciaCatastral("Referencia catastral");
         inmueblePrueba.setReferencia("Referencia");
-        inmueblePrueba.setTipo(1);
+        inmueblePrueba.setTipos(tipos);
+        inmueblePrueba.setGestiones(gestiones);
         inmueblePrueba.setDescripcion("Descripción");
         inmueblePrueba.setTextoReclamo("Texto reclamo");
         inmueblePrueba.setGastosComunidad(100);
@@ -202,7 +185,6 @@ public class InmueblesTest {
         caracteristicas.setEficienciaEnergeticaEntramite01(false);
 
 
-
         caracteristicas.setEficienciaEnergeticaFecvalid(date);
         caracteristicas.setEficienciaEnergeticaEmisiones(Float.valueOf(23));
         caracteristicas.setOrientacionSolar("Norte");
@@ -211,10 +193,7 @@ public class InmueblesTest {
         caracteristicas.setCarpinteriaInterior("Carpinteria Interior");
         inmueblePrueba.setCaracteristicas(caracteristicas);
 
-
-
-
-
+        System.out.println("Nombre tipo: " + inmueblePrueba.getTipos().getNombre());
         System.out.println("DATOS DE LAS LOCALIZACIONES -->" + localizacion.toString());
         System.out.println("DATOS DE LAS DIRECCIONES --> " + direccion.toString());
         System.out.println("DATOS DE LAS CARACTERISTICAS --> " + caracteristicas.toString());
@@ -227,14 +206,13 @@ public class InmueblesTest {
      * Este método sólo ejecuta
      */
     @AfterAll
-    public static void manageShutDown(){
+    public static void manageShutDown() {
 
 
         session.close();
 
 
     }
-
 
 
     /**
@@ -254,12 +232,9 @@ public class InmueblesTest {
         Long i_insertado = (Long) session.save(inmueblePrueba);
 
 
-
         //TEST ASSERTS
-
-
         assertNotNull(i_insertado);
-        assertEquals( inmueblePrueba, session.get(Inmuebles.class, i_insertado));
+        assertEquals(inmueblePrueba, session.get(Inmuebles.class, i_insertado));
         assertEquals(inmueblePrueba.getLocalizacion().getComunidad(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getComunidad());
         assertEquals(inmueblePrueba.getLocalizacion().getProvincia(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getProvincia());
         assertEquals(inmueblePrueba.getLocalizacion().getPoblacion(), session.get(Inmuebles.class, inmueblePrueba.getId()).getLocalizacion().getPoblacion());
@@ -267,8 +242,8 @@ public class InmueblesTest {
         assertEquals((Double) 4200000.0, inmueblePrueba.getPrecioCompra());
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario(), CoreMatchers.is(equalTo(inmueblePrueba.getClientePropietario())));
         assertThat(session.get(Inmuebles.class, i_insertado).getClientePropietario().getAgente(), is(inmueblePrueba.getClientePropietario().getAgente()));
-
-
+        assertThat(session.get(Inmuebles.class,i_insertado).getTipos().getId(), is(inmueblePrueba.getTipos().getId()));
+        assertThat(session.get(Inmuebles.class,i_insertado).getGestiones().getId(),is(inmueblePrueba.getGestiones().getId()));
 
         transaction.rollback();
 
