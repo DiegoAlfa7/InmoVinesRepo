@@ -29,7 +29,7 @@ public class ClientesTest {
     private static Session session;
     private static Clientes clientePrueba;
     private static Executable insertarCliente;
-
+    private static Long inmueble_insertado;
     /**
      * Before executing test should initialize Hibernate Session
      */
@@ -89,15 +89,22 @@ public class ClientesTest {
         clientePrueba.setComprador(false);
         clientePrueba.setVendedor(true);
         clientePrueba.setAgente(agentes);
+        clientePrueba.setAgenteEntrada(agentes);
+        clientePrueba.setIdInmuebleInteres(inmueble1);
+
+        inmueble_insertado = (Long) session.save(inmueble1);
 
         insertarCliente = () -> {
 
             Transaction transaction = session.beginTransaction();
-            clientePrueba.setAgente(new Agentes(420l));
 
-            session.save(clientePrueba);
+            Clientes c = clientePrueba;
+            c.setAgenteEntrada(null);
 
+            session.save(c);
             transaction.rollback();
+
+
 
         };
 
@@ -121,28 +128,34 @@ public class ClientesTest {
 
         Transaction transaction;
 
-        if (session.getTransaction() != null) {
+        if (session.getTransaction() == null) {
 
             transaction = session.getTransaction();
 
-        } else {
+        }else{
 
             transaction = session.beginTransaction();
-
         }
 
-        Long cliente_insertado = (Long) session.save(this.clientePrueba);
+
+        //need to insert an Inmuebles instance before saving a cliente with IdInmuebleInteres
+
+        clientePrueba.setIdInmuebleInteres(session.get(Inmuebles.class,inmueble_insertado));
+        Long cliente_insertado = (Long) session.save(clientePrueba);
+
 
         // Comprueba que el cliente insertado no venga vacío
         assertNotNull(cliente_insertado);
         // Comprueba que el agente vinculado al cliente coincide con el esperado
-        assertEquals(this.clientePrueba.getAgente(), session.get(Clientes.class, this.clientePrueba.getId()).getAgente());
+        assertEquals(clientePrueba.getAgente(), session.get(Clientes.class, clientePrueba.getId()).getAgente());
         // Comprueba que los inmuebles asociados al clientes no vengan vacios
-        assertNotNull(this.clientePrueba.getInmueblesList());
+        assertNotNull(clientePrueba.getInmueblesList());
         // Comrpueba que los inmuebles asociados coinciden con los esperados
-        assertEquals(this.clientePrueba.getInmueblesList(), session.get(Clientes.class, this.clientePrueba.getId()).getInmueblesList());
+        assertEquals(clientePrueba.getInmueblesList(), session.get(Clientes.class, clientePrueba.getId()).getInmueblesList());
         // Comprueba que los datos personales no vengan vacíos
-        assertNotNull(this.clientePrueba.getDatosPersonales());
+        assertNotNull(clientePrueba.getDatosPersonales());
+        //Comprueba que el inmueble insertado, es el mismo que el inmueble de interés del cliente
+        assertEquals(clientePrueba.getIdInmuebleInteres(), session.get(Inmuebles.class,inmueble_insertado));
 
         transaction.rollback();
 
@@ -155,7 +168,7 @@ public class ClientesTest {
     @Test
     public void b() {
 
-        clientePrueba.setAgente(null);
+
         assertThrows(ConstraintViolationException.class, insertarCliente);
 
     }
