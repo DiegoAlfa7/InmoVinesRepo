@@ -81,8 +81,11 @@ public class Clientes implements Serializable {
     @Column(name = "canal_entrada")
     private Short canalEntrada;
 
-    @JoinColumn(name = "id_agente", referencedColumnName = "id")
+    @Column(name = "account_hash")
+    @Basic(optional = false)
+    private String accountHash;
 
+    @JoinColumn(name = "id_agente", referencedColumnName = "id")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Agentes agente;
     @JoinColumn(name = "id_agente_entrada", referencedColumnName = "id")
@@ -266,6 +269,15 @@ public class Clientes implements Serializable {
 
 
 
+    }
+
+
+    public String getAccountHash() {
+        return accountHash;
+    }
+
+    public void setAccountHash(String accountHash) {
+        this.accountHash = accountHash;
     }
 
     @XmlTransient

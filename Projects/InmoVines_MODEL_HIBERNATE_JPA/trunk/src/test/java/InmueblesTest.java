@@ -127,6 +127,7 @@ public class InmueblesTest {
         cliente.getDatosPersonales().setNombre("Cliente de Prueba");
         cliente.setAgenteEntrada(agente);
         cliente.setAgente(agente);
+        cliente.setIdInmuebleInteres(inmueblePrueba);
         inmueblePrueba.setClientePropietario(cliente);
         inmueblePrueba.setAgente(agente);
 
