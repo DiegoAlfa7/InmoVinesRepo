@@ -106,20 +106,9 @@ public class Comunidades implements Serializable {
         this.provinciasList = provinciasList;
     }
 
-    public void addInmueble(Inmuebles i){
-
-
-
-
-
-                this.inmueblesList.add(i);
-                i.getLocalizacion().setComunidad(this);
-
-
-
-
-
-
+    public void addInmueble(Inmuebles i) {
+        this.inmueblesList.add(i);
+        i.getLocalizacion().setComunidad(this);
     }
 
     @Override

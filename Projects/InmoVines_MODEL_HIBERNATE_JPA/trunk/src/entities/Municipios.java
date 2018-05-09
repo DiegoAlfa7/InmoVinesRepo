@@ -7,28 +7,27 @@ package entities;
 
 import entities.clientes.Intereses;
 import entities.inmuebles.Inmuebles;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.List;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(name = "municipios", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Municipios.findAll", query = "SELECT m FROM Municipios m")
-    , @NamedQuery(name = "Municipios.findById", query = "SELECT m FROM Municipios m WHERE m.id = :id")
-    , @NamedQuery(name = "Municipios.findByIdProvincia", query = "SELECT m FROM Municipios m WHERE m.provincia = :idProvincia")
-    , @NamedQuery(name = "Municipios.findByMunicipio", query = "SELECT m FROM Municipios m WHERE m.municipio = :municipio")
-    , @NamedQuery(name = "Municipios.findBySlug", query = "SELECT m FROM Municipios m WHERE m.slug = :slug")
-    , @NamedQuery(name = "Municipios.findByLatitud", query = "SELECT m FROM Municipios m WHERE m.latitud = :latitud")
-    , @NamedQuery(name = "Municipios.findByLongitud", query = "SELECT m FROM Municipios m WHERE m.longitud = :longitud")})
+        @NamedQuery(name = "Municipios.findAll", query = "SELECT m FROM Municipios m")
+        , @NamedQuery(name = "Municipios.findById", query = "SELECT m FROM Municipios m WHERE m.id = :id")
+        , @NamedQuery(name = "Municipios.findByIdProvincia", query = "SELECT m FROM Municipios m WHERE m.provincia = :idProvincia")
+        , @NamedQuery(name = "Municipios.findByMunicipio", query = "SELECT m FROM Municipios m WHERE m.municipio = :municipio")
+        , @NamedQuery(name = "Municipios.findBySlug", query = "SELECT m FROM Municipios m WHERE m.slug = :slug")
+        , @NamedQuery(name = "Municipios.findByLatitud", query = "SELECT m FROM Municipios m WHERE m.latitud = :latitud")
+        , @NamedQuery(name = "Municipios.findByLongitud", query = "SELECT m FROM Municipios m WHERE m.longitud = :longitud")})
 public class Municipios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,7 +65,6 @@ public class Municipios implements Serializable {
     public Municipios(Long id) {
         this.id = id;
     }
-
 
 
     public Municipios(Long id, Provincias provincia, String municipio, String slug) {
@@ -154,23 +152,11 @@ public class Municipios implements Serializable {
         this.inmueblesList = inmueblesList;
     }
 
-    public void addInmueble(Inmuebles i){
-
-
-
-
-
-            this.inmueblesList.add(i);
-            i.getLocalizacion().setComunidad(this.getProvincia().getComunidad());
-            i.getLocalizacion().setProvincia(this.getProvincia());
-            i.getLocalizacion().setMunicipio(this);
-
-
-
-
-
-
-
+    public void addInmueble(Inmuebles i) {
+        this.inmueblesList.add(i);
+        i.getLocalizacion().setComunidad(this.getProvincia().getComunidad());
+        i.getLocalizacion().setProvincia(this.getProvincia());
+        i.getLocalizacion().setMunicipio(this);
     }
 
     @Override
@@ -197,5 +183,5 @@ public class Municipios implements Serializable {
     public String toString() {
         return "entities.cliente.Municipios[ id=" + id + " " + this.municipio + " ]";
     }
-    
+
 }
