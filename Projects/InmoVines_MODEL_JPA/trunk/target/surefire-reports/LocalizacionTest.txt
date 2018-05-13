@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: LocalizacionTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec <<< FAILURE! - in LocalizacionTest
+testZonasKO  Time elapsed: 0.047 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected org.hibernate.exception.ConstraintViolationException to be thrown, but nothing was thrown.
+	at LocalizacionTest.testZonasKO(LocalizacionTest.java:110)
+

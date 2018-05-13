@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: TareasTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in TareasTest
+TareasTest  Time elapsed: 0 sec  <<< ERROR!
+org.hibernate.exception.GenericJDBCException: could not execute statement
+	at TareasTest.setUp(TareasTest.java:45)
+Caused by: java.sql.SQLException: Field 'id' doesn't have a default value
+	at TareasTest.setUp(TareasTest.java:45)
+

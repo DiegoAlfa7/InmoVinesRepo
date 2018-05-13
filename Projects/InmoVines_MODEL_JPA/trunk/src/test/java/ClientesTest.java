@@ -90,6 +90,7 @@ public class ClientesTest {
         clientePrueba.setAgenteEntrada(agentes);
         clientePrueba.setIdInmuebleInteres(inmueble1);
 
+
         inmueble_insertado = (Long) session.save(inmueble1);
 
         insertarCliente = () -> {

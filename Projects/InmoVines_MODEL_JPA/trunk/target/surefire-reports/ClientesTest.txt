@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: ClientesTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.765 sec <<< FAILURE! - in ClientesTest
+ClientesTest  Time elapsed: 1.765 sec  <<< ERROR!
+org.hibernate.PropertyValueException: not-null property references a null or transient value : entities.clientes.Clientes.accountHash
+	at ClientesTest.setUp(ClientesTest.java:94)
+
