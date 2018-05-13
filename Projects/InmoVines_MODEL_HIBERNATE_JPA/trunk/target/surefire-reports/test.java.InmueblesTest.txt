@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: test.java.InmueblesTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.1 sec <<< FAILURE! - in test.java.InmueblesTest
-test.java.InmueblesTest  Time elapsed: 0.1 sec  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
-	at test.java.InmueblesTest.setUp(InmueblesTest.java:150)
-

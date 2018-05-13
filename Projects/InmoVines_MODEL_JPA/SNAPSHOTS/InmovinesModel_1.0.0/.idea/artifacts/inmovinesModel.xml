@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="inmovinesModel">
+    <output-path>$PROJECT_DIR$/out/artifacts/inmovinesModel</output-path>
+    <root id="archive" name="inmovinesModel.jar">
+      <element id="module-output" name="InmoVinesMvProj" />
+    </root>
+  </artifact>
+</component>

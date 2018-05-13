@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="InmoVinesCRMPU" transaction-type="RESOURCE_LOCAL">
+    <provider>javax.persistence.spi.PersistenceProvider</provider>
+    <class>entities.Zonas</class>
+    <class>entities.Provincias</class>
+    <class>entities.Municipios</class>
+    <class>entities.Comunidades</class>
+    <class>entities.clientes.Clientes</class>
+    <class>entities.clientes.Intereses</class>
+    <class>entities.agentes.Cargos</class>
+    <class>entities.agentes.Agentes</class>
+    <class>entities.inmuebles.Inmuebles</class>
+      <class>entities.inmuebles.Tipos</class>
+      <class>entities.inmuebles.Gestiones</class>
+      <class>entities.agentes.Tareas</class>
+    <class>entities.agentes.TareasEntity</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/inmovinescrm?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="inmovinescrm"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="melocoton"/>
+        <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/inmovinescrm"/>
+        <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/inmovinescrm"/>
+        <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+        <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/inmovinescrm"/>
+        <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
+        <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/inmovinescrm"/>
+        <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>
