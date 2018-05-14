@@ -9,17 +9,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/entities/clientes/DatosPersonales.java" line="91" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1c0a9cd-c36b-4a78-ad69-e7f2c96835d1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Spring_4_3_16_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Spring_Data_JPA_1_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InmoVinesMvProj.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernateUtil/InteresPostInsertListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../InmoVines_REPOSITORIES_JPA/trunk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../InmoVines_REPOSITORIES_JPA/trunk/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="d1c0a9cd-c36b-4a78-ad69-e7f2c96835d1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -409,7 +399,7 @@
       <workItem from="1525877574727" duration="9878000" />
       <workItem from="1526228865596" duration="1961000" />
       <workItem from="1526233145452" duration="345000" />
-      <workItem from="1526234751704" duration="1231000" />
+      <workItem from="1526234751704" duration="1440000" />
     </task>
     <servers />
   </component>
@@ -446,7 +436,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23764000" />
+    <option name="totallyTimeSpent" value="23973000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,7 +469,7 @@
       <window_info id="Image Layers" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.17198582" />
-      <window_info active="true" anchor="bottom" id="Run" order="10" sideWeight="0.8312034" visible="true" weight="0.38297874" />
+      <window_info anchor="bottom" id="Run" order="10" sideWeight="0.8312034" weight="0.38297874" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49878544" weight="0.3283582" />
       <window_info content_ui="combo" id="Project" order="6" sideWeight="0.48320895" visible="true" weight="0.18305598" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32955465" />
