@@ -4,8 +4,9 @@ package com.diegoa.inmovinesrest.controllers;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,11 +18,11 @@ public class InmueblesController {
     InmueblesServiceImpl inmueblesService;
 
 
-    @RequestMapping("/inmueble")
-    @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
-    public Inmuebles getInmueble() {
+    @GetMapping("/hola")
+    @ResponseBody
+    public String getInmueble() {
 
-        return inmueblesService.listAll().get(0);
+        return "hi";
     }
 
 
