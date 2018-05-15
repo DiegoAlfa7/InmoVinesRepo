@@ -1,6 +1,6 @@
-package com.diegoa.inmovinesrest.services.comunidades.srv;
+package com.diegoa.inmovinesrest.services.localizacion.comunidades.srv;
 
-import com.diegoa.inmovinesrest.entities.Comunidades;
+import com.diegoa.inmovinesrest.entities.localizacion.Comunidades;
 import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 

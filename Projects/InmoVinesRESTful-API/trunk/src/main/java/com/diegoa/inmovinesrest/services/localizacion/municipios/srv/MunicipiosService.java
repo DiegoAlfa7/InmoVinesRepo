@@ -1,6 +1,6 @@
-package com.diegoa.inmovinesrest.services.municipios.srv;
+package com.diegoa.inmovinesrest.services.localizacion.municipios.srv;
 
-import com.diegoa.inmovinesrest.entities.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
 import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 

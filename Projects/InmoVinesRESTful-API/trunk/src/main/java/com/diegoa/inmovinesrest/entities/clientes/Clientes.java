@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.clientes;
 
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.diegoa.inmovinesrest.entities.roles.RolesUsuarios;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -83,6 +84,10 @@ public class Clientes implements Serializable {
     @Column(name = "account_hash")
     @Basic(optional = false)
     private String accountHash;
+
+    @JoinColumn(name = "id_rol", referencedColumnName = "ID")
+    @ManyToOne(optional = false)
+    private RolesUsuarios rol;
 
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
@@ -230,6 +235,15 @@ public class Clientes implements Serializable {
 
         this.agenteEntrada = agenteEntrada;
 
+    }
+
+
+    public RolesUsuarios getRol() {
+        return rol;
+    }
+
+    public void setRol(RolesUsuarios rol) {
+        this.rol = rol;
     }
 
     public Inmuebles getIdInmuebleInteres() {

@@ -1,6 +1,6 @@
-package com.diegoa.inmovinesrest.services.provincias.srv;
+package com.diegoa.inmovinesrest.services.localizacion.provincias.srv;
 
-import com.diegoa.inmovinesrest.entities.Provincias;
+import com.diegoa.inmovinesrest.entities.localizacion.Provincias;
 import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 

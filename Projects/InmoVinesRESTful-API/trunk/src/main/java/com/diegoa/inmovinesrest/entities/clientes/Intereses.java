@@ -5,8 +5,8 @@
  */
 package com.diegoa.inmovinesrest.entities.clientes;
 
-import com.diegoa.inmovinesrest.entities.Municipios;
-import com.diegoa.inmovinesrest.entities.Provincias;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Provincias;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;

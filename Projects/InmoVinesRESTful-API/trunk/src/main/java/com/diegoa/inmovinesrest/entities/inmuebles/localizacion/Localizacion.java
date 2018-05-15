@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.diegoa.inmovinesrest.entities.inmuebles;
+package com.diegoa.inmovinesrest.entities.inmuebles.localizacion;
 
-import com.diegoa.inmovinesrest.entities.Comunidades;
-import com.diegoa.inmovinesrest.entities.Municipios;
-import com.diegoa.inmovinesrest.entities.Provincias;
-import com.diegoa.inmovinesrest.entities.Zonas;
+import com.diegoa.inmovinesrest.entities.localizacion.Comunidades;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Provincias;
+import com.diegoa.inmovinesrest.entities.localizacion.Zonas;
 
 import javax.persistence.*;
 

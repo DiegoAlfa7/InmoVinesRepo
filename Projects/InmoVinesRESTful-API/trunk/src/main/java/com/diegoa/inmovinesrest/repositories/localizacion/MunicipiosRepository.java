@@ -1,6 +1,6 @@
-package com.diegoa.inmovinesrest.repositories;
+package com.diegoa.inmovinesrest.repositories.localizacion;
 
-import com.diegoa.inmovinesrest.entities.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

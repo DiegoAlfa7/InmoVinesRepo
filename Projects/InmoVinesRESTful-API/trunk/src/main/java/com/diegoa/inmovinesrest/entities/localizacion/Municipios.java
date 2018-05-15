@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.diegoa.inmovinesrest.entities;
+package com.diegoa.inmovinesrest.entities.localizacion;
 
 import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;

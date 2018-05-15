@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.diegoa.inmovinesrest.entities.inmuebles;
+package com.diegoa.inmovinesrest.entities.inmuebles.localizacion;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

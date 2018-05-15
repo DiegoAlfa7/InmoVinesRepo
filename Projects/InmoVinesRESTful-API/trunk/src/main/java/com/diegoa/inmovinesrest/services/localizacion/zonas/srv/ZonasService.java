@@ -1,6 +1,6 @@
-package com.diegoa.inmovinesrest.services.zonas.srv;
+package com.diegoa.inmovinesrest.services.localizacion.zonas.srv;
 
-import com.diegoa.inmovinesrest.entities.Zonas;
+import com.diegoa.inmovinesrest.entities.localizacion.Zonas;
 import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 
