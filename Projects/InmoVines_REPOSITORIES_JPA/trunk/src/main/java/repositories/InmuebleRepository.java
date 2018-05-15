@@ -1,7 +1,6 @@
 package repositories;
 
 import entities.inmuebles.Inmuebles;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

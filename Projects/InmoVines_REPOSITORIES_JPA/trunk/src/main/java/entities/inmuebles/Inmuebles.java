@@ -22,7 +22,7 @@ import java.util.List;
 @Entity
 @Table(name = "inmuebles", schema = "inmovinescrm")
 @XmlRootElement
-@NamedQueries({
+@NamedQueries(value = {
         @NamedQuery(name = "Inmuebles.findAll", query = "SELECT i FROM Inmuebles i")
         , @NamedQuery(name = "Inmuebles.findById", query = "SELECT i FROM Inmuebles i WHERE i.id = :id")
         , @NamedQuery(name = "Inmuebles.findByReferenciaCatastral", query = "SELECT i FROM Inmuebles i WHERE i.referenciaCatastral = :referenciaCatastral")

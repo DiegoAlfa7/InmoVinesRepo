@@ -5,14 +5,17 @@ import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
-@Controller
+@RestController
+@RequestMapping("/inmovinescrm")
 public class InmueblesController {
 
 
@@ -20,20 +23,18 @@ public class InmueblesController {
     InmueblesRepository inmueblesRepository;
 
 
-    @GetMapping("/inmueble")
-    @ResponseBody
-    public Inmuebles getInmueble() throws JsonProcessingException {
+    @RequestMapping("/inmueble")
+    @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
+    public Inmuebles getInmueble(){
 
         return inmueblesRepository.findAll().get(0);
-
-
     }
 
 
     @GetMapping("/hello")
 
     @ResponseBody
-    public String sayHi(){
+    public String sayHi() {
 
         return "hi!";
 
