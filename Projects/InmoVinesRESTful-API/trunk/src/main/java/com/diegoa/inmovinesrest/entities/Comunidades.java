@@ -31,7 +31,6 @@ public class Comunidades implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     @Basic(optional = false)
