@@ -2,9 +2,9 @@ package com.diegoa.inmovinesrest.controllers.accesible;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializer;
 import com.diegoa.inmovinesrest.entities.inmuebles.PageInmueblesSerializer;
-import com.diegoa.inmovinesrest.services.user.clientes.impl.ClientesUserServiceImpl;
-import com.diegoa.inmovinesrest.services.user.inmuebles.impl.InmueblesUserServiceImpl;
+import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,10 +28,8 @@ import java.util.List;
 public class InmueblesController {
 
     @Autowired
-    InmueblesUserServiceImpl inmueblesUserService;
+    InmueblesServiceImpl inmueblesUserService;
 
-    @Autowired
-    ClientesUserServiceImpl clientesUserService;
 
 
     @GetMapping("/inmuebles")
@@ -63,6 +58,34 @@ public class InmueblesController {
 
 
     }
+
+    @GetMapping("/inmuebles/{id}")
+    @ResponseBody
+    public String getInmuebleById( @PathVariable("id") long id,  Pageable pageable) {
+
+
+        Inmuebles i = inmueblesUserService.findOneById(id);
+
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addSerializer(Inmuebles.class, new InmueblesSerializer());
+        mapper.registerModule(module);
+
+
+
+
+        try {
+            return mapper.writeValueAsString(i);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+    }
+
 
 
 }
