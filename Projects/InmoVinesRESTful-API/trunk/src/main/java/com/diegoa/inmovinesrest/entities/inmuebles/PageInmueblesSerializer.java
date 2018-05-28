@@ -8,9 +8,11 @@ import org.springframework.data.domain.Page;
 import java.io.IOException;
 import java.util.List;
 
-public class ListInmueblesSerializer extends JsonSerializer {
+public class PageInmueblesSerializer extends JsonSerializer {
     @Override
     public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+
+
         Page<Inmuebles> p = (Page<Inmuebles>) o;
 
        jsonGenerator.writeStartObject();
@@ -26,7 +28,11 @@ public class ListInmueblesSerializer extends JsonSerializer {
             }
 
             jsonGenerator.writeEndArray();
-
+    jsonGenerator.writeObjectFieldStart("pageable");
+        jsonGenerator.writeObjectFieldStart("sort");
+            jsonGenerator.writeStringField("unsorted", String.valueOf(!p.getPageable().getSort().isSorted()));
+            jsonGenerator.writeStringField("sorted", String.valueOf(p.getPageable().getSort().isSorted()));
+            jsonGenerator.writeEndObject();
        /* "pageable": {
             "sort": {
                 "unsorted": true,
@@ -49,7 +55,7 @@ public class ListInmueblesSerializer extends JsonSerializer {
         },
         "numberOfElements": 1,
                 "first": true*/
-        jsonGenerator.writeEndObject();
+
 
 
     }
