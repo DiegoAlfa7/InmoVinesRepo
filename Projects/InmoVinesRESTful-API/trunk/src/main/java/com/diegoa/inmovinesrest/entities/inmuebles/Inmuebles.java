@@ -260,7 +260,7 @@ public class Inmuebles implements Serializable {
 
 
     }
-
+    @JsonIgnore
     public Agentes getAgente() {
         return agente;
     }
@@ -268,7 +268,7 @@ public class Inmuebles implements Serializable {
     public void setAgente(Agentes agente) {
         this.agente = agente;
     }
-
+    @JsonIgnore
     public Clientes getClientePropietario() {
         return idClientePropietario;
     }

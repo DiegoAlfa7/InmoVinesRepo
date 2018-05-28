@@ -56,7 +56,7 @@ public class InmueblesController {
         List<Inmuebles> inmuebles_data = new ArrayList<Inmuebles>();
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(java.awt.List.class, new ListInmueblesSerializer());
+        module.addSerializer(Page.class, new ListInmueblesSerializer());
         mapper.registerModule(module);
 
 

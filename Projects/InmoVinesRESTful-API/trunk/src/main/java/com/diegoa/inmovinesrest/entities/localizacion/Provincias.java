@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.localizacion;
 
 import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.List;
@@ -96,6 +97,7 @@ public class Provincias implements Serializable {
         this.provincia = provincia;
     }
 
+    @JsonIgnore
     public Comunidades getComunidad() {
         return comunidad;
     }
@@ -104,6 +106,7 @@ public class Provincias implements Serializable {
         this.comunidad = comunidadId;
     }
 
+    @JsonIgnore
     public Municipios getCapitalId() {
         return capitalId;
     }
@@ -112,6 +115,7 @@ public class Provincias implements Serializable {
         this.capitalId = capitalId;
     }
 
+    @JsonIgnore
     public List<Municipios> getMunicipiosList() {
         return municipiosList;
     }
@@ -121,6 +125,7 @@ public class Provincias implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Intereses> getInteresesList() {
         return interesesList;
     }
@@ -130,6 +135,7 @@ public class Provincias implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
     }

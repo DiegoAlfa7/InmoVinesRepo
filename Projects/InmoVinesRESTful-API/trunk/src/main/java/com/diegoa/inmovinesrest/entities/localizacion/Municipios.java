@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.localizacion;
 
 import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -83,7 +84,7 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
-
+    @JsonIgnore
     public Provincias getProvincia() {
         return provincia;
     }
@@ -126,6 +127,7 @@ public class Municipios implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Zonas> getZonasList() {
         return zonasList;
     }
@@ -135,6 +137,7 @@ public class Municipios implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Intereses> getInteresesList() {
         return interesesList;
     }
@@ -144,6 +147,7 @@ public class Municipios implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
     }

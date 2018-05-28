@@ -6,6 +6,7 @@
 package com.diegoa.inmovinesrest.entities.localizacion;
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.List;
@@ -89,6 +90,7 @@ public class Comunidades implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
     }
@@ -97,6 +99,7 @@ public class Comunidades implements Serializable {
         this.inmueblesList = inmueblesList;
     }
 
+    @JsonIgnore
     public List<Provincias> getProvinciasList() {
         return provinciasList;
     }
