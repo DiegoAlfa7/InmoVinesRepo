@@ -20,7 +20,11 @@ public class InmueblesSerializer extends JsonSerializer {
         jsonGenerator.writeNumberField("id", i.getId());
         jsonGenerator.writeStringField("descripcion", i.getDescripcion());
         jsonGenerator.writeStringField("textoReclamo", i.getTextoReclamo());
-        jsonGenerator.writeNumberField("gastosComunidad", i.getGastosComunidad());
+        jsonGenerator.writeNumberField("precioCompra", i.getPrecioCompra());
+        jsonGenerator.writeNumberField("precioAlquiler", i.getPrecioAlquiler());
+        jsonGenerator.writeNumberField("precioTraspaso", i.getPrecioTraspaso());
+        jsonGenerator.writeNumberField("precioAlquilerOpcionCompra", i.getPrecioAlquilerOpcionCompra());
+        jsonGenerator.writeNumberField("precioAlquilerOpcionCompra", i.getGastosComunidad());
         jsonGenerator.writeStringField("tipo_vivienda", i.getTipos().getNombre());
         jsonGenerator.writeStringField("tipo_gestion", i.getGestiones().getNombre());
         //Caracteristicas principales del inmueble
@@ -34,30 +38,18 @@ public class InmueblesSerializer extends JsonSerializer {
         //Localizacion del inmueble
         jsonGenerator.writeObjectFieldStart("localizacion");
         //Comunidad
-        jsonGenerator.writeObjectFieldStart("comunidad");
-        jsonGenerator.writeNumberField("id", i.getLocalizacion().getComunidad().getId());
-        jsonGenerator.writeStringField("comunidad", i.getLocalizacion().getComunidad().getComunidad());
-        jsonGenerator.writeStringField("slug", i.getLocalizacion().getComunidad().getSlug());
-        jsonGenerator.writeEndObject();
+        jsonGenerator.writeFieldName("comunidad");
+        jsonGenerator.writeObject(i.getLocalizacion().getComunidad());
         //Provincia
-        jsonGenerator.writeObjectFieldStart("provincia");
-        jsonGenerator.writeNumberField("id", i.getLocalizacion().getProvincia().getId());
-        jsonGenerator.writeStringField("provincia", i.getLocalizacion().getProvincia().getProvincia());
-        jsonGenerator.writeStringField("slug", i.getLocalizacion().getProvincia().getSlug());
-        jsonGenerator.writeEndObject();
+        jsonGenerator.writeFieldName("provincia");
+        jsonGenerator.writeObject(i.getLocalizacion().getProvincia());
+        //Municipio
+        jsonGenerator.writeFieldName("poblacion");
+        jsonGenerator.writeObject(i.getLocalizacion().getPoblacion());
         //Zona
-        jsonGenerator.writeObjectFieldStart("zona");
-        jsonGenerator.writeNumberField("id", i.getLocalizacion().getZona().getId());
-        jsonGenerator.writeStringField("nombre", i.getLocalizacion().getZona().getNombre());
-        jsonGenerator.writeStringField("activa", String.valueOf(i.getLocalizacion().getZona().getActiva()));
-        jsonGenerator.writeStringField("nombreAdmin", i.getLocalizacion().getZona().getNombreAdmin());
-        jsonGenerator.writeEndObject();
-        //Poblacion
-        jsonGenerator.writeObjectFieldStart("poblacion");
-        jsonGenerator.writeNumberField("id", i.getLocalizacion().getPoblacion().getId());
-        jsonGenerator.writeStringField("municipio", i.getLocalizacion().getPoblacion().getMunicipio());
-        jsonGenerator.writeStringField("slug", i.getLocalizacion().getPoblacion().getSlug());
-        jsonGenerator.writeEndObject();
+        jsonGenerator.writeFieldName("zona");
+        jsonGenerator.writeObject(i.getLocalizacion().getZona());
+
 
         jsonGenerator.writeEndObject();
 
