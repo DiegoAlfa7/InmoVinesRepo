@@ -21,6 +21,8 @@ public class PageInmueblesSerializer extends JsonSerializer {
 
             jsonGenerator.writeStartObject();
             jsonGenerator.writeNumberField("id", i.getId());
+
+
             jsonGenerator.writeStringField("tipo_vivienda", i.getTipos().getNombre());
             jsonGenerator.writeStringField("tipo_gestion", i.getGestiones().getNombre());
             jsonGenerator.writeEndObject();
@@ -34,25 +36,25 @@ public class PageInmueblesSerializer extends JsonSerializer {
         jsonGenerator.writeStringField("sorted", String.valueOf(p.getPageable().getSort().isSorted()));
         jsonGenerator.writeEndObject();
         // TODO esto esta bien??
-        jsonGenerator.writeStringField("offset",String.valueOf(p.getPageable().getOffset()));
-        jsonGenerator.writeStringField("pageNumber", String.valueOf(p.getNumber()));
-        jsonGenerator.writeStringField("pageSize", String.valueOf(p.getTotalPages()));
+        jsonGenerator.writeNumberField("offset",p.getPageable().getOffset());
+        jsonGenerator.writeNumberField("pageNumber", p.getNumber());
+        jsonGenerator.writeNumberField("pageSize", p.getTotalPages());
         jsonGenerator.writeStringField("paged", String.valueOf(p.getPageable().isPaged()));
         jsonGenerator.writeStringField("unpaged", String.valueOf(p.getPageable().isUnpaged()));
         jsonGenerator.writeEndObject();
 
         jsonGenerator.writeStringField("last",String.valueOf(p.isLast()));
-        jsonGenerator.writeStringField("totalElements", String.valueOf(p.getTotalElements()));
-        jsonGenerator.writeStringField("totalPages", String.valueOf(p.getTotalPages()));
-        jsonGenerator.writeStringField("size", String.valueOf(p.getSize()));
-        jsonGenerator.writeStringField("number", String.valueOf(p.getNumber()));
+        jsonGenerator.writeNumberField("totalElements", p.getTotalElements());
+        jsonGenerator.writeNumberField("totalPages",p.getTotalPages());
+        jsonGenerator.writeNumberField("size", p.getSize());
+        jsonGenerator.writeNumberField("number", p.getNumber());
         jsonGenerator.writeObjectFieldStart("sort");
         jsonGenerator.writeStringField("unsorted", String.valueOf(!p.getPageable().getSort().isSorted()));
         jsonGenerator.writeStringField("sorted", String.valueOf(p.getPageable().getSort().isSorted()));
         jsonGenerator.writeEndObject();
 
-        jsonGenerator.writeStringField("numberOfElements",String.valueOf(p.getNumberOfElements()));
-        jsonGenerator.writeStringField("firsts", String.valueOf(p.isFirst()));
+        jsonGenerator.writeNumberField("numberOfElements",p.getNumberOfElements());
+        jsonGenerator.writeStringField("first", String.valueOf(p.isFirst()));
         jsonGenerator.writeEndObject();
 
 

@@ -13,9 +13,15 @@ public class InmueblesSerializer extends JsonSerializer {
         Inmuebles i = (Inmuebles) o;
 
         jsonGenerator.writeStartObject();
-        jsonGenerator.writeNumberField("id",i.getId());
-        jsonGenerator.writeStringField("tipo_vivienda", i.getTipos().getNombre());
-        jsonGenerator.writeStringField("tipo_gestion", i.getGestiones().getNombre());
+            jsonGenerator.writeNumberField("id",i.getId());
+            jsonGenerator.writeStringField("referencia", i.getReferencia());
+            jsonGenerator.writeStringField("descripcion", i.getDescripcion());
+            jsonGenerator.writeStringField("textoReclamo", i.getTextoReclamo());
+            jsonGenerator.writeStringField("tipo_vivienda", i.getTipos().getNombre());
+            jsonGenerator.writeStringField("tipo_gestion", i.getGestiones().getNombre());
+            jsonGenerator.writeObjectFieldStart("caracteristicas");
+                jsonGenerator.writeObject(i.getCaracteristicas());
+            jsonGenerator.writeEndObject();
         jsonGenerator.writeEndObject();
 
 
