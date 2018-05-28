@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.agentes;
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -245,6 +246,7 @@ public class Agentes implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Clientes> getClientesAsignados() {
         return clientesAsignados;
     }
@@ -263,6 +265,7 @@ public class Agentes implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Clientes> getClientesCaptados() {
         return clientesCaptados;
     }
@@ -281,6 +284,7 @@ public class Agentes implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Inmuebles> getInmuebles() {
         return inmuebles;
     }
@@ -299,6 +303,10 @@ public class Agentes implements Serializable {
             this.addInmuebleList(inmuebles);
         }
 
+    }
+
+    public void setIdCargo(Cargos idCargo) {
+        this.idCargo = idCargo;
     }
 
     @Override

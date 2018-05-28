@@ -9,6 +9,7 @@ import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.localizacion.Localizacion;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,7 +40,7 @@ import java.util.List;
         , @NamedQuery(name = "Inmuebles.findByPrecioAlquilerOpcionCompra", query = "SELECT i FROM Inmuebles i WHERE i.precioAlquilerOpcionCompra = :precioAlquilerOpcionCompra")
         , @NamedQuery(name = "Inmuebles.findByTipoGestion", query = "SELECT i FROM Inmuebles i WHERE i.gestiones = :gestiones")
 })
-@JsonSerialize(using = InmueblesSerializer.class)
+
 public class Inmuebles implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -233,6 +234,7 @@ public class Inmuebles implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Clientes> getClientesList() {
         return clientesList;
     }

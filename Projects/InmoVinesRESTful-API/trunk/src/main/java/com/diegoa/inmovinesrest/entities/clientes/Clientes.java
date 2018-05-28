@@ -8,6 +8,8 @@ package com.diegoa.inmovinesrest.entities.clientes;
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.entities.roles.RolesUsuarios;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -51,7 +53,7 @@ import javax.xml.bind.annotation.XmlTransient;
         , @NamedQuery(name = "Clientes.findByPresupuestoMin", query = "SELECT c FROM Clientes c WHERE c.presupuestoMin = :presupuestoMin")
         , @NamedQuery(name = "Clientes.findByPresupuestoMax", query = "SELECT c FROM Clientes c WHERE c.presupuestoMax = :presupuestoMax")
         , @NamedQuery(name = "Clientes.findByCanalEntrada", query = "SELECT c FROM Clientes c WHERE c.canalEntrada = :canalEntrada")})
-
+/*@JsonSerialize(using = ClientesSerializer.class)*/
 public class Clientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -85,10 +87,6 @@ public class Clientes implements Serializable {
     @Basic(optional = false)
     private String accountHash;
 
-    @JoinColumn(name = "id_rol", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private RolesUsuarios rol;
-
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Agentes agente;
@@ -99,7 +97,9 @@ public class Clientes implements Serializable {
     @ManyToOne
     private Inmuebles idInmuebleInteres;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private List<Intereses> interesesList;
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @OneToMany(mappedBy = "idClientePropietario")
     private List<Inmuebles> inmueblesList;
 
@@ -218,6 +218,7 @@ public class Clientes implements Serializable {
         this.canalEntrada = canalEntrada;
     }
 
+    @JsonIgnore
     public Agentes getAgente() {
         return agente;
     }
@@ -226,7 +227,7 @@ public class Clientes implements Serializable {
 
        this.agente = idAgente;
     }
-
+    @JsonIgnore
     public Agentes getAgenteEntrada() {
         return agenteEntrada;
     }
@@ -238,14 +239,6 @@ public class Clientes implements Serializable {
     }
 
 
-    public RolesUsuarios getRol() {
-        return rol;
-    }
-
-    public void setRol(RolesUsuarios rol) {
-        this.rol = rol;
-    }
-
     public Inmuebles getIdInmuebleInteres() {
         return idInmuebleInteres;
     }
@@ -255,6 +248,7 @@ public class Clientes implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Intereses> getInteresesList() {
         return interesesList;
     }
@@ -294,6 +288,7 @@ public class Clientes implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Inmuebles> getInmueblesList() {
         return inmueblesList;
     }

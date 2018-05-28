@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface InmoVinesService {
 
-   <T> Page<T> listAllByPage(Pageable pageable);
+    <T> Page<T> listAllByPage(Pageable pageable);
 
     <T> T findOneById(long ID);
 

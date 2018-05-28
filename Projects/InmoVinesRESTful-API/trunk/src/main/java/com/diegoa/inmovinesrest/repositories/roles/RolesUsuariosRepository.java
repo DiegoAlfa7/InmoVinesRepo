@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RolesUsuariosRepository extends PagingAndSortingRepository<RolesUsuarios,Long> {
 
-    RolesUsuarios findByUserName(String username);
+
 }

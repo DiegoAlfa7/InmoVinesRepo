@@ -5,6 +5,8 @@
  */
 package com.diegoa.inmovinesrest.entities.agentes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -72,6 +74,7 @@ public class Cargos implements Serializable {
     }
 
     @XmlTransient
+    @JsonIgnore
     public List<Agentes> getAgentesList() {
         return agentesList;
     }
