@@ -8,6 +8,8 @@ package com.diegoa.inmovinesrest.entities.inmuebles;
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.localizacion.Localizacion;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -260,6 +262,11 @@ public class Inmuebles implements Serializable {
 
 
     }
+    @JsonProperty("idAgente")
+    public long getAgenteId() {
+        return agente.getId();
+    }
+
     @JsonIgnore
     public Agentes getAgente() {
         return agente;
@@ -268,6 +275,12 @@ public class Inmuebles implements Serializable {
     public void setAgente(Agentes agente) {
         this.agente = agente;
     }
+
+    @JsonProperty("idClientePropietario")
+    public long getClientePropietarioId() {
+        return idClientePropietario.getId();
+    }
+
     @JsonIgnore
     public Clientes getClientePropietario() {
         return idClientePropietario;
