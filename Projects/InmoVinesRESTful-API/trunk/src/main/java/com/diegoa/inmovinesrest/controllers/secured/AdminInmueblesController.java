@@ -2,20 +2,14 @@ package com.diegoa.inmovinesrest.controllers.secured;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
-import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializer;
-import com.diegoa.inmovinesrest.entities.inmuebles.PageInmueblesSerializer;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Controlador Restful encargado de la distribución de datos

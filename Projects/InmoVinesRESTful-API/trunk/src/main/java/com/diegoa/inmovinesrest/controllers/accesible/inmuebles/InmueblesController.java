@@ -2,24 +2,19 @@ package com.diegoa.inmovinesrest.controllers.accesible.inmuebles;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
-import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializer;
-import com.diegoa.inmovinesrest.entities.inmuebles.PageInmueblesSerializer;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesPublicSerializer;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializerCard_Page;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,7 +44,7 @@ public class InmueblesController {
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Page.class, new PageInmueblesSerializer());
+        module.addSerializer(Page.class, new InmueblesSerializerCard_Page());
         mapper.registerModule(module);
 
 
@@ -71,7 +66,7 @@ public class InmueblesController {
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Inmuebles.class, new InmueblesSerializer());
+        module.addSerializer(Inmuebles.class, new InmueblesPublicSerializer());
         mapper.registerModule(module);
 
         return new ResponseEntity<String>(mapper.writeValueAsString(i), HttpStatus.OK);
