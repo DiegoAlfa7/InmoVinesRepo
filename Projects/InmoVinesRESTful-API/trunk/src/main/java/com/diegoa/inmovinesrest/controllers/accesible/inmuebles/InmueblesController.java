@@ -68,7 +68,6 @@ public class InmueblesController {
         SimpleModule module = new SimpleModule();
         module.addSerializer(Inmuebles.class, new InmueblesPublicSerializer());
         mapper.registerModule(module);
-
         return new ResponseEntity<String>(mapper.writeValueAsString(i), HttpStatus.OK);
 
     }

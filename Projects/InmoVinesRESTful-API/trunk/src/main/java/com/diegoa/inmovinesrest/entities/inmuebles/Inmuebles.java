@@ -8,10 +8,8 @@ package com.diegoa.inmovinesrest.entities.inmuebles;
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.localizacion.Localizacion;
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -9,11 +9,11 @@ import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.io.Serializable;
-import java.util.List;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Usuario 2 DAM
