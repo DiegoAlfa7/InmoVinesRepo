@@ -49,7 +49,7 @@ public class AgentesController {
 
     }
 
-    @GetMapping(value = "/inmuebles/{id}", produces = {"application/json"})
+    @GetMapping(value = "/agentes/{id}", produces = {"application/json"})
     @ResponseBody
     public ResponseEntity<String> getInmuebleById( @PathVariable("id") long id,  Pageable pageable) throws JsonProcessingException {
 
