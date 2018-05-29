@@ -1,4 +1,4 @@
-package com.diegoa.inmovinesrest.controllers.accesible;
+package com.diegoa.inmovinesrest.controllers.accesible.inmuebles;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
@@ -8,12 +8,18 @@ import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,9 +38,9 @@ public class InmueblesController {
 
 
 
-    @GetMapping("/inmuebles")
+    @GetMapping(value = "/inmuebles", produces = {"application/json"})
     @ResponseBody
-    public String getInmuebles(Pageable pageable) {
+    public ResponseEntity<String> getInmuebles(Pageable pageable) throws JsonProcessingException {
 
 
         Page<Inmuebles> pagina = inmueblesUserService.listAllByPage(pageable);
@@ -46,43 +52,29 @@ public class InmueblesController {
         module.addSerializer(Page.class, new PageInmueblesSerializer());
         mapper.registerModule(module);
 
-        Page<Inmuebles> pageable_inmuebles_data = new PageImpl<Inmuebles>(inmuebles, pagina.getPageable(), inmuebles.size());
+
+        String JsonPage = mapper.writeValueAsString(pagina);
+
+        return new ResponseEntity<>(JsonPage, HttpStatus.OK);
 
 
-        try {
-            return mapper.writeValueAsString(pageable_inmuebles_data);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
-        }
 
 
     }
 
-    @GetMapping("/inmuebles/{id}")
+    @GetMapping(value = "/inmuebles/{id}", produces = {"application/json"})
     @ResponseBody
-    public String getInmuebleById( @PathVariable("id") long id,  Pageable pageable) {
+    public ResponseEntity<String> getInmuebleById( @PathVariable("id") long id,  Pageable pageable) throws JsonProcessingException {
 
 
         Inmuebles i = inmueblesUserService.findOneById(id);
-
-
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
         module.addSerializer(Inmuebles.class, new InmueblesSerializer());
         mapper.registerModule(module);
 
-
-
-
-        try {
-            return mapper.writeValueAsString(i);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
-        }
-
+        return new ResponseEntity<String>(mapper.writeValueAsString(i), HttpStatus.OK);
 
     }
 

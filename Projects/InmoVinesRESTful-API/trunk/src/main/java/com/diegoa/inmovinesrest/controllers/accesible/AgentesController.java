@@ -33,59 +33,7 @@ public class AgentesController {
 
 
 
-    /*@GetMapping("/inmuebles")
-    @ResponseBody
-    public String getClientes(Pageable pageable) {
 
-
-        Page<Agentes> pagina = agentesService.listAllByPage(pageable);
-
-        List<Agentes> agentes = pagina.getContent();
-
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(Agentes.class, new AgentesSerializer());
-        mapper.registerModule(module);
-
-        Page<Inmuebles> pageable_inmuebles_data = new PageImpl<Inmuebles>(agentes, pagina.getPageable(), agentes.size());
-
-
-        try {
-            return mapper.writeValueAsString(pageable_inmuebles_data);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-
-    }
-
-    @GetMapping("/inmuebles/{id}")
-    @ResponseBody
-    public String getInmuebleById( @PathVariable("id") long id,  Pageable pageable) {
-
-
-        Inmuebles i = agentesService.findOneById(id);
-
-
-
-        ObjectMapper mapper = new ObjectMapper();
-        SimpleModule module = new SimpleModule();
-        module.addSerializer(Inmuebles.class, new InmueblesSerializer());
-        mapper.registerModule(module);
-
-
-
-
-        try {
-            return mapper.writeValueAsString(i);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-
-    }*/
 
 
 
