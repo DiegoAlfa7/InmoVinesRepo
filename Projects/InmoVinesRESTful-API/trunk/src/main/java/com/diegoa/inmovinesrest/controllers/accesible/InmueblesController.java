@@ -2,8 +2,8 @@ package com.diegoa.inmovinesrest.controllers.accesible;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
-import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializer;
-import com.diegoa.inmovinesrest.entities.inmuebles.PageInmueblesSerializer;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesPublicSerializer;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializerCard_Page;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,8 +20,8 @@ import java.util.List;
  * Controlador Restful encargado de la distribución de datos
  * de inmuebles para las aplicaciones identificadas como usuario.
  *
- * @since 0.0.1
  * @author Diego Alfaro
+ * @since 0.0.1
  */
 @RestController
 @RequestMapping("user")
@@ -29,7 +29,6 @@ public class InmueblesController {
 
     @Autowired
     InmueblesServiceImpl inmueblesUserService;
-
 
 
     @GetMapping("/inmuebles")
@@ -43,7 +42,7 @@ public class InmueblesController {
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Page.class, new PageInmueblesSerializer());
+        module.addSerializer(Page.class, new InmueblesSerializerCard_Page());
         mapper.registerModule(module);
 
         Page<Inmuebles> pageable_inmuebles_data = new PageImpl<Inmuebles>(inmuebles, pagina.getPageable(), inmuebles.size());
@@ -61,19 +60,16 @@ public class InmueblesController {
 
     @GetMapping("/inmuebles/{id}")
     @ResponseBody
-    public String getInmuebleById( @PathVariable("id") long id,  Pageable pageable) {
+    public String getInmuebleById(@PathVariable("id") long id, Pageable pageable) {
 
 
         Inmuebles i = inmueblesUserService.findOneById(id);
 
 
-
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Inmuebles.class, new InmueblesSerializer());
+        module.addSerializer(Inmuebles.class, new InmueblesPublicSerializer());
         mapper.registerModule(module);
-
-
 
 
         try {
@@ -85,7 +81,6 @@ public class InmueblesController {
 
 
     }
-
 
 
 }
