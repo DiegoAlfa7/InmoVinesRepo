@@ -17,7 +17,21 @@ public class AgentesPublicSerializer extends JsonSerializer {
 
         Agentes agentes = (Agentes) o;
 
-        
+        jsonGenerator.writeStartObject();
+
+        jsonGenerator.writeNumberField("id", agentes.getId());
+        jsonGenerator.writeStringField("nombre", agentes.getNombre());
+        jsonGenerator.writeStringField("apellidos", agentes.getApellidos());
+        jsonGenerator.writeStringField("mail", agentes.getMail());
+        jsonGenerator.writeStringField("tlf", agentes.getTlf());
+        jsonGenerator.writeStringField("twitter", agentes.getTwitter());
+        jsonGenerator.writeStringField("facebook", agentes.getFacebook());
+        jsonGenerator.writeStringField("linkedin", agentes.getLinkedin());
+        jsonGenerator.writeStringField("instagram", agentes.getInstagram());
+        jsonGenerator.writeStringField("eslogan", agentes.getEslogan());
+
+        jsonGenerator.writeEndObject();
+
 
     }
 }

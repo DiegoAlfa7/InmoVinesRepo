@@ -40,6 +40,7 @@ public class AgentesSerializerPage extends JsonSerializer {
             jsonGenerator.writeStringField("activacion", String.valueOf(a.getActivacion()));
             jsonGenerator.writeNumberField("permisos", a.getPermisos());
             jsonGenerator.writeNumberField("id_cargo", a.getIdCargo().getIdCargo());
+            //Inmuebles
 
             jsonGenerator.writeEndObject();
 
