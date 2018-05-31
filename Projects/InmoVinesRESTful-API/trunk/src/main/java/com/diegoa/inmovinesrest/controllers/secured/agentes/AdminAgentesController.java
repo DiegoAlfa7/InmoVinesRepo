@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author Daniel Arroyo
  * @since 0.0.1
@@ -23,9 +25,20 @@ public class AdminAgentesController {
     @Autowired
     AgentesServiceImpl agentesService;
 
-    @RequestMapping(value = "/agentes", produces = "application/json", method = RequestMethod.GET)
+
+    /**
+     * Esta operación del controlador se encarga de listar dentro de un pageable los agentes de la base de datos, agrupándolos en
+     * función del tipo de página que se pida en los parámetros de la URL.
+     *
+     * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
+     *                 'page', 'size' y 'sort' debidamente introducidos
+     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b>
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
+     */
+    @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Page<Agentes>> getAgentes(Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) throws JsonProcessingException {
 
         Page<Agentes> page = agentesService.listAllByPage(pageable);
 
@@ -33,12 +46,44 @@ public class AdminAgentesController {
     }
 
 
-    @GetMapping(value = "/agentes/{id}", produces = "application/json")
+    /**
+     * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
+     * el ID facilitado.
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente den la BBDD.
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     * @apiNote <b>ENDPOINT: .../user/agentes[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
+     */
+    @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Agentes> getAgenteById(@PathVariable("id") long id, Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<Agentes> getAgenteById(@PathVariable("id") long id) throws JsonProcessingException {
 
         Agentes agentes = agentesService.findOneById(id);
 
+        if (agentes != null) {
+            return new ResponseEntity(agentes, HttpStatus.OK);
+        } else {
+            throw new RuntimeException("No se puede listar este agente porque viene nulo");
+        }
+
+
+    }
+
+    /**
+     * Esta operación del controlador se encarga de devolver en una Lista genérica <b>todos los Agentes que haya en la base de datos.</b>
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD.
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     * @apiNote <b>ENDPOINT: .../admin/agentes/id
+     * `
+     */
+    @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Agentes> getAgentesList() throws JsonProcessingException {
+
+        List<Agentes> agentes = agentesService.listAll();
+
         return new ResponseEntity(agentes, HttpStatus.OK);
     }
+
 }
