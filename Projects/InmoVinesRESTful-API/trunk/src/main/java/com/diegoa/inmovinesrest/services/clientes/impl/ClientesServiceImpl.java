@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -25,7 +26,10 @@ public class ClientesServiceImpl implements ClientesUserService {
 
     @Override
     public Clientes findOneById(long ID) {
-        return null;
+
+        Optional<Clientes> optCliente = clientesReposiroty.findById(ID);
+
+        return optCliente.isPresent() ? optCliente.get():null;
     }
 
     @Override

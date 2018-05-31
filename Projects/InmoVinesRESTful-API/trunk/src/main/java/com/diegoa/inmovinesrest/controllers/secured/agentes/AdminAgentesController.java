@@ -39,6 +39,7 @@ public class AdminAgentesController {
 
         Agentes agentes = agentesService.findOneById(id);
 
+
         return new ResponseEntity(agentes, HttpStatus.OK);
     }
 }

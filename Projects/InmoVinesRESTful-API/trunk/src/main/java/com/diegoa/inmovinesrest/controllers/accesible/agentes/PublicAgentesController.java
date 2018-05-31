@@ -73,9 +73,9 @@ public class PublicAgentesController {
     /**
      * Esta operación del controlador se encarga de devolver en una Lista genérica <b>todos los Agentes que haya en la base de datos.</b>
      *
-     * @apiNote <b>ENDPOINT: .../user/agentes_all
+     * @apiNote <b>ENDPOINT: .../user/agentes_all</b>
      *`
-     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD.
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes de la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
     @RequestMapping(value = "/agentes_all", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
@@ -102,8 +102,8 @@ public class PublicAgentesController {
      * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
      * el ID facilitado.
      *
-     * @apiNote <b>ENDPOINT: .../user/agentes[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
-     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente den la BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/clientes[?page={page}&size={size}&sort={property},asc|desc]</b>
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente del la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
     @GetMapping(value = "/agentes/{id}", produces = {"application/json"})
