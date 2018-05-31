@@ -1,4 +1,4 @@
-package com.diegoa.inmovinesrest.controllers.secured;
+package com.diegoa.inmovinesrest.controllers.secured.inmuebles;
 
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 0.0.1
  * @author Diego Alfaro
  */
+@CrossOrigin
 @RestController
 @RequestMapping("admin")
 public class AdminInmueblesController {
@@ -27,7 +29,7 @@ public class AdminInmueblesController {
 
 
 
-    @GetMapping(value = "/inmuebles", produces = {"application/json"})
+    @RequestMapping(value = "/inmuebles", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Page<Inmuebles>> getInmuebles(Pageable pageable) throws JsonProcessingException {
 

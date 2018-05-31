@@ -3,7 +3,7 @@ package com.diegoa.inmovinesrest.controllers.accesible.inmuebles;
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesPublicSerializer;
-import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesSerializerCard_Page;
+import com.diegoa.inmovinesrest.entities.inmuebles.InmueblesPublicSerializerCard_Page;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,9 +24,10 @@ import java.util.List;
  * @since 0.0.1
  * @author Diego Alfaro
  */
+@CrossOrigin(origins = {"http://localhost:8087","http://localhost:8080" })
 @RestController
 @RequestMapping("user")
-public class InmueblesController {
+public class PublicInmueblesController {
 
     @Autowired
     InmueblesServiceImpl inmueblesUserService;
@@ -44,7 +45,7 @@ public class InmueblesController {
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Page.class, new InmueblesSerializerCard_Page());
+        module.addSerializer(Page.class, new InmueblesPublicSerializerCard_Page());
         mapper.registerModule(module);
 
 

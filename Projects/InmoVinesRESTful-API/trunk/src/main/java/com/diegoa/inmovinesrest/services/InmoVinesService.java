@@ -13,4 +13,6 @@ public interface InmoVinesService {
     <T> T findOneById(long ID);
 
     <T> List<T> listAll();
+
+
 }

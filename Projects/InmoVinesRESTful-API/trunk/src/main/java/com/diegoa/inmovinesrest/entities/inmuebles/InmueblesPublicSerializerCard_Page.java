@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 import java.io.IOException;
 
-public class InmueblesSerializerCard_Page extends JsonSerializer {
+public class InmueblesPublicSerializerCard_Page extends JsonSerializer {
     @Override
     public void serialize(Object o, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
 

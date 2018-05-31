@@ -35,7 +35,7 @@ import java.util.List;
         , @NamedQuery(name = "Clientes.findByPresupuestoMin", query = "SELECT c FROM Clientes c WHERE c.presupuestoMin = :presupuestoMin")
         , @NamedQuery(name = "Clientes.findByPresupuestoMax", query = "SELECT c FROM Clientes c WHERE c.presupuestoMax = :presupuestoMax")
         , @NamedQuery(name = "Clientes.findByCanalEntrada", query = "SELECT c FROM Clientes c WHERE c.canalEntrada = :canalEntrada")})
-/*@JsonSerialize(using = ClientesSerializer.class)*/
+
 public class Clientes implements Serializable {
 
     private static final long serialVersionUID = 1L;

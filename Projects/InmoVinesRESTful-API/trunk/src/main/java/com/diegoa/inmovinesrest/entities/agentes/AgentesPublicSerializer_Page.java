@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author Daniel Arroyo
  */
-public class AgentesSerializerPage extends JsonSerializer {
+public class AgentesPublicSerializer_Page extends JsonSerializer {
 
 
     @Override
