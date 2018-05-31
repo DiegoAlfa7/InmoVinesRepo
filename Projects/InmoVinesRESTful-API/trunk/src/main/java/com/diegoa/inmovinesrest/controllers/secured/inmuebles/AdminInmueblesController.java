@@ -29,7 +29,7 @@ public class AdminInmueblesController {
 
 
 
-    @RequestMapping(value = "/inmuebles", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/inmuebles/page", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Page<Inmuebles>> getInmuebles(Pageable pageable) throws JsonProcessingException {
 
@@ -46,7 +46,7 @@ public class AdminInmueblesController {
 
     @GetMapping(value = "/inmuebles/{id}", produces = {"application/json"})
     @ResponseBody
-    public ResponseEntity<Inmuebles> getInmuebleById( @PathVariable("id") long id,  Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<Inmuebles> getInmuebleById( @PathVariable("id") long id) throws JsonProcessingException {
 
 
         Inmuebles i = inmueblesUserService.findOneById(id);

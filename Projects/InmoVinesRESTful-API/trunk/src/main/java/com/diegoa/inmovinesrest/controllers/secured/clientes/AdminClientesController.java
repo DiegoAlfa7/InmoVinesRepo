@@ -30,12 +30,13 @@ public class AdminClientesController {
 
     /**
      * Esta operación del controlador se encarga de devolver en una Página (Page) de <b> los Clientes que haya en la base de datos.</b>
+     * agrupándolos en función del tipo de página que se pida en los parámetros de la URL.
      *
      * @apiNote <b>ENDPOINT: .../admin/clientes/page[?page={page}&size={size}&sort={property},asc|desc]</b>
      * @return ResponseEntity<Page<Clientes>> Respuesta Http con la representación string del JSON de la página de los clientes del la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
-    @RequestMapping(value = "/clientes", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/clientes/page", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Page<Clientes>> getClientesPage(Pageable pageable) throws JsonProcessingException {
 
@@ -74,7 +75,8 @@ public class AdminClientesController {
     }
 
     /**
-     * Esta operación del controlador se encarga de devolver un JSON de la entidad de tipo Clientes que haya en la base de datos, con el mismo id que el introducido en la url</b>
+     * Esta operación del controlador se encarga de una única entidad de tipo Clientes. Realiza una búsqueda en los Repositorios en función de
+     * el ID facilitado.
      *
      * @apiNote <b>ENDPOINT: .../admin/cliente/{id}</b>
      *`
@@ -83,7 +85,7 @@ public class AdminClientesController {
      */
     @RequestMapping(value = "/cliente/{id}", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Clientes> getClienteById( @PathVariable("id") long id,  Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<Clientes> getClienteById( @PathVariable("id") long id) throws JsonProcessingException {
 
 
         Clientes i = clientesService.findOneById(id);
