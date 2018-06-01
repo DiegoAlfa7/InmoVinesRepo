@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * Controlador Restful encargado de la distribución de datos
+ * de Tareas de Agentes para las aplicaciones identificadas como administrador.
  * @author Daniel Arroyo
  * @since 0.0.1
  */
@@ -35,7 +37,7 @@ public class AdminTareasController {
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/tareas/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
-    @RequestMapping(value = "/tareas", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/tareas/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Page<Tareas>> getTareasPage(Pageable pageable) throws JsonProcessingException {
 
@@ -74,12 +76,13 @@ public class AdminTareasController {
     @ResponseBody
     public ResponseEntity<Tareas> getTareaById(@PathVariable("id_agente") long id_agente) throws JsonProcessingException {
 
+        //TODO: Arreglar, no se están listando las tareas por el id de agente
         Tareas tareas = tareasService.findOneById(id_agente);
 
         if (tareas != null) {
             return new ResponseEntity(tareas, HttpStatus.OK);
         } else {
-            throw new RuntimeException("No se puede listar este agente porque viene nulo");
+            throw new RuntimeException("El id_agente: "+id_agente+" no ha devuelto resultados");
         }
     }
 

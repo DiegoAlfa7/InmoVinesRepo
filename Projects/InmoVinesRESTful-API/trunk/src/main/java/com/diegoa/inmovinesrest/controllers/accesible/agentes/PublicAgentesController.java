@@ -41,18 +41,18 @@ public class PublicAgentesController {
     AgentesServiceImpl agentesService;
 
     /**
-     * Esta operación del controlador se encarga de listar dentro de un pageable los agentes de la base de datos, agrupándolos en
+     * Esta operación del controlador se encarga de listar dentro de un pageable los <b>Agentes</b> de la base de datos, agrupándolos en
      * función del tipo de página que se pida en los parámetros de la URL.
-     * @apiNote <b>ENDPOINT: .../user/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
+     * @apiNote <b>ENDPOINT: .../user/agentes/page[?page={page}&size={size}&sort={objectProperty},asc|desc]</b>
      * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
      * 'page', 'size' y 'sort' debidamente introducidos
      *
      * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
-    @RequestMapping(value = "/agentes/page", produces = {"application/json"}, method = {RequestMethod.OPTIONS})
+    @RequestMapping(value = "/agentes/page", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<String> getAgentesByPage(Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<String> getAgentesPage(Pageable pageable) throws JsonProcessingException {
 
         Page<Agentes> pagina = agentesService.listAllByPage(pageable);
 
@@ -100,9 +100,9 @@ public class PublicAgentesController {
     }
     /**
      * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los Repositorios en función de
-     * el ID facilitado.
+     * el ID facilitado, oculta la información sensible del agente y devuelve su representación JSON.
      *
-     * @apiNote <b>ENDPOINT: .../admin/agentes/{id}</b>
+     * @apiNote <b>ENDPOINT: .../user/agentes/{id}</b>
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente de la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
@@ -112,7 +112,7 @@ public class PublicAgentesController {
 
 
         Agentes agente = this.agentesService.findOneById(id);
-        if(agente == null){throw new RuntimeException("EL agente con id: "+id+" no ha devuelto ningún resultado");}
+        if(agente == null){throw new RuntimeException("EL Agente con id: "+id+" no ha devuelto ningún resultado");}
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
         module.addSerializer(Agentes.class, new AgentesPublicSerializer());

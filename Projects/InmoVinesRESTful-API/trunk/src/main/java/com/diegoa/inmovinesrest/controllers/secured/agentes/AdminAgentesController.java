@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ *  Controlador Restful encargado de la distribución de datos
+ *  de Agentes para las aplicaciones identificadas como administrador.
+ *
+ *  <hr/>
+ *  <br/><b>C O R S</b> eneabled for this Controller --> origins = {"http://localhost:8087","http://localhost:8080" }
  * @author Daniel Arroyo
  * @since 0.0.1
  */
@@ -50,9 +55,9 @@ public class AdminAgentesController {
      * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
      * el ID facilitado.
      *
-     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente den la BBDD.
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente de la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
-     * @apiNote <b>ENDPOINT: .../user/agentes[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
+     * @apiNote <b>ENDPOINT: .../admin/agentes/{id}</b>
      */
     @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
@@ -63,7 +68,7 @@ public class AdminAgentesController {
         if (agentes != null) {
             return new ResponseEntity(agentes, HttpStatus.OK);
         } else {
-            throw new RuntimeException("No se puede listar este agente porque viene nulo");
+            throw new RuntimeException("El agente con id: "+id+" no ha devuelto ningún resultado");
         }
 
 
@@ -74,7 +79,7 @@ public class AdminAgentesController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
-     * @apiNote <b>ENDPOINT: .../admin/agentes/id
+     * @apiNote <b>ENDPOINT: .../admin/agentes
      * `
      */
     @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})

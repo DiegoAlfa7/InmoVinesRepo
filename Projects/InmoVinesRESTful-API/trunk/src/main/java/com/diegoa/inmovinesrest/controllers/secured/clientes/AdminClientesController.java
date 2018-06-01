@@ -16,6 +16,7 @@ import java.util.List;
 /**
  *  Controlador Restful encargado de la distribución de datos
  *  de inmuebles para las aplicaciones identificadas como administrador.
+ * @author Diego Alfaro
  */
 @CrossOrigin(origins = {"http://localhost:8087","http://localhost:8080" })
 @RestController
@@ -83,7 +84,7 @@ public class AdminClientesController {
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del objeto del cliente en cuestión.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      */
-    @RequestMapping(value = "/cliente/{id}", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/clientes/{id}", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Clientes> getClienteById( @PathVariable("id") long id) throws JsonProcessingException {
 

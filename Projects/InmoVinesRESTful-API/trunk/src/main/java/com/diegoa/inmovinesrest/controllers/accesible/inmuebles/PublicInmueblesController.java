@@ -19,7 +19,12 @@ import java.util.List;
 
 /**
  * Controlador Restful encargado de la distribución de datos
- * de inmuebles para las aplicaciones identificadas como usuario.
+ * de Inmuebles para las aplicaciones identificadas como usuario.
+ * Este controlador hará uso de custom serializers para convertir
+ * objetos java en JSONs adecuados para su trasmisión, con ciertos datos
+ * sensibles omitidos, etc.
+ *<hr/>
+ * <br/><b>C O R S</b> eneabled for this Controller --> origins = {"http://localhost:8087","http://localhost:8080" }
  *
  * @since 0.0.1
  * @author Diego Alfaro
@@ -33,10 +38,19 @@ public class PublicInmueblesController {
     InmueblesServiceImpl inmueblesUserService;
 
 
-
-    @GetMapping(value = "/inmuebles", produces = {"application/json"})
+    /**
+     * Esta operación del controlador se encarga de listar dentro de un pageable los <b>Inmuebles</b> de la base de datos, agrupándolos en
+     * función del tipo de página que se pida en los parámetros de la URL.
+     * @apiNote <b>ENDPOINT: .../user/inmuebles/page[?page={page}&size={size}&sort={objectProperty},asc|desc]</b>
+     * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
+     * 'page', 'size' y 'sort' debidamente introducidos
+     *
+     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Inmuebles\></b>
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     */
+    @RequestMapping(value = "/inmuebles/page", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<String> getInmuebles(Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<String> getInmueblesPage(Pageable pageable) throws JsonProcessingException {
 
 
         Page<Inmuebles> pagina = inmueblesUserService.listAllByPage(pageable);
@@ -58,12 +72,21 @@ public class PublicInmueblesController {
 
     }
 
+    /**
+     * Esta operación del controlador se encarga de una única entidad de tipo Inmuebles. Realiza una búsqueda en los Repositorios en función de
+     * el ID facilitado, oculta la información sensible del Inmueble y devuelve su representación JSON.
+     *
+     * @apiNote <b>ENDPOINT: .../user/inmuebles/{id}</b>
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del Inmueble de la BBDD.
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     */
     @GetMapping(value = "/inmuebles/{id}", produces = {"application/json"})
     @ResponseBody
     public ResponseEntity<String> getInmuebleById( @PathVariable("id") long id,  Pageable pageable) throws JsonProcessingException {
 
 
         Inmuebles i = inmueblesUserService.findOneById(id);
+        if(i == null){throw new RuntimeException("El Inmueble con id: "+id+" no ha devuelto ningún resultado");}
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
