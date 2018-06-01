@@ -248,7 +248,7 @@ public class Inmuebles implements Serializable {
         if (this.clientesList != null) {
 
             this.clientesList.add(c);
-            c.setIdInmuebleInteres(this);
+            c.setInmuebleInteres(this);
 
 
         } else {

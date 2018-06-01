@@ -8,6 +8,7 @@ package com.diegoa.inmovinesrest.entities.localizacion;
 import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -48,7 +49,7 @@ public class Provincias implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "capital_id", referencedColumnName = "ID")
-    private Municipios capitalId;
+    private Municipios capital;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "provincia")
     private List<Municipios> municipiosList;
@@ -97,6 +98,10 @@ public class Provincias implements Serializable {
         this.provincia = provincia;
     }
 
+    @JsonProperty("idComunidad")
+    public long getIdComunidad(){
+        return this.getComunidad().getId();
+    }
     @JsonIgnore
     public Comunidades getComunidad() {
         return comunidad;
@@ -106,13 +111,17 @@ public class Provincias implements Serializable {
         this.comunidad = comunidadId;
     }
 
+    @JsonProperty("idMunicipioCapital")
+    public long getIdMunicipioCapital(){
+        return this.getCapital().getId();
+    }
     @JsonIgnore
-    public Municipios getCapitalId() {
-        return capitalId;
+    public Municipios getCapital() {
+        return capital;
     }
 
-    public void setCapitalId(Municipios capitalId) {
-        this.capitalId = capitalId;
+    public void setCapital(Municipios capitalId) {
+        this.capital = capitalId;
     }
 
     @JsonIgnore

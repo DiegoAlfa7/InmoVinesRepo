@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.localizacion;
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -90,6 +91,18 @@ public class Zonas implements Serializable {
         this.nombreAdmin = nombreAdmin;
     }
 
+    @JsonProperty("idComunidad")
+    public long getIdComunidad(){
+        return this.getMunicipio().getProvincia().getComunidad().getId();
+    }
+    @JsonProperty("idProvincia")
+    public long getIdProvincia(){
+        return this.getMunicipio().getProvincia().getId();
+    }
+    @JsonProperty("idMunicipio")
+    public long getIdMunicipio(){
+        return this.getMunicipio().getId();
+    }
     @JsonIgnore
     public Municipios getMunicipio() {
         return municipio;

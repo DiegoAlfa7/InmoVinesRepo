@@ -3,7 +3,6 @@ package com.diegoa.inmovinesrest.entities.agentes;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import org.springframework.data.domain.Page;
 
 import java.io.IOException;
 import java.util.List;
@@ -40,7 +39,7 @@ public class AgentesPublicSerializer_List extends JsonSerializer {
             jsonGenerator.writeStringField("codigo_agente", a.getCodigoAgente());
             jsonGenerator.writeStringField("activacion", String.valueOf(a.getActivacion()));
             jsonGenerator.writeNumberField("permisos", a.getPermisos());
-            jsonGenerator.writeNumberField("id_cargo", a.getIdCargo().getIdCargo());
+            jsonGenerator.writeNumberField("id_cargo", a.getCargo().getIdCargo());
             //Inmuebles
 
             jsonGenerator.writeEndObject();

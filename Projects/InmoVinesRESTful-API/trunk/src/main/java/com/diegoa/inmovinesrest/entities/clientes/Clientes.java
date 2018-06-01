@@ -8,6 +8,7 @@ package com.diegoa.inmovinesrest.entities.clientes;
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -77,7 +78,7 @@ public class Clientes implements Serializable {
     private Agentes agenteEntrada;
     @JoinColumn(name = "id_inmueble_interes", referencedColumnName = "ID")
     @ManyToOne
-    private Inmuebles idInmuebleInteres;
+    private Inmuebles inmuebleInteres;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
     @com.fasterxml.jackson.annotation.JsonIgnore
     private List<Intereses> interesesList;
@@ -200,6 +201,10 @@ public class Clientes implements Serializable {
         this.canalEntrada = canalEntrada;
     }
 
+    @JsonProperty("idAgente")
+    public long getIdAgente(){
+        return this.agente.getId();
+    }
     @JsonIgnore
     public Agentes getAgente() {
         return agente;
@@ -209,6 +214,11 @@ public class Clientes implements Serializable {
 
        this.agente = idAgente;
     }
+    @JsonProperty("idAgenteEntrada")
+    public long getIdAgenteEntrada(){
+        return this.agenteEntrada.getId();
+    }
+
     @JsonIgnore
     public Agentes getAgenteEntrada() {
         return agenteEntrada;
@@ -219,14 +229,18 @@ public class Clientes implements Serializable {
         this.agenteEntrada = agenteEntrada;
 
     }
-
-
-    public Inmuebles getIdInmuebleInteres() {
-        return idInmuebleInteres;
+    @JsonProperty("idInmuebleInteres")
+    public long getIdInmuebleInteres(){
+        return this.inmuebleInteres.getId();
     }
 
-    public void setIdInmuebleInteres(Inmuebles idInmuebleInteres) {
-        this.idInmuebleInteres = idInmuebleInteres;
+    @JsonIgnore
+    public Inmuebles getInmuebleInteres() {
+        return inmuebleInteres;
+    }
+
+    public void setInmuebleInteres(Inmuebles inmuebleInteres) {
+        this.inmuebleInteres = inmuebleInteres;
     }
 
     @XmlTransient

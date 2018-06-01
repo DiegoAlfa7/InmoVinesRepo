@@ -8,6 +8,7 @@ package com.diegoa.inmovinesrest.entities.localizacion;
 import com.diegoa.inmovinesrest.entities.clientes.Intereses;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -84,6 +85,15 @@ public class Municipios implements Serializable {
         this.id = id;
     }
 
+    @JsonProperty("idProvincia")
+    public long getIdProvincia(){
+        return this.getProvincia().getId();
+    }
+    @JsonProperty("idComunidad")
+    public long getIdComunidad(){
+
+        return this.getProvincia().getComunidad().getId();
+    }
     @JsonIgnore
     public Provincias getProvincia() {
         return provincia;

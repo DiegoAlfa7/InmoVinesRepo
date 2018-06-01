@@ -9,6 +9,7 @@ import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -79,7 +80,7 @@ public class Agentes implements Serializable {
 
     @JoinColumn(name = "id_cargo", referencedColumnName = "id_cargo")
     @ManyToOne(optional = false)
-    private Cargos idCargo;
+    private Cargos cargos;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Clientes> clientesAsignados;
@@ -225,12 +226,12 @@ public class Agentes implements Serializable {
         this.password = password;
     }
 
-    public Cargos getIdCargo() {
-        return idCargo;
+    public Cargos getCargo() {
+        return cargos;
     }
 
     public void setCargo(Cargos cargo) {
-        this.idCargo = cargo;
+        this.cargos = cargo;
     }
 
     @XmlTransient
@@ -294,7 +295,7 @@ public class Agentes implements Serializable {
     }
 
     public void setIdCargo(Cargos idCargo) {
-        this.idCargo = idCargo;
+        this.cargos = idCargo;
     }
 
     @Override
