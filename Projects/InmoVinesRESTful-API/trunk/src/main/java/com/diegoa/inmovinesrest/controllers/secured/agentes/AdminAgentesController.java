@@ -41,7 +41,7 @@ public class AdminAgentesController {
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
-    @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/agentes/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) throws JsonProcessingException {
 

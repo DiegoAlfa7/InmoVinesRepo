@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface InmueblesService extends InmoVinesService {
+public interface InmueblesService {
 
     Page<Inmuebles> listAllByPage(Pageable pageable);
 
@@ -15,5 +15,9 @@ public interface InmueblesService extends InmoVinesService {
 
     List<Inmuebles> listAll();
 
+    public void create(Inmuebles inmuebles);
 
+    public void update(Inmuebles i);
+
+    public void delete(long id);
 }

@@ -3,6 +3,7 @@ package com.diegoa.inmovinesrest.services.agentes.impl;
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.repositories.agentes.AgentesRepository;
 import com.diegoa.inmovinesrest.services.agentes.srv.AgentesService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,8 @@ public class AgentesServiceImpl implements AgentesService {
     @Autowired
     AgentesRepository agentesRepository;
 
+    Logger logger = Logger.getLogger(AgentesServiceImpl.class);
+
 
     @Override
     public Page<Agentes> listAllByPage(Pageable pageable) {
@@ -24,9 +27,7 @@ public class AgentesServiceImpl implements AgentesService {
     }
 
 
-
     /**
-     *
      * @param ID long que representa el ID de BBDD
      * @return
      */
@@ -35,7 +36,7 @@ public class AgentesServiceImpl implements AgentesService {
 
         Optional<Agentes> optionalAgentes = this.agentesRepository.findById(ID);
 
-        if(optionalAgentes.isPresent()) return optionalAgentes.get();
+        if (optionalAgentes.isPresent()) return optionalAgentes.get();
 
         return null;
 
@@ -47,69 +48,68 @@ public class AgentesServiceImpl implements AgentesService {
     }
 
     /**
-     *
-     * @param i la instancia de Agentes que debe ser guardada en el entorno de persistencia
-     *
+     * @param agentes la instancia de Agentes que debe ser guardada en el entorno de persistencia
      */
-    public void create(Agentes i){
+    public void create(Agentes agentes) {
 
-        this.agentesRepository.save(i);
+        if (agentes != null) {
+
+            this.agentesRepository.save(agentes);
+        } else {
+
+            logger.error("El agente a crear viene vacio por parametros");
+            throw new RuntimeException("El agente a crear viene vacio por parametros");
+        }
 
 
     }
 
+
     /**
-     *
-     * @param i entidad de tipo Agentes que representa un nuevo estado (valores cambiados) de una entidad existente en el
-     *          contexto de persistencia
+     * @param agentes entidad de tipo Agentes que representa un nuevo estado (valores cambiados) de una entidad existente en el
+     *                contexto de persistencia
      * @return
      */
-    public void update(Agentes i){
+    @Override
+    public void update(Agentes agentes) {
 
-        this.agentesRepository.save(i);
+        Optional<Agentes> optionalAgentes = agentesRepository.findById(agentes.getId());
+
+        if (optionalAgentes.isPresent()) {
+
+            Agentes agentesPersistent = optionalAgentes.get();
+
+            agentesPersistent.copyParameters(agentes);
+
+            this.agentesRepository.save(agentesPersistent);
+        } else {
+
+            logger.error("El agente con id " + agentes.getId() + " no existe en la base de datos");
+            throw new RuntimeException("El agente con id " + agentes.getId() + " no existe en la base de datos");
+        }
 
     }
 
     /**
-     *
      * @param ID el id de una entidad de tipo Agentes
      */
-    public void deleteById(long ID){
+    @Override
+    public void delete(long ID) {
 
         Optional<Agentes> agenteOptional = this.agentesRepository.findById(ID);
 
-        if(agenteOptional.isPresent()){
+        if (agenteOptional.isPresent()) {
 
             Agentes agente = agenteOptional.get();
             this.agentesRepository.delete(agente);
+        } else {
 
-
-
+            logger.error("El agente con id " + ID + " no existe en la base de datos");
+            throw new RuntimeException("El agente con id " + ID + " no existe en la base de datos");
         }
-
 
 
     }
 
-    /**
-     *
-     * @param ID entidad de tipo Agentes que debe existir en la BBDD / contexto de persistencia
-     */
-    public void delete(long ID){
-
-        Optional<Agentes> agenteOptional = this.agentesRepository.findById(ID);
-
-        if(agenteOptional.isPresent()){
-
-            Agentes agente = agenteOptional.get();
-            this.agentesRepository.delete(agente);
-
-
-
-        }
-
-
-
-    }
 
 }

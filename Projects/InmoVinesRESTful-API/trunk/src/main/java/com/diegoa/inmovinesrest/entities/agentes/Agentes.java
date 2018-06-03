@@ -80,7 +80,7 @@ public class Agentes implements Serializable {
 
     @JoinColumn(name = "id_cargo", referencedColumnName = "id_cargo")
     @ManyToOne(optional = false)
-    private Cargos cargos;
+    private Cargos cargo;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agente")
     private List<Clientes> clientesAsignados;
@@ -104,6 +104,27 @@ public class Agentes implements Serializable {
         this.facebook = facebook;
         this.linkedin = linkedin;
         this.instagram = instagram;
+    }
+
+    public void copyParameters(Agentes agentes) {
+        this.nombre = agentes.nombre;
+        this.apellidos = agentes.apellidos;
+        this.mail = agentes.mail;
+        this.tlf = agentes.tlf;
+        this.twitter = agentes.twitter;
+        this.facebook = agentes.facebook;
+        this.linkedin = agentes.linkedin;
+        this.instagram = agentes.instagram;
+        this.foto = agentes.foto;
+        this.eslogan = agentes.eslogan;
+        this.codigoAgente = agentes.codigoAgente;
+        this.activacion = agentes.activacion;
+        this.permisos = agentes.permisos;
+        this.password = agentes.password;
+        this.cargo = agentes.cargo;
+        this.clientesAsignados = agentes.clientesAsignados;
+        this.clientesCaptados = agentes.clientesCaptados;
+        this.inmuebles = agentes.inmuebles;
     }
 
     public Long getId() {
@@ -227,11 +248,11 @@ public class Agentes implements Serializable {
     }
 
     public Cargos getCargo() {
-        return cargos;
+        return cargo;
     }
 
     public void setCargo(Cargos cargo) {
-        this.cargos = cargo;
+        this.cargo = cargo;
     }
 
     @XmlTransient
@@ -295,7 +316,7 @@ public class Agentes implements Serializable {
     }
 
     public void setIdCargo(Cargos idCargo) {
-        this.cargos = idCargo;
+        this.cargo = idCargo;
     }
 
     @Override

@@ -7,13 +7,19 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface AgentesService extends InmoVinesService {
+public interface AgentesService {
 
     Page<Agentes> listAllByPage(Pageable pageable);
 
     Agentes findOneById(long ID);
 
     List<Agentes> listAll();
+
+    public void create(Agentes agentes);
+
+    public void update(Agentes agentes);
+
+    public void delete(long id);
 
 
 }

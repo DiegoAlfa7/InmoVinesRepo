@@ -80,7 +80,7 @@ public class Inmuebles implements Serializable {
     @Column(name = "precio_alquiler_opcion_compra")
     private Double precioAlquilerOpcionCompra;
 
-    @OneToMany(mappedBy = "idInmuebleInteres")
+    @OneToMany(mappedBy = "inmuebleInteres")
     private List<Clientes> clientesList;
 
     @ManyToOne
@@ -111,6 +111,26 @@ public class Inmuebles implements Serializable {
 
     public Inmuebles(Long id) {
         this.id = id;
+    }
+
+    public void copyParameters(Inmuebles inmuebles) {
+        this.referenciaCatastral = inmuebles.referenciaCatastral;
+        this.referencia = inmuebles.referencia;
+        this.descripcion = inmuebles.descripcion;
+        this.textoReclamo = inmuebles.textoReclamo;
+        this.gastosComunidad = inmuebles.gastosComunidad;
+        this.alturaEdificio = inmuebles.alturaEdificio;
+        this.precioCompra = inmuebles.precioCompra;
+        this.precioAlquiler = inmuebles.precioAlquiler;
+        this.precioTraspaso = inmuebles.precioTraspaso;
+        this.precioAlquilerOpcionCompra = inmuebles.precioAlquilerOpcionCompra;
+        this.clientesList = inmuebles.clientesList;
+        this.agente = inmuebles.agente;
+        this.idClientePropietario = inmuebles.idClientePropietario;
+        this.tipos = inmuebles.tipos;
+        this.gestiones = inmuebles.gestiones;
+        this.caracteristicas = inmuebles.caracteristicas;
+        this.localizacion = inmuebles.localizacion;
     }
 
     public Long getId() {
@@ -260,6 +280,7 @@ public class Inmuebles implements Serializable {
 
 
     }
+
     @JsonProperty("idAgente")
     public long getAgenteId() {
         return agente.getId();

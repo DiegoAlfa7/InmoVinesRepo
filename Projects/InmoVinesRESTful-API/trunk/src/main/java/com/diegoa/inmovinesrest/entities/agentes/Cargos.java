@@ -32,7 +32,7 @@ public class Cargos implements Serializable {
     private Long idCargo;
     @Basic(optional = false)
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCargo")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cargo")
     private List<Agentes> agentesList;
 
     public Cargos() {

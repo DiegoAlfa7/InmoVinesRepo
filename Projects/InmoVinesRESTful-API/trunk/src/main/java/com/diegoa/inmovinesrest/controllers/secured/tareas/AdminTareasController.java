@@ -72,17 +72,17 @@ public class AdminTareasController {
      * @apiNote <b>ENDPOINT: .../admin/tareas/id
      * `
      */
-    @RequestMapping(value = "/tareas/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/tareas/agente/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Tareas> getTareaById(@PathVariable("id_agente") long id_agente) throws JsonProcessingException {
+    public ResponseEntity<Tareas> getTareaById(@PathVariable("id") long id) throws JsonProcessingException {
 
         //TODO: Arreglar, no se están listando las tareas por el id de agente
-        Tareas tareas = tareasService.findOneById(id_agente);
+        Tareas tareas = tareasService.findOneById(id);
 
         if (tareas != null) {
             return new ResponseEntity(tareas, HttpStatus.OK);
         } else {
-            throw new RuntimeException("El id_agente: "+id_agente+" no ha devuelto resultados");
+            throw new RuntimeException("El id_agente: "+id+" no ha devuelto resultados");
         }
     }
 

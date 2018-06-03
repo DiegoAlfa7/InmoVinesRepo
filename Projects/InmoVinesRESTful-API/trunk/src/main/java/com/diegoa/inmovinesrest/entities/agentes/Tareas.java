@@ -23,6 +23,14 @@ public class Tareas {
     @Column(name = "fecha_completada")
     private Date fechaCompletada;
 
+    public void copyParameters(Tareas tareas) {
+        this.agente = tareas.agente;
+        this.concepto = tareas.concepto;
+        this.descripcion = tareas.descripcion;
+        this.fecha = tareas.fecha;
+        this.completada = tareas.completada;
+        this.fechaCompletada = tareas.fechaCompletada;
+    }
 
     public Long getId() {
         return id;

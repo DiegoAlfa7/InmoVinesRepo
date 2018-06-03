@@ -59,6 +59,14 @@ public class Zonas implements Serializable {
         this.activa = activa;
     }
 
+    public void copyParameters(Zonas zonas) {
+        this.nombre = zonas.nombre;
+        this.activa = zonas.activa;
+        this.nombreAdmin = zonas.nombreAdmin;
+        this.municipio =zonas.municipio;
+        this.inmueblesList = zonas.inmueblesList;
+    }
+
     public Long getId() {
         return id;
     }

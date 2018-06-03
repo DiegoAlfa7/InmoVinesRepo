@@ -7,13 +7,19 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public interface TareasService extends InmoVinesService {
+public interface TareasService {
 
     Tareas findOneById(long id);
 
     List<Tareas> listAll();
 
-    Page<Tareas> listAllByPage (Pageable pageable);
+    Page<Tareas> listAllByPage(Pageable pageable);
+
+    public void create(Tareas tareas);
+
+    public void update(Tareas tareas);
+
+    public void delete(long id);
 
 
 }

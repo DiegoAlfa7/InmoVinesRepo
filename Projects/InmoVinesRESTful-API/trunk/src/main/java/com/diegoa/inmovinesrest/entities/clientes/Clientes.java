@@ -101,6 +101,25 @@ public class Clientes implements Serializable {
         this.vendedor = vendedor;
     }
 
+    public void copyParameters(Clientes clientes) {
+        this.datosPersonales = clientes.datosPersonales;
+        this.inquilino = clientes.inquilino;
+        this.arrendatario = clientes.arrendatario;
+        this.comprador = clientes.comprador;
+        this.vendedor = clientes.vendedor;
+        this.comentarios = clientes.comentarios;
+        this.fechaEntrada = clientes.fechaEntrada;
+        this.presupuestoMin = clientes.presupuestoMin;
+        this.presupuestoMax = clientes.presupuestoMax;
+        this.canalEntrada = clientes.canalEntrada;
+        this.accountHash = clientes.accountHash;
+        this.agente = clientes.agente;
+        this.agenteEntrada = clientes.agenteEntrada;
+        this.inmuebleInteres = clientes.inmuebleInteres;
+        this.interesesList = clientes.interesesList;
+        this.inmueblesList = clientes.inmueblesList;
+    }
+
     public Long getId() {
         return id;
     }
@@ -202,9 +221,10 @@ public class Clientes implements Serializable {
     }
 
     @JsonProperty("idAgente")
-    public long getIdAgente(){
+    public long getIdAgente() {
         return this.agente.getId();
     }
+
     @JsonIgnore
     public Agentes getAgente() {
         return agente;
@@ -212,10 +232,11 @@ public class Clientes implements Serializable {
 
     public void setAgente(Agentes idAgente) {
 
-       this.agente = idAgente;
+        this.agente = idAgente;
     }
+
     @JsonProperty("idAgenteEntrada")
-    public long getIdAgenteEntrada(){
+    public long getIdAgenteEntrada() {
         return this.agenteEntrada.getId();
     }
 
@@ -229,8 +250,9 @@ public class Clientes implements Serializable {
         this.agenteEntrada = agenteEntrada;
 
     }
+
     @JsonProperty("idInmuebleInteres")
-    public long getIdInmuebleInteres(){
+    public long getIdInmuebleInteres() {
         return this.inmuebleInteres.getId();
     }
 
@@ -256,20 +278,19 @@ public class Clientes implements Serializable {
     public void addInteresesList(Intereses intereses) {
 
 
-        if(this.interesesList!=null) {
+        if (this.interesesList != null) {
 
 
             this.interesesList.add(intereses);
             intereses.setIdCliente(this);
 
-        }else{
+        } else {
 
             this.interesesList = new ArrayList<Intereses>();
             addInteresesList(intereses);
 
 
         }
-
 
 
     }
@@ -295,17 +316,17 @@ public class Clientes implements Serializable {
 
     public void addInmueble(Inmuebles inmuebles) {
 
-            if(this.inmueblesList != null) {
+        if (this.inmueblesList != null) {
 
-                this.inmueblesList.add(inmuebles);
-                inmuebles.setClientePropietario(this);
+            this.inmueblesList.add(inmuebles);
+            inmuebles.setClientePropietario(this);
 
-            }else{
+        } else {
 
-                this.inmueblesList = new ArrayList<Inmuebles>();
-                addInmueble(inmuebles);
+            this.inmueblesList = new ArrayList<Inmuebles>();
+            addInmueble(inmuebles);
 
-            }
+        }
 
     }
 

@@ -14,5 +14,11 @@ public interface InmoVinesService {
 
     <T> List<T> listAll();
 
+    <T> void create(T t);
+
+    <T> void update(T t);
+
+    <T> void delete(long id);
+
 
 }
