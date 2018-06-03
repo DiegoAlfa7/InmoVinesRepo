@@ -50,11 +50,11 @@ public class AgentesServiceImpl implements AgentesService {
     /**
      * @param agentes la instancia de Agentes que debe ser guardada en el entorno de persistencia
      */
-    public void create(Agentes agentes) {
+    public Agentes create(Agentes agentes) {
 
         if (agentes != null) {
 
-            this.agentesRepository.save(agentes);
+            return this.agentesRepository.save(agentes);
         } else {
 
             logger.error("El agente a crear viene vacio por parametros");
@@ -71,7 +71,7 @@ public class AgentesServiceImpl implements AgentesService {
      * @return
      */
     @Override
-    public void update(Agentes agentes) {
+    public Agentes update(Agentes agentes) {
 
         Optional<Agentes> optionalAgentes = agentesRepository.findById(agentes.getId());
 
@@ -81,7 +81,7 @@ public class AgentesServiceImpl implements AgentesService {
 
             agentesPersistent.copyParameters(agentes);
 
-            this.agentesRepository.save(agentesPersistent);
+            return this.agentesRepository.save(agentesPersistent);
         } else {
 
             logger.error("El agente con id " + agentes.getId() + " no existe en la base de datos");

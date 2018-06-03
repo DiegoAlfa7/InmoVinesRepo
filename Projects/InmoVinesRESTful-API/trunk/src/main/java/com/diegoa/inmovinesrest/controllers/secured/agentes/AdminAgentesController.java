@@ -10,14 +10,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
- *  Controlador Restful encargado de la distribución de datos
- *  de Agentes para las aplicaciones identificadas como administrador.
+ * Controlador Restful encargado de la distribución de datos
+ * de Agentes para las aplicaciones identificadas como administrador.
+ * <p>
+ * <hr/>
+ * <br/><b>C O R S</b> eneabled for this Controller --> origins = {"http://localhost:8087","http://localhost:8080" }
  *
- *  <hr/>
- *  <br/><b>C O R S</b> eneabled for this Controller --> origins = {"http://localhost:8087","http://localhost:8080" }
  * @author Daniel Arroyo
  * @since 0.0.1
  */
@@ -43,7 +45,7 @@ public class AdminAgentesController {
      */
     @RequestMapping(value = "/agentes/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) throws JsonProcessingException {
+    public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) {
 
         Page<Agentes> page = agentesService.listAllByPage(pageable);
 
@@ -61,16 +63,15 @@ public class AdminAgentesController {
      */
     @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Agentes> getAgenteById(@PathVariable("id") long id) throws JsonProcessingException {
+    public ResponseEntity<Agentes> getAgenteById(@PathVariable("id") long id) {
 
         Agentes agentes = agentesService.findOneById(id);
 
         if (agentes != null) {
             return new ResponseEntity(agentes, HttpStatus.OK);
         } else {
-            throw new RuntimeException("El agente con id: "+id+" no ha devuelto ningún resultado");
+            throw new RuntimeException("El agente con id: " + id + " no ha devuelto ningún resultado");
         }
-
 
     }
 
@@ -84,11 +85,30 @@ public class AdminAgentesController {
      */
     @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Agentes> getAgentesList() throws JsonProcessingException {
+    public ResponseEntity<Agentes> getAgentesList() {
 
         List<Agentes> agentes = agentesService.listAll();
 
         return new ResponseEntity(agentes, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "agentes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Agentes> addAgente(@RequestBody @Valid Agentes agentes) {
+
+        Agentes agenteCreado = agentesService.create(agentes);
+
+        return new ResponseEntity(agenteCreado, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "agentes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Agentes> updateAgente(@RequestBody @Valid Agentes agentes) {
+
+        Agentes agentesModificado = agentesService.update(agentes);
+
+        return new ResponseEntity(agentesModificado, HttpStatus.OK);
+
     }
 
 }
