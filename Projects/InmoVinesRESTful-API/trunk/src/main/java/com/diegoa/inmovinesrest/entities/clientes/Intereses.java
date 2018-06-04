@@ -106,27 +106,27 @@ public class Intereses implements Serializable {
         this.precioMax = precioMax;
     }
 
-    public Clientes getIdCliente() {
+    public Clientes getCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Clientes idCliente) {
+    public void setCliente(Clientes idCliente) {
         this.idCliente = idCliente;
     }
 
-    public Municipios getIdMunicipio() {
+    public Municipios getMunicipio() {
         return idMunicipio;
     }
 
-    public void setIdMunicipio(Municipios idMunicipio) {
+    public void setMunicipio(Municipios idMunicipio) {
         this.idMunicipio = idMunicipio;
     }
 
-    public Provincias getIdProvincia() {
+    public Provincias getProvincia() {
         return idProvincia;
     }
 
-    public void setIdProvincia(Provincias idProvincia) {
+    public void setProvincia(Provincias idProvincia) {
         this.idProvincia = idProvincia;
     }
 

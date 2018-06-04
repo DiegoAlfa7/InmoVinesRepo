@@ -185,10 +185,10 @@ public class AdminInmueblesController {
      * Esta operación del controlador se encarga de encontrar las entidades de tipo Clientes de la base de datos que tienen como "INMUEBLE DE INTERÉS" el inmueble con el ID que se introdujo en la URL
      * y devuelve el resultado.
      *
-     * @return ResponseEntity<Clientes> El Cliente propietario del Inmueble, en formato JSON -- <h1>HTTP 200 OK</h1>
+     * @return ResponseEntity<List<Clientes>> Los Clientes interesados en el Inmueble, en formato JSON -- <h1>HTTP 200 OK</h1>
      *
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}/propietario
+     * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}/interesados
      *
      */
     @RequestMapping(value = "/inmuebles/{id}/interesados", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})

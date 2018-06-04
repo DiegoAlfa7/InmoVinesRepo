@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.services.agentes.impl;
 
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
+import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.repositories.agentes.AgentesRepository;
 import com.diegoa.inmovinesrest.services.agentes.srv.AgentesService;
 import org.apache.log4j.Logger;
@@ -11,7 +12,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Este Servicio se encarga de las operaciones que se realizan sobre las entidades de Inmueble y otros recursos directamente relacionados.
+ * @since 0.0.1
+ * @author Daniel Arroyo
+ */
 @Service
 public class AgentesServiceImpl implements AgentesService {
 
@@ -66,12 +71,13 @@ public class AgentesServiceImpl implements AgentesService {
 
 
     /**
-     * @param agentes entidad de tipo Agentes que representa un nuevo estado (valores cambiados) de una entidad existente en el
-     *                contexto de persistencia
-     * @return
+     * Este método se encarga de acutalizar los valores de un agente mediante un objeto agentes que se introduce por los parámetros
+     * @param agentes entidad de tipo Agentes que representa un nuevo estado (valores cambiados) de una entidad existente en la BBDD
+     * @throws RuntimeException Si no existe un Agente en la BBDD con el mismo ID que el agente pasado por parámetros
+     * @return Agentes el nuevo estado de la entidad en la base de datos
      */
     @Override
-    public Agentes update(Agentes agentes) {
+    public Agentes update(Agentes agentes) throws RuntimeException{
 
         Optional<Agentes> optionalAgentes = agentesRepository.findById(agentes.getId());
 
@@ -91,6 +97,9 @@ public class AgentesServiceImpl implements AgentesService {
     }
 
     /**
+     * Este método se encarga de realizar la acción de borrado sobre una entidad Agentes basándose en un ID que utiliza como parámetro de búsqueda
+     * y además comprueba que la operación delete() se produjo con éxito, devolviendo true o false en consecuencia.
+     * @return true si se efectuó correctamente el borrado, false en caso contrario
      * @param ID el id de una entidad de tipo Agentes
      */
     @Override
@@ -119,6 +128,29 @@ public class AgentesServiceImpl implements AgentesService {
             throw new RuntimeException("El agente con id " + ID + " no existe en la base de datos");
         }
 
+
+    }
+
+    /**
+     * Este método se encarga de devolver la lista de Clientes asociados a un agente de la base de datos, mediante su ID
+     * @param ID el ID del agente de la base de datos del que se quiere recuperar la lista de Clientes
+     * @throws RuntimeException si no existe un agente con el ID de los parámetros en la BBDD
+     * @return List<Clientes> con los clientes asociados al agente, en formato JSON
+     */
+    @Override
+    public List<Clientes> getClientesAsignadosById(long ID) throws RuntimeException{
+
+        Optional<Agentes> agenteOptional = this.agentesRepository.findById(ID);
+
+        if (agenteOptional.isPresent()) {
+
+           return agenteOptional.get().getClientesAsignados();
+
+        } else {
+
+            logger.error("El agente con id " + ID + " no existe en la base de datos");
+            throw new RuntimeException("El agente con id " + ID + " no existe en la base de datos");
+        }
 
     }
 

@@ -282,7 +282,7 @@ public class Clientes implements Serializable {
 
 
             this.interesesList.add(intereses);
-            intereses.setIdCliente(this);
+            intereses.setCliente(this);
 
         } else {
 

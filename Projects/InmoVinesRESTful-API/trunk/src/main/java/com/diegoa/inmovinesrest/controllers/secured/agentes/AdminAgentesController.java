@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.controllers.secured.agentes;
 
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
+import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.services.agentes.impl.AgentesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -148,4 +149,29 @@ public class AdminAgentesController {
         if (this.agentesService.delete(id)) return new ResponseEntity(HttpStatus.OK);
         else return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
+
+
+
+    //CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS
+
+    /**
+     * Esta operación del controlador se encarga de encontrar los clientes asociados a un agente mediante la propiedad "AGENTE"
+     *
+     *
+     * @return ResponseEntity<List<Clientes>> Lista de clientes que pertenecen al agente en cuestión, en formato JSON -- <h1>HTTP 200 OK</h1>
+     *
+     * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/agentes/{id}/clientes
+     *
+     */
+    @RequestMapping(value = "/agentes/{id}/clientes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<List<Clientes>> getClientesAsociados(@PathVariable("id") long id) {
+
+        List<Clientes> c = this.agentesService.getClientesAsignadosById(id);
+
+        return new ResponseEntity(c, HttpStatus.OK);
+
+    }
+
 }
