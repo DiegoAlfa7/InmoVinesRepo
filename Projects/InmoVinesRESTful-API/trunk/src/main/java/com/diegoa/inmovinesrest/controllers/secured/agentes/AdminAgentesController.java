@@ -92,7 +92,7 @@ public class AdminAgentesController {
         return new ResponseEntity(agentes, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "agentes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/agentes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Agentes> addAgente(@RequestBody @Valid Agentes agentes) {
 
@@ -101,7 +101,7 @@ public class AdminAgentesController {
         return new ResponseEntity(agenteCreado, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "agentes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/agentes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Agentes> updateAgente(@RequestBody @Valid Agentes agentes) {
 
@@ -111,4 +111,12 @@ public class AdminAgentesController {
 
     }
 
+    @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Void> deleteAgente(@PathVariable("id") long id) {
+
+        this.agentesService.delete(id);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
