@@ -2,7 +2,8 @@ package com.diegoa.inmovinesrest.services.inmuebles.impl;
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
-import com.diegoa.inmovinesrest.repositories.clientes.ClientesReposiroty;
+import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
+import com.diegoa.inmovinesrest.repositories.clientes.InteresesRepository;
 import com.diegoa.inmovinesrest.repositories.inmuebles.InmueblesRepository;
 import com.diegoa.inmovinesrest.services.inmuebles.srv.InmueblesService;
 import org.apache.log4j.Logger;
@@ -24,10 +25,10 @@ import java.util.Optional;
 public class InmueblesServiceImpl implements InmueblesService {
 
     @Autowired
-    InteresesReposiroty interesesReposiroty;
+    InteresesRepository interesesRepository;
 
     @Autowired
-    ClientesReposiroty clientesReposiroty;
+    ClientesRepository clientesRepository;
 
     @Autowired
     InmueblesRepository inmueblesRepository;
@@ -200,7 +201,7 @@ public class InmueblesServiceImpl implements InmueblesService {
 
         if (inmueblesOptional.isPresent()) {
 
-            List<Clientes> allClientes = (List<Clientes>) this.clientesReposiroty.findAll();
+            List<Clientes> allClientes = (List<Clientes>) this.clientesRepository.findAll();
             List<Clientes> clientesFiltered = new ArrayList<Clientes>();
 
             for (Clientes i : allClientes) {

@@ -122,4 +122,54 @@ public class AdminIncidenciasController {
     }
 
 
+
+
+    //CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS
+
+
+
+
+    /**
+     * Esta operación del controlador se encarga de conseguir la lista de incidencias relacionadas con un Cliente,
+     * mas concretamente las incidencias de todos sus inmuebles.
+     *
+     * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el cliente-- <h1>HTTP 200 OK</h1>
+     *
+     * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/incidencias/cliente/{id}
+     */
+    @RequestMapping(value = "/incidencias/cliente/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity getClienteIncidencias(@PathVariable("id") long id) {
+
+        List<Incidencias> incidenciasList = this.incidenciasService.listAllByClienteID(id);
+
+        return new ResponseEntity(incidenciasList, HttpStatus.OK);
+
+
+
+    }
+
+
+    /**
+     * Esta operación del controlador se encarga de conseguir la lista de incidencias relacionadas con un Inmueble en función
+     * del ID de este último
+     *
+     * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
+     *
+     * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/inmueble/cliente/{id}
+     */
+    @RequestMapping(value = "/incidencias/inmueble/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity getInmuebleIncidencias(@PathVariable("id") long id) {
+
+        List<Incidencias> incidenciasList = this.incidenciasService.listAllByInmuebleID(id);
+
+        return new ResponseEntity(incidenciasList, HttpStatus.OK);
+
+
+
+    }
+
 }

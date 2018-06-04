@@ -1,7 +1,7 @@
 package com.diegoa.inmovinesrest.services.clientes.impl;
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
-import com.diegoa.inmovinesrest.repositories.clientes.ClientesReposiroty;
+import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
 import com.diegoa.inmovinesrest.services.clientes.srv.ClientesUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class ClientesServiceImpl implements ClientesUserService {
 
     @Autowired
-    ClientesReposiroty clientesReposiroty;
+    ClientesRepository clientesRepository;
 
 
     Logger logger = Logger.getLogger(ClientesServiceImpl.class);
@@ -25,14 +25,14 @@ public class ClientesServiceImpl implements ClientesUserService {
 
     @Override
     public Page<Clientes> listAllByPage(Pageable pageable) {
-        return clientesReposiroty.findAll(pageable);
+        return clientesRepository.findAll(pageable);
     }
 
     @Override
     public Clientes findOneById(long ID) {
 
 
-        Optional<Clientes> optCliente = clientesReposiroty.findById(ID);
+        Optional<Clientes> optCliente = clientesRepository.findById(ID);
 
         return optCliente.isPresent() ? optCliente.get() : null;
     }
@@ -40,7 +40,7 @@ public class ClientesServiceImpl implements ClientesUserService {
     @Override
     public List<Clientes> listAll() {
 
-        return (List<Clientes>) clientesReposiroty.findAll();
+        return (List<Clientes>) clientesRepository.findAll();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ClientesServiceImpl implements ClientesUserService {
 
         if (clientes != null) {
 
-           return this.clientesReposiroty.save(clientes);
+           return this.clientesRepository.save(clientes);
         } else {
 
             logger.error("El cliente a crear viene vacio por parametros");
@@ -61,7 +61,7 @@ public class ClientesServiceImpl implements ClientesUserService {
     @Override
     public Clientes update(Clientes clientes) {
 
-        Optional<Clientes> optionalClientes = this.clientesReposiroty.findById(clientes.getId());
+        Optional<Clientes> optionalClientes = this.clientesRepository.findById(clientes.getId());
 
         if (optionalClientes.isPresent()) {
 
@@ -69,7 +69,7 @@ public class ClientesServiceImpl implements ClientesUserService {
 
             clientesPersistent.copyParameters(clientes);
 
-            return this.clientesReposiroty.save(clientesPersistent);
+            return this.clientesRepository.save(clientesPersistent);
         } else {
 
             logger.error("El cliente con id " + clientes.getId() + " no existe en la base de datos");
@@ -82,12 +82,12 @@ public class ClientesServiceImpl implements ClientesUserService {
     @Override
     public void delete(long id) {
 
-        Optional<Clientes> optionalClientes = this.clientesReposiroty.findById(id);
+        Optional<Clientes> optionalClientes = this.clientesRepository.findById(id);
 
         if (optionalClientes.isPresent()) {
 
             Clientes clientes = optionalClientes.get();
-            this.clientesReposiroty.delete(clientes);
+            this.clientesRepository.delete(clientes);
 
 
         } else {

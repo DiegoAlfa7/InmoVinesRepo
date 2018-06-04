@@ -1,6 +1,8 @@
 package com.diegoa.inmovinesrest.entities.inmuebles.incidencias;
 
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javax.persistence.*;
 
@@ -18,13 +20,23 @@ public class Incidencias {
     @Column(name = "ID")
     private long id;
 
+    @Column(name = "motivo")
     private String motivo;
 
+    @Column(name = "descripcion")
     private String descripcion;
+
+
+    @Column(name = "estado")
+    private String estado;
+
+
+    @Column(name = "terminada")
+    private Boolean terminada;
 
     @JoinColumn(name = "id_inmueble", referencedColumnName = "ID")
     @ManyToOne(optional = false)
-    private Inmuebles idInmueble;
+    private Inmuebles inmueble;
 
     public Incidencias(String motivo) {
         this.motivo = motivo;
@@ -37,7 +49,7 @@ public class Incidencias {
     public void copyParameters(Incidencias incidencias) {
         this.motivo = incidencias.motivo;
         this.descripcion = incidencias.descripcion;
-        this.idInmueble = incidencias.idInmueble;
+        this.inmueble = incidencias.inmueble;
     }
 
     public long getId() {
@@ -67,11 +79,27 @@ public class Incidencias {
     }
 
 
-    public Inmuebles getIdInmueble() {
-        return idInmueble;
+    public Inmuebles getInmueble() {
+        return inmueble;
     }
 
-    public void setIdInmueble(Inmuebles idInmueble) {
-        this.idInmueble = idInmueble;
+    public void setInmueble(Inmuebles inmueble) {
+        this.inmueble = inmueble;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    @JsonProperty("terminada")
+    public Boolean isTerminada() {
+        return terminada;
+    }
+
+    public void setTerminada(Boolean terminada) {
+        this.terminada = terminada;
     }
 }

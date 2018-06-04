@@ -1,7 +1,11 @@
 package com.diegoa.inmovinesrest.services.inmuebles.incidencias.impl;
 
+import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.entities.inmuebles.incidencias.Incidencias;
+import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
 import com.diegoa.inmovinesrest.repositories.inmuebles.IncidenciasRepository;
+import com.diegoa.inmovinesrest.repositories.inmuebles.InmueblesRepository;
 import com.diegoa.inmovinesrest.services.inmuebles.impl.InmueblesServiceImpl;
 import com.diegoa.inmovinesrest.services.inmuebles.incidencias.srv.IncidenciasService;
 import org.apache.log4j.Logger;
@@ -10,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +24,12 @@ public class IncidenciasServiceImpl implements IncidenciasService {
 
     @Autowired
     IncidenciasRepository incidenciasRepository;
+
+    @Autowired
+    InmueblesRepository inmueblesRepository;
+
+    @Autowired
+    ClientesRepository clientesRepository;
 
     Logger logger = Logger.getLogger(InmueblesServiceImpl.class);
 
@@ -47,6 +59,8 @@ public class IncidenciasServiceImpl implements IncidenciasService {
 
         return (List<Incidencias>) this.incidenciasRepository.findAll();
     }
+
+
 
     @Override
     public Incidencias create(Incidencias incidencias) {
@@ -110,6 +124,59 @@ public class IncidenciasServiceImpl implements IncidenciasService {
             throw new RuntimeException("La incidencia con id " + id + " no existe en la base de datos");
 
         }
+
+    }
+
+
+
+    @Override
+    public List<Incidencias> listAllByInmuebleID(long ID) {
+
+
+        Optional<Inmuebles> inmuebleOptional =  this.inmueblesRepository.findById(ID);
+
+        if (inmuebleOptional.isPresent()) {
+
+            Inmuebles inmueble = inmuebleOptional.get();
+            List<Incidencias> incidenciasList = inmueble.getIncidenciasList();
+            return incidenciasList;
+
+        } else {
+
+            logger.error("El agente con id " + ID + " no existe en la base de datos");
+            throw new RuntimeException("El agente con id " + ID + " no existe en la base de datos");
+        }
+
+
+    }
+
+    @Override
+    public List<Incidencias> listAllByClienteID(long ID) {
+
+
+        Optional<Clientes> clientesOptional =  this.clientesRepository.findById(ID);
+
+        if (clientesOptional.isPresent()) {
+
+            Clientes clientes = clientesOptional.get();
+            List<Inmuebles> inmueblesOfCliente = clientes.getInmueblesList();
+            //Lista de incidencias de los inmuebles
+            List<Incidencias> incidenciasOfCliente = new ArrayList<Incidencias>();
+            for(Inmuebles i : inmueblesOfCliente ){
+
+                incidenciasOfCliente.addAll(i.getIncidenciasList());
+
+
+            }
+
+            return incidenciasOfCliente;
+
+        } else {
+
+            logger.error("El agente con id " + ID + " no existe en la base de datos");
+            throw new RuntimeException("El agente con id " + ID + " no existe en la base de datos");
+        }
+
 
     }
 }

@@ -7,6 +7,7 @@ package com.diegoa.inmovinesrest.entities.inmuebles;
 
 import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.incidencias.Incidencias;
 import com.diegoa.inmovinesrest.entities.inmuebles.localizacion.Localizacion;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -82,6 +83,9 @@ public class Inmuebles implements Serializable {
 
     @OneToMany(mappedBy = "inmuebleInteres")
     private List<Clientes> clientesList;
+
+    @OneToMany(mappedBy = "inmueble")
+    private List<Incidencias> incidenciasList;
 
     @ManyToOne
     @JoinColumn(name = "id_agente", referencedColumnName = "id")
@@ -243,6 +247,15 @@ public class Inmuebles implements Serializable {
 
     public void setTipos(Tipos tipos) {
         this.tipos = tipos;
+    }
+
+    @JsonIgnore
+    public List<Incidencias> getIncidenciasList() {
+        return incidenciasList;
+    }
+
+    public void setIncidenciasList(List<Incidencias> incidenciasList) {
+        this.incidenciasList = incidenciasList;
     }
 
     public Gestiones getGestiones() {
