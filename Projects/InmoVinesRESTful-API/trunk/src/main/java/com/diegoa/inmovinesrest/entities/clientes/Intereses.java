@@ -13,19 +13,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- *
  * @author Usuario 2 DAM
  */
 @Entity
 @Table(name = "intereses", schema = "inmovinescrm")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Intereses.findAll", query = "SELECT i FROM Intereses i")
-    , @NamedQuery(name = "Intereses.findById", query = "SELECT i FROM Intereses i WHERE i.id = :id")
-    , @NamedQuery(name = "Intereses.findByHabitaciones", query = "SELECT i FROM Intereses i WHERE i.habitaciones = :habitaciones")
-    , @NamedQuery(name = "Intereses.findByBa\u00f1os", query = "SELECT i FROM Intereses i WHERE i.ba\u00f1os = :ba\u00f1os")
-    , @NamedQuery(name = "Intereses.findByM2", query = "SELECT i FROM Intereses i WHERE i.m2 = :m2")
-    , @NamedQuery(name = "Intereses.findByPrecioMax", query = "SELECT i FROM Intereses i WHERE i.precioMax = :precioMax")})
+        @NamedQuery(name = "Intereses.findAll", query = "SELECT i FROM Intereses i")
+        , @NamedQuery(name = "Intereses.findById", query = "SELECT i FROM Intereses i WHERE i.id = :id")
+        , @NamedQuery(name = "Intereses.findByHabitaciones", query = "SELECT i FROM Intereses i WHERE i.habitaciones = :habitaciones")
+        , @NamedQuery(name = "Intereses.findByBa\u00f1os", query = "SELECT i FROM Intereses i WHERE i.ba\u00f1os = :ba\u00f1os")
+        , @NamedQuery(name = "Intereses.findByM2", query = "SELECT i FROM Intereses i WHERE i.m2 = :m2")
+        , @NamedQuery(name = "Intereses.findByPrecioMax", query = "SELECT i FROM Intereses i WHERE i.precioMax = :precioMax")})
 public class Intereses implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,6 +39,7 @@ public class Intereses implements Serializable {
     @Basic(optional = false)
     private int m2;
     @Basic(optional = false)
+    @Column(name = "precio_max")
     private int precioMax;
     @JoinColumn(name = "id_cliente", referencedColumnName = "id")
     @ManyToOne(optional = false)
@@ -154,5 +154,5 @@ public class Intereses implements Serializable {
     public String toString() {
         return "entities.cliente.Intereses[ id=" + id + " ]";
     }
-    
+
 }
