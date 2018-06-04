@@ -40,7 +40,7 @@ public class AdminAgentesController {
      * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
      *                 'page', 'size' y 'sort' debidamente introducidos
      * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b> -- <h1>HTTP 200 OK</h1>
-     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto. <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.-- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
     @RequestMapping(value = "/agentes/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
@@ -57,8 +57,10 @@ public class AdminAgentesController {
      * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
      * el ID facilitado.
      *
+     * @param id Parámetro utilizado en la búsqueda indexada sobre la base de datos.
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente de la BBDD. -- <h1>HTTP 200 OK</h1>
-     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto. <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.-- <h1>HTTP 500 INTERNAL ERROR</h1>
+     *  * @throws RuntimeException si ocurre algún eror durante la búsqueda con el ID dado.-- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/agentes/{id}</b>
      */
     @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
@@ -97,7 +99,7 @@ public class AdminAgentesController {
      * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente creado -- <h1>HTTP 204 CREATED</h1>
-     * @throws RuntimeException si ocurre un error durante la inserción del objeto. <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @throws RuntimeException si ocurre un error durante la inserción del objeto. --<h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo
      *
      */
