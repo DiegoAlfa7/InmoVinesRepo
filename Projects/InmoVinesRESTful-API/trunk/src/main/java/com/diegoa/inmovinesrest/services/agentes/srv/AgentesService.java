@@ -18,7 +18,7 @@ public interface AgentesService {
 
     public Agentes update(Agentes agentes);
 
-    public void delete(long id);
+    public boolean delete(long id);
 
 
 }

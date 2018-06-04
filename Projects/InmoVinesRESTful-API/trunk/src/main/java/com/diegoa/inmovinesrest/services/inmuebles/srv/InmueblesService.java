@@ -1,7 +1,7 @@
 package com.diegoa.inmovinesrest.services.inmuebles.srv;
 
+import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
-import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,9 +15,13 @@ public interface InmueblesService {
 
     List<Inmuebles> listAll();
 
-    public void create(Inmuebles inmuebles);
+    public Inmuebles create(Inmuebles inmuebles);
 
-    public void update(Inmuebles i);
+    public Inmuebles update(Inmuebles i);
 
-    public void delete(long id);
+    public boolean delete(long id);
+
+    public Clientes getClientePropietarioByID(long ID);
+
+    List<Clientes> getInteresadosByID(long id);
 }

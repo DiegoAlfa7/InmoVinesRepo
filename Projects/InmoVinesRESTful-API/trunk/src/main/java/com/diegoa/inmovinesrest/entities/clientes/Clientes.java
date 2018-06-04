@@ -83,7 +83,7 @@ public class Clientes implements Serializable {
     @com.fasterxml.jackson.annotation.JsonIgnore
     private List<Intereses> interesesList;
     @com.fasterxml.jackson.annotation.JsonIgnore
-    @OneToMany(mappedBy = "idClientePropietario")
+    @OneToMany(mappedBy = "clientePropietario")
     private List<Inmuebles> inmueblesList;
 
     public Clientes() {

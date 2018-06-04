@@ -89,7 +89,7 @@ public class Inmuebles implements Serializable {
 
     @JoinColumn(name = "id_cliente_propietario", referencedColumnName = "id")
     @ManyToOne(cascade = CascadeType.ALL)
-    private Clientes idClientePropietario;
+    private Clientes clientePropietario;
 
     @JoinColumn(name = "tipo", referencedColumnName = "id")
     @ManyToOne(cascade = CascadeType.ALL)
@@ -126,7 +126,7 @@ public class Inmuebles implements Serializable {
         this.precioAlquilerOpcionCompra = inmuebles.precioAlquilerOpcionCompra;
         this.clientesList = inmuebles.clientesList;
         this.agente = inmuebles.agente;
-        this.idClientePropietario = inmuebles.idClientePropietario;
+        this.clientePropietario = inmuebles.clientePropietario;
         this.tipos = inmuebles.tipos;
         this.gestiones = inmuebles.gestiones;
         this.caracteristicas = inmuebles.caracteristicas;
@@ -295,18 +295,18 @@ public class Inmuebles implements Serializable {
         this.agente = agente;
     }
 
-    @JsonProperty("idClientePropietario")
+    @JsonProperty("clientePropietario")
     public long getClientePropietarioId() {
-        return idClientePropietario.getId();
+        return clientePropietario.getId();
     }
 
     @JsonIgnore
     public Clientes getClientePropietario() {
-        return idClientePropietario;
+        return clientePropietario;
     }
 
     public void setClientePropietario(Clientes idClientePropietario) {
-        this.idClientePropietario = idClientePropietario;
+        this.clientePropietario = idClientePropietario;
     }
 
     @Override

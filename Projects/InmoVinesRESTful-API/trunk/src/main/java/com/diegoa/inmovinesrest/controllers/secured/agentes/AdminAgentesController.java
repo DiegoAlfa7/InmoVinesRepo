@@ -32,29 +32,8 @@ public class AdminAgentesController {
     @Autowired
     AgentesServiceImpl agentesService;
 
-
     /**
-     * Esta operación del controlador se encarga de listar dentro de un pageable los agentes de la base de datos, agrupándolos en
-     * función del tipo de página que se pida en los parámetros de la URL.
-     *
-     * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
-     *                 'page', 'size' y 'sort' debidamente introducidos
-     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b> -- <h1>HTTP 200 OK</h1>
-     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.-- <h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
-     */
-    @RequestMapping(value = "/agentes/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
-    @ResponseBody
-    public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) {
-
-        Page<Agentes> page = agentesService.listAllByPage(pageable);
-
-        return new ResponseEntity(page, HttpStatus.OK);
-    }
-
-
-    /**
-     * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
+     * Esta operación del controlador se encarga de encontrar una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
      * el ID facilitado.
      *
      * @param id Parámetro utilizado en la búsqueda indexada sobre la base de datos.
@@ -76,6 +55,28 @@ public class AdminAgentesController {
         }
 
     }
+
+    /**
+     * Esta operación del controlador se encarga de listar dentro de un pageable los agentes de la base de datos, agrupándolos en
+     * función del tipo de página que se pida en los parámetros de la URL.
+     *
+     * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
+     *                 'page', 'size' y 'sort' debidamente introducidos
+     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b> -- <h1>HTTP 200 OK</h1>
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.-- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
+     */
+    @RequestMapping(value = "/agentes/page", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Page<Agentes>> getAgentesPage(Pageable pageable) {
+
+        Page<Agentes> page = agentesService.listAllByPage(pageable);
+
+        return new ResponseEntity(page, HttpStatus.OK);
+    }
+
+
+
 
     /**
      * Esta operación del controlador se encarga de devolver en una Lista genérica <b>todos los Agentes que haya en la base de datos.</b>
@@ -134,7 +135,8 @@ public class AdminAgentesController {
      * Esta operación del controlador se encarga de eliminar una entidad de tipo Agentes existente en la BBDD <b>
      * mediante una búsqueda indexada</b> con el ID recogido de los parámetros de la petición.
      *
-     * @return ResponseEntity<Void> Respuesta Http vacía. -- <h1>HTTP 200 OK</h1>
+     * @return ResponseEntity<Void> Respuesta Http OK vacía si se ha borrado correctemente la entidad -- <h1>HTTP 200 OK</h1>
+     * Respuesta Http NOT_MODIFIED vacía. si no se ha borrado la entidad -- <h1>HTTP 304 NOT_MODIFIED</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/agentes/{id}
      *
@@ -143,8 +145,7 @@ public class AdminAgentesController {
     @ResponseBody
     public ResponseEntity<Void> deleteAgente(@PathVariable("id") long id) {
 
-        this.agentesService.delete(id);
-
-        return new ResponseEntity(HttpStatus.OK);
+        if (this.agentesService.delete(id)) return new ResponseEntity(HttpStatus.OK);
+        else return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
     }
 }

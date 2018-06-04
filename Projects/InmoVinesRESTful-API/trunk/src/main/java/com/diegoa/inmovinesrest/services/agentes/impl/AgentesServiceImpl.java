@@ -94,7 +94,7 @@ public class AgentesServiceImpl implements AgentesService {
      * @param ID el id de una entidad de tipo Agentes
      */
     @Override
-    public void delete(long ID) {
+    public boolean delete(long ID) {
 
         Optional<Agentes> agenteOptional = this.agentesRepository.findById(ID);
 
@@ -102,6 +102,17 @@ public class AgentesServiceImpl implements AgentesService {
 
             Agentes agente = agenteOptional.get();
             this.agentesRepository.delete(agente);
+            //Nos aseguramos de que efectivamente se borró la entidad
+            Optional i = this.agentesRepository.findById(ID);
+
+            if (i.isPresent()){
+                //No se ha borrado correctamente
+                return false;
+
+            }else{
+                //El borrado transcurrió correctamente
+                return true;
+            }
         } else {
 
             logger.error("El agente con id " + ID + " no existe en la base de datos");
