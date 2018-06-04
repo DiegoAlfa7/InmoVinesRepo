@@ -15,9 +15,9 @@ public interface ClientesUserService {
 
     List<Clientes> listAll();
 
-    public void create(Clientes clientes);
+    public Clientes create(Clientes clientes);
 
-    public void update(Clientes clientes);
+    public Clientes update(Clientes clientes);
 
     public void delete(long id);
     

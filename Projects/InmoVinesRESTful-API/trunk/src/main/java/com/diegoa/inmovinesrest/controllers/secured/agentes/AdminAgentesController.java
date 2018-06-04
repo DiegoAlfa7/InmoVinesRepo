@@ -84,7 +84,7 @@ public class AdminAgentesController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD. -- <h1>HTTP 200 OK</h1>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
-     * @apiNote <b>ENDPOINT: .../admin/agentes
+     * @apiNote <b>ENDPOINT: .../admin/agentes</b>
      *
      */
     @RequestMapping(value = "/agentes", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
@@ -102,7 +102,7 @@ public class AdminAgentesController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente creado -- <h1>HTTP 204 CREATED</h1>
      * @throws RuntimeException si ocurre un error durante la inserción del objeto. --<h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo
+     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo</b>
      *
      */
     @RequestMapping(value = "agentes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
@@ -120,7 +120,7 @@ public class AdminAgentesController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agentes modificado con los nuevos valores. -- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre algun error durante la actualización en la BBD -- <h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo
+     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo</b>
      *
      */
     @RequestMapping(value = "agentes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
@@ -139,7 +139,7 @@ public class AdminAgentesController {
      * @return ResponseEntity<Void> Respuesta Http OK vacía si se ha borrado correctemente la entidad -- <h1>HTTP 200 OK</h1>
      * Respuesta Http NOT_MODIFIED vacía. si no se ha borrado la entidad -- <h1>HTTP 304 NOT_MODIFIED</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/agentes/{id}
+     * @apiNote <b>ENDPOINT: .../admin/agentes/{id}</b>
      *
      */
     @RequestMapping(value = "/agentes/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})

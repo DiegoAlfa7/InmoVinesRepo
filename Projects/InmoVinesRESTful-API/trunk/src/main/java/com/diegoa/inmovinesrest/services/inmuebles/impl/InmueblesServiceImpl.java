@@ -3,7 +3,6 @@ package com.diegoa.inmovinesrest.services.inmuebles.impl;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.repositories.clientes.ClientesReposiroty;
-import com.diegoa.inmovinesrest.repositories.clientes.InteresesReposiroty;
 import com.diegoa.inmovinesrest.repositories.inmuebles.InmueblesRepository;
 import com.diegoa.inmovinesrest.services.inmuebles.srv.InmueblesService;
 import org.apache.log4j.Logger;
@@ -33,6 +32,8 @@ public class InmueblesServiceImpl implements InmueblesService {
     @Autowired
     InmueblesRepository inmueblesRepository;
     Logger logger = Logger.getLogger(InmueblesServiceImpl.class);
+
+
 
 
     @Override
@@ -150,7 +151,6 @@ public class InmueblesServiceImpl implements InmueblesService {
 
     /**
      * This method searches for an instance of Inmuebles by the ID given and returns its property 'clientePropietario'
-     *
      * @param ID the long value for the indexed search in Inmuebles
      * @return Clientes
      * @throws RuntimeException si no se encuentra un inmueble por el id dado o si el inmueble no tiene un cliente propietario asociado

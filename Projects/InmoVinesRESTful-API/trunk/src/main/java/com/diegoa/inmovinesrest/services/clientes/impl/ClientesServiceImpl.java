@@ -44,11 +44,11 @@ public class ClientesServiceImpl implements ClientesUserService {
     }
 
     @Override
-    public void create(Clientes clientes) {
+    public Clientes create(Clientes clientes) {
 
         if (clientes != null) {
 
-            this.clientesReposiroty.save(clientes);
+           return this.clientesReposiroty.save(clientes);
         } else {
 
             logger.error("El cliente a crear viene vacio por parametros");
@@ -59,7 +59,7 @@ public class ClientesServiceImpl implements ClientesUserService {
     }
 
     @Override
-    public void update(Clientes clientes) {
+    public Clientes update(Clientes clientes) {
 
         Optional<Clientes> optionalClientes = this.clientesReposiroty.findById(clientes.getId());
 
@@ -69,7 +69,7 @@ public class ClientesServiceImpl implements ClientesUserService {
 
             clientesPersistent.copyParameters(clientes);
 
-            this.clientesReposiroty.save(clientesPersistent);
+            return this.clientesReposiroty.save(clientesPersistent);
         } else {
 
             logger.error("El cliente con id " + clientes.getId() + " no existe en la base de datos");
