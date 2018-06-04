@@ -76,6 +76,8 @@ public class AdminIncidenciasController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos las incidencias den la BBDD. -- <h1>HTTP 200 OK</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias
+     *
+     *
      */
     @RequestMapping(value = "/incidencias", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
