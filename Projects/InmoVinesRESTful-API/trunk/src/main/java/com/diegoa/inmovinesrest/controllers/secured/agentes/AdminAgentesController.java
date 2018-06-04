@@ -39,7 +39,7 @@ public class AdminAgentesController {
      *
      * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
      *                 'page', 'size' y 'sort' debidamente introducidos
-     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b>
+     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Agentes\></b> -- <h1>HTTP 200 OK</h1>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/agentes/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
@@ -57,7 +57,7 @@ public class AdminAgentesController {
      * Esta operación del controlador se encarga de una única entidad de tipo Agentes. Realiza una búsqueda en los DAOS en función de
      * el ID facilitado.
      *
-     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente de la BBDD.
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente de la BBDD. -- <h1>HTTP 200 OK</h1>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/agentes/{id}</b>
      */
@@ -78,7 +78,7 @@ public class AdminAgentesController {
     /**
      * Esta operación del controlador se encarga de devolver en una Lista genérica <b>todos los Agentes que haya en la base de datos.</b>
      *
-     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD.
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los agentes den la BBDD. -- <h1>HTTP 200 OK</h1>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/agentes
      * `
@@ -92,6 +92,15 @@ public class AdminAgentesController {
         return new ResponseEntity(agentes, HttpStatus.OK);
     }
 
+    /**
+     * Esta operación del controlador se encarga de crear una nueva entidad de tipo Agentes en la BBDD <b>en función de un JSON válido que represente
+     * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente creado -- <h1>HTTP 204 CREATED</h1>
+     * @throws RuntimeException si ocurre un error durante la inserción del objeto.
+     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo
+     * `
+     */
     @RequestMapping(value = "agentes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Agentes> addAgente(@RequestBody @Valid Agentes agentes) {
@@ -101,6 +110,15 @@ public class AdminAgentesController {
         return new ResponseEntity(agenteCreado, HttpStatus.CREATED);
     }
 
+    /**
+     * Esta operación del controlador se encarga de modificar una entidad de tipo Agentes existente en la BBDD <b>en función de un JSON válido que represente
+     * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agentes modificado con los nuevos valores.
+     * @throws RuntimeException si ocurre algun error durante la actualización en la BBD -- <h1>HTTP 200 OK</h1>
+     * @apiNote <b>ENDPOINT: .../admin/agentes/nuevo
+     * `
+     */
     @RequestMapping(value = "agentes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Agentes> updateAgente(@RequestBody @Valid Agentes agentes) {
