@@ -14,11 +14,11 @@ public interface ZonasService {
 
     List<Zonas> listAll();
 
-    public void create(Zonas zonas);
+    public Zonas create(Zonas zonas);
 
-    public void update(Zonas zonas);
+    public Zonas update(Zonas zonas);
 
-    public void delete(long id);
+    public boolean delete(long id);
 
 
 }

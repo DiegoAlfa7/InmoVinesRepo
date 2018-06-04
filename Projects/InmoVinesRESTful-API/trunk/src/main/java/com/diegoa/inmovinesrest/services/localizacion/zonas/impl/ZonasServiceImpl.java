@@ -48,11 +48,12 @@ public class ZonasServiceImpl implements ZonasService {
     }
 
     @Override
-    public void create(Zonas zonas) {
+    public Zonas create(Zonas zonas) {
 
         if (zonas != null) {
 
-            this.zonasRepository.save(zonas);
+           return this.zonasRepository.save(zonas);
+
         } else {
 
             logger.error("La zona a crear viene vacia por parametros");
@@ -62,7 +63,7 @@ public class ZonasServiceImpl implements ZonasService {
     }
 
     @Override
-    public void update(Zonas zonas) {
+    public Zonas update(Zonas zonas) {
 
         Optional<Zonas> optionalZonas = zonasRepository.findById(zonas.getId());
 
@@ -72,7 +73,8 @@ public class ZonasServiceImpl implements ZonasService {
 
             zonasPersistant.copyParameters(zonas);
 
-            this.zonasRepository.save(zonasPersistant);
+            return  this.zonasRepository.save(zonasPersistant);
+
         } else {
 
             logger.error("La zona con id " + zonas.getId() + " no existe en la base de datos");
@@ -83,22 +85,33 @@ public class ZonasServiceImpl implements ZonasService {
     }
 
     @Override
-    public void delete(long id) {
+    public boolean delete(long id) {
 
-        Optional<Zonas> optionalZonas = zonasRepository.findById(id);
+        Optional<Zonas> optionalIncidencias = zonasRepository.findById(id);
 
-        if (optionalZonas.isPresent()) {
+        if (optionalIncidencias.isPresent()) {
 
-            Zonas zonas = optionalZonas.get();
+            Zonas zona = optionalIncidencias.get();
 
-            this.zonasRepository.delete(zonas);
+            this.zonasRepository.delete(zona);
+
+            Optional zonaBorrada = this.zonasRepository.findById(id);
+
+            if (zonaBorrada.isPresent()) {
+
+                return false;
+
+            } else {
+
+                return true;
+            }
+
         } else {
 
             logger.error("La zona con id " + id + " no existe en la base de datos");
             throw new RuntimeException("La zona con id " + id + " no existe en la base de datos");
 
         }
-
     }
 
 

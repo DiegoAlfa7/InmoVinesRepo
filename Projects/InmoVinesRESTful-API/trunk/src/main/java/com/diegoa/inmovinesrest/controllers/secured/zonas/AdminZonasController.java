@@ -10,11 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
  * Controlador Restful encargado de la distribución de datos
  * de las zonas para las aplicaciones identificadas como administrador.
+ *
  * @author Daniel Arroyo
  * @since 0.0.1
  */
@@ -73,15 +75,67 @@ public class AdminZonasController {
      */
     @RequestMapping(value = "/zonas/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Zonas> getTareaById(@PathVariable("id") long id) throws JsonProcessingException {
+    public ResponseEntity<Zonas> getZonaById(@PathVariable("id") long id) throws JsonProcessingException {
 
         Zonas zonas = zonasService.findOneById(id);
 
         if (zonas != null) {
             return new ResponseEntity(zonas, HttpStatus.OK);
         } else {
-            throw new RuntimeException("El id: "+id+" no ha devuelto resultados");
+            throw new RuntimeException("El id: " + id + " no ha devuelto resultados");
         }
+    }
+
+    /**
+     * Esta operación del controlador se encarga de crear una nueva entidad de tipo Zonas en la BBDD <b>en función de un JSON válido que represente
+     * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agente creado -- <h1>HTTP 204 CREATED</h1>
+     * @throws RuntimeException si ocurre un error durante la inserción del objeto. --<h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/zonas/nuevo</b>
+     */
+    @RequestMapping(value = "zonas/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Zonas> addZona(@RequestBody @Valid Zonas zonas) {
+
+        Zonas zonaCreada = zonasService.create(zonas);
+
+        return new ResponseEntity(zonaCreada, HttpStatus.CREATED);
+    }
+
+    /**
+     * Esta operación del controlador se encarga de modificar una entidad de tipo Zonas existente en la BBDD <b>en función de un JSON válido que represente
+     * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del agentes modificado con los nuevos valores. -- <h1>HTTP 200 OK</h1>
+     * @throws RuntimeException si ocurre algun error durante la actualización en la BBD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/zonas/nuevo</b>
+     */
+    @RequestMapping(value = "zonas/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Zonas> updateZona(@RequestBody @Valid Zonas zonas) {
+
+        Zonas zonaModificada = zonasService.update(zonas);
+
+        return new ResponseEntity(zonaModificada, HttpStatus.OK);
+
+    }
+
+    /**
+     * Esta operación del controlador se encarga de eliminar una entidad de tipo Zonas existente en la BBDD <b>
+     * mediante una búsqueda indexada</b> con el ID recogido de los parámetros de la petición.
+     *
+     * @return ResponseEntity<Void> Respuesta Http OK vacía si se ha borrado correctemente la entidad -- <h1>HTTP 200 OK</h1>
+     * Respuesta Http NOT_MODIFIED vacía. si no se ha borrado la entidad -- <h1>HTTP 304 NOT_MODIFIED</h1>
+     * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/zonas/{id}</b>
+     */
+    @RequestMapping(value = "/zonas/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity deleteZona(@PathVariable("id") long id) {
+
+        if (this.zonasService.delete(id)) return new ResponseEntity(HttpStatus.OK);
+        else return new ResponseEntity(HttpStatus.NOT_MODIFIED);
     }
 
 
