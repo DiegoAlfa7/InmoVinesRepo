@@ -29,8 +29,6 @@ public class InmueblesServiceImpl implements InmueblesService {
     Logger logger = Logger.getLogger(InmueblesServiceImpl.class);
 
 
-
-
     @Override
     public Page<Inmuebles> listAllByPage(Pageable pageable) {
 
@@ -39,7 +37,7 @@ public class InmueblesServiceImpl implements InmueblesService {
     }
 
     @Override
-    public Inmuebles findOneById(long ID) throws RuntimeException{
+    public Inmuebles findOneById(long ID) throws RuntimeException {
 
         Optional<Inmuebles> mayb_inmueble = this.inmueblesRepository.findById(ID);
 
@@ -49,7 +47,7 @@ public class InmueblesServiceImpl implements InmueblesService {
 
         } else {
 
-            throw new RuntimeException("No se encontró ninguna instancia de tipo Inmuebles con el id: "+ID);
+            throw new RuntimeException("No se encontró ninguna instancia de tipo Inmuebles con el id: " + ID);
 
         }
 
@@ -64,7 +62,7 @@ public class InmueblesServiceImpl implements InmueblesService {
      * @param i la instancia de Inmuebles que debe ser guardada en el entorno de persistencia
      */
     @Override
-    public Inmuebles create(Inmuebles i) throws RuntimeException{
+    public Inmuebles create(Inmuebles i) throws RuntimeException {
 
         if (i != null) {
 
@@ -121,11 +119,11 @@ public class InmueblesServiceImpl implements InmueblesService {
             //Nos aseguramos de que efectivamente se borró la entidad
             Optional i = this.inmueblesRepository.findById(ID);
 
-            if (i.isPresent()){
+            if (i.isPresent()) {
                 //No se ha borrado correctamente
                 return false;
 
-            }else{
+            } else {
                 //El borrado transcurrió correctamente
                 return true;
             }
@@ -142,59 +140,61 @@ public class InmueblesServiceImpl implements InmueblesService {
 
     /**
      * This method searches for an instance of Inmuebles by the ID given and returns its property 'clientePropietario'
+     *
      * @param ID the long value for the indexed search in Inmuebles
-     * @throws RuntimeException si no se encuentra un inmueble por el id dado o si el inmueble no tiene un cliente propietario asociado
      * @return Clientes
+     * @throws RuntimeException si no se encuentra un inmueble por el id dado o si el inmueble no tiene un cliente propietario asociado
      */
     @Override
     public Clientes getClientePropietarioByID(long ID) throws RuntimeException {
 
-        Optional<Inmuebles> inmueblesOptional =  this.inmueblesRepository.findById(ID);
+        Optional<Inmuebles> inmueblesOptional = this.inmueblesRepository.findById(ID);
 
 
-        if(inmueblesOptional.isPresent()){
+        if (inmueblesOptional.isPresent()) {
 
             Inmuebles inmueblePersistente = inmueblesOptional.get();
 
-            if(inmueblePersistente.getClientePropietario()!=null){
+            if (inmueblePersistente.getClientePropietario() != null) {
 
                 return inmueblePersistente.getClientePropietario();
 
-            }else{
+            } else {
                 //No existe propietario para el inmueble que se encontró
-                throw new RuntimeException("No existe propietario para el inmueble que se encontró: REF."+inmueblePersistente.getReferencia());
+                throw new RuntimeException("No existe propietario para el inmueble que se encontró: REF." + inmueblePersistente.getReferencia());
 
             }
 
-        }else{
+        } else {
 
-            throw new RuntimeException("No existe un inmueble en la BBDD con el ID: "+ID);
+            throw new RuntimeException("No existe un inmueble en la BBDD con el ID: " + ID);
 
         }
 
 
-
     }
+
     /**
      * Este método busca una instancia de Inmuebles con el ID que se le pase por parámetros, y después realiza con este un filtrado sobre la tabla de Clientes
      * mediante la propiedad "INMUEBLE DE INTERÉS"
+     *
      * @param ID the long value for the indexed search in Inmuebles
-     * @throws RuntimeException si no se encuentra un inmueble por el id dado o si el inmueble no tiene un cliente propietario asociado
      * @return Clientes
+     * @throws RuntimeException si no se encuentra un inmueble por el id dado o si el inmueble no tiene un cliente propietario asociado
      */
     @Override
     public List<Clientes> getInteresadosByID(long ID) {
 
         Optional<Inmuebles> inmueblesOptional = this.inmueblesRepository.findById(ID);
 
-        if(inmueblesOptional.isPresent()){
+        if (inmueblesOptional.isPresent()) {
 
             List<Clientes> allClientes = (List<Clientes>) this.clientesReposiroty.findAll();
             List<Clientes> clientesFiltered = new ArrayList<Clientes>();
 
-            for(Clientes c : allClientes){
+            for (Clientes c : allClientes) {
 
-                if(c.getInmuebleInteres().equals(inmueblesOptional.get())){
+                if (c.getInmuebleInteres().equals(inmueblesOptional.get())) {
 
                     clientesFiltered.add(c);
 
@@ -204,11 +204,9 @@ public class InmueblesServiceImpl implements InmueblesService {
             return clientesFiltered;
 
 
+        } else {
 
-
-        }else{
-
-            throw new RuntimeException("No existe un inmueble en la BBDD con el ID: "+ID);
+            throw new RuntimeException("No existe un inmueble en la BBDD con el ID: " + ID);
 
         }
     }

@@ -43,12 +43,12 @@ public class AdminInmueblesController {
      * @param id Parámetro utilizado en la búsqueda indexada sobre la base de datos.
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del inmueble de la BBDD. -- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre un error durante la busqueda del inmueble.-- <h1>HTTP 500 INTERNAL ERROR</h1>
-     *  * @throws RuntimeException si ocurre algún eror durante la búsqueda con el ID dado.-- <h1>HTTP 500 INTERNAL ERROR</h1>
+     *                          * @throws RuntimeException si ocurre algún eror durante la búsqueda con el ID dado.-- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}</b>
      */
     @GetMapping(value = "/inmuebles/{id}", produces = {"application/json"})
     @ResponseBody
-    public ResponseEntity<Inmuebles> getInmuebleById( @PathVariable("id") long id) {
+    public ResponseEntity<Inmuebles> getInmuebleById(@PathVariable("id") long id) {
 
 
         Inmuebles i = inmueblesService.findOneById(id);
@@ -63,9 +63,8 @@ public class AdminInmueblesController {
      * función del tipo de página que se pida en los parámetros de la URL.
      *
      * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
-     * 'page', 'size' y 'sort' debidamente introducidos
+     *                 'page', 'size' y 'sort' debidamente introducidos
      * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Inmuebles\></b> -- <h1>HTTP 200 OK</h1>
-     *
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
     @RequestMapping(value = "/inmuebles/page", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
@@ -79,16 +78,13 @@ public class AdminInmueblesController {
         return new ResponseEntity(pagina, HttpStatus.OK);
 
 
-
-
     }
+
     /**
      * Esta operación del controlador se encarga de devolver en una Lista genérica <b>todos los Inmuebles que haya en la base de datos.</b>
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos los inmuebles den la BBDD. -- <h1>HTTP 200 OK</h1>
-     *
      * @apiNote <b>ENDPOINT: .../admin/inmuebles
-     *
      */
     @RequestMapping(value = "/inmuebles", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
@@ -106,16 +102,16 @@ public class AdminInmueblesController {
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del inmueble creado -- <h1>HTTP 204 CREATED</h1>
      * @throws RuntimeException si ocurre un error durante la inserción del objeto. --<h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/nuevo
-     *
      */
     @RequestMapping(value = "inuebles/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Agentes> addInmueble(@RequestBody @Valid Inmuebles inmueble) {
 
-       Inmuebles inmuebleCreado =  inmueblesService.create(inmueble);
+        Inmuebles inmuebleCreado = inmueblesService.create(inmueble);
 
         return new ResponseEntity(inmuebleCreado, HttpStatus.CREATED);
     }
+
     /**
      * Esta operación del controlador se encarga de modificar una entidad de tipo Inmuebles existente en la BBDD <b>en función de un JSON válido que represente
      * un ojeto de dicho tipo </b>con los valores elegidos. <b>No hará falta mapear las relaciones ORM de tipo @OneToMany</b>
@@ -123,7 +119,6 @@ public class AdminInmueblesController {
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del inmuebles modificado con los nuevos valores. -- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre algun error durante la actualización en la BBD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/modificar
-     *
      */
     @RequestMapping(value = "inmuebles/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
     @ResponseBody
@@ -134,6 +129,7 @@ public class AdminInmueblesController {
         return new ResponseEntity(inmueblesModificado, HttpStatus.OK);
 
     }
+
     /**
      * Esta operación del controlador se encarga de eliminar una entidad de tipo Inmuebles existente en la BBDD <b>
      * mediante una búsqueda indexada</b> con el ID recogido de los parámetros de la petición.
@@ -142,7 +138,6 @@ public class AdminInmueblesController {
      * Respuesta Http NOT_MODIFIED vacía. si no se ha borrado la entidad -- <h1>HTTP 304 NOT_MODIFIED</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}
-     *
      */
     @RequestMapping(value = "/inmuebles/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
     @ResponseBody
@@ -153,11 +148,7 @@ public class AdminInmueblesController {
     }
 
 
-
-
     //CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS
-
-
 
 
     /**
@@ -165,10 +156,8 @@ public class AdminInmueblesController {
      * y devuelve el resultado.
      *
      * @return ResponseEntity<Clientes> El Cliente propietario del Inmueble, en formato JSON -- <h1>HTTP 200 OK</h1>
-     *
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}/propietario
-     *
      */
     @RequestMapping(value = "/inmuebles/{id}/propietario", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
@@ -181,15 +170,12 @@ public class AdminInmueblesController {
     }
 
     /**
-     *
      * Esta operación del controlador se encarga de encontrar las entidades de tipo Clientes de la base de datos que tienen como "INMUEBLE DE INTERÉS" el inmueble con el ID que se introdujo en la URL
      * y devuelve el resultado.
      *
      * @return ResponseEntity<Clientes> El Cliente propietario del Inmueble, en formato JSON -- <h1>HTTP 200 OK</h1>
-     *
      * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/{id}/propietario
-     *
      */
     @RequestMapping(value = "/inmuebles/{id}/interesados", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
@@ -200,9 +186,6 @@ public class AdminInmueblesController {
         return new ResponseEntity(c, HttpStatus.OK);
 
     }
-
-
-
 
 
 }

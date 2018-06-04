@@ -8,10 +8,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class IncidenciasServiceImpl implements IncidenciasService {
 
     @Autowired
@@ -81,10 +83,33 @@ public class IncidenciasServiceImpl implements IncidenciasService {
     }
 
     @Override
-    public void delete(long id) {
+    public boolean delete(long id) throws RuntimeException {
 
-        Optional<Incidencias>
+        Optional<Incidencias> optionalIncidencias = incidenciasRepository.findById(id);
 
+        if (optionalIncidencias.isPresent()) {
+
+            Incidencias incidencias = optionalIncidencias.get();
+
+            this.incidenciasRepository.delete(incidencias);
+
+            Optional incidenciaBorrada = this.incidenciasRepository.findById(id);
+
+            if (incidenciaBorrada.isPresent()) {
+
+                return false;
+
+            } else {
+
+                return true;
+            }
+
+        } else {
+
+            logger.error("La incidencia con id " + id + " no existe en la base de datos");
+            throw new RuntimeException("La incidencia con id " + id + " no existe en la base de datos");
+
+        }
 
     }
 }

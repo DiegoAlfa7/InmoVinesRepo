@@ -18,5 +18,5 @@ public interface IncidenciasService {
 
     public Incidencias update(Incidencias incidencias);
 
-    public void delete(long id);
+    public boolean delete(long id);
 }
