@@ -48,7 +48,7 @@ public class ClientesServiceImpl implements ClientesUserService {
 
         if (clientes != null) {
 
-           return this.clientesRepository.save(clientes);
+            return this.clientesRepository.save(clientes);
         } else {
 
             logger.error("El cliente a crear viene vacio por parametros");
@@ -95,6 +95,25 @@ public class ClientesServiceImpl implements ClientesUserService {
             logger.error("El cliente con id " + id + " no existe en la base de datos");
             throw new RuntimeException("El cliente con id " + id + " no existe en la base de datos");
         }
+
+    }
+
+    @Override
+    public Clientes listByEmailAndPass(String email, String pass) {
+
+        List<Clientes> clientes = (List<Clientes>) this.clientesRepository.findAll();
+
+        for (Clientes c : clientes) {
+
+            if (c.getDatosPersonales().getMail().equals(email) && c.getAccountHash().equals(pass)) {
+
+                return c;
+            }
+
+        }
+
+        throw new RuntimeException("No se encuentra ningun cliente con email: " + email + " y con password: " + pass);
+
 
     }
 
