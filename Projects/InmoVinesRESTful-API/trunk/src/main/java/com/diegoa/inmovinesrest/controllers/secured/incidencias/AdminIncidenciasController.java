@@ -140,7 +140,7 @@ public class AdminIncidenciasController {
      * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias/cliente/{id}
      */
-    @RequestMapping(value = "/incidencias/cliente/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/incidencias/cliente/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity getClienteIncidencias(@PathVariable("id") long id) {
 
@@ -160,9 +160,9 @@ public class AdminIncidenciasController {
      * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
      *
      * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
-     * @apiNote <b>ENDPOINT: .../admin/inmueble/cliente/{id}
+     * @apiNote <b>ENDPOINT: .../admin/incidencias/inmueble/{id}
      */
-    @RequestMapping(value = "/incidencias/inmueble/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
+    @RequestMapping(value = "/incidencias/inmueble/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity getInmuebleIncidencias(@PathVariable("id") long id) {
 

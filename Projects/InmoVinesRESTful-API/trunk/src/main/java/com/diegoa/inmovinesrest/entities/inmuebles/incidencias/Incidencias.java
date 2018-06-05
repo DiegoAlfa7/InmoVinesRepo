@@ -38,8 +38,14 @@ public class Incidencias {
     @ManyToOne(optional = false)
     private Inmuebles inmueble;
 
-    public Incidencias(String motivo) {
+    public Incidencias() {}
+
+    public Incidencias(String motivo, String descripcion, String estado, Boolean terminada, Inmuebles inmueble) {
         this.motivo = motivo;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.terminada = terminada;
+        this.inmueble = inmueble;
     }
 
     public Incidencias(Long id) {
@@ -48,6 +54,8 @@ public class Incidencias {
 
     public void copyParameters(Incidencias incidencias) {
         this.motivo = incidencias.motivo;
+        this.estado = incidencias.estado;
+        this.terminada = incidencias.terminada;
         this.descripcion = incidencias.descripcion;
         this.inmueble = incidencias.inmueble;
     }
