@@ -21,6 +21,7 @@ public interface AgentesService {
 
     public boolean delete(long id);
 
+    public Agentes findAgenteByLogin(String pass, String email);
 
     List<Clientes> getClientesAsignadosById(long id);
 }

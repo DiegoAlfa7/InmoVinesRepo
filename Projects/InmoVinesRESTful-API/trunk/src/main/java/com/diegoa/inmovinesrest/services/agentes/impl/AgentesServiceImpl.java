@@ -154,5 +154,32 @@ public class AgentesServiceImpl implements AgentesService {
 
     }
 
+    /**
+     * Ejecuta una búsqueda parametrizada sobre la base de datos, para devolver una entidad
+     * de tipo Agentes.
+     * @param pass
+     * @param email
+     * @return
+     */
+    @Override
+    public Agentes findAgenteByLogin(String pass, String email) {
 
+        List<Agentes> agentesList = (List<Agentes>) this.agentesRepository.findAll();
+
+        for (Agentes a : agentesList){
+
+
+            if(a.getMail().equals(email) && a.getPassword().equals(pass)){
+                //Match
+                return a;
+
+            }
+
+
+        }
+
+        throw new RuntimeException("No se han encontrado coincidencias para los resultados");
+
+
+    }
 }

@@ -4,15 +4,18 @@ import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.services.agentes.impl.AgentesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.sun.javafx.collections.MappingChange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controlador Restful encargado de la distribución de datos
@@ -172,6 +175,36 @@ public class AdminAgentesController {
 
         return new ResponseEntity(c, HttpStatus.OK);
 
+    }
+    /**
+     * Esta operación del controlador se encarga de encontrar una instancia de tipo Agente en la BBDD a partir de los parámetros de contraseña y email
+     * que se envíen como parte de una petición HTTP POST con parámetros APPLICATION_FORM_URLENCODED, los parámetros son: <b>email</b> y <b>pass</b>
+     *
+     *
+     * @return ResponseEntity<Agentes> Agente cuya combinación email-pass coincide con la de los parámetros, en formato JSON -- <h1>HTTP 200 OK</h1>
+     *
+     * @throws RuntimeException si ocurre algun error durante la búsquedaa en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/agentes/login
+     *
+     */
+    @RequestMapping(value = "/agentes/login",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE ,produces = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Agentes> getAgenteByEmailAndPassword(@RequestParam Map<String, String> map) {
+        if(map != null) {
+
+            String pass = map.get("pass");
+            String email = map.get("email");
+
+            if((pass != null && email != null) && (!pass.isEmpty() && !email.isEmpty())){
+
+                Agentes a = this.agentesService.findAgenteByLogin(pass, email);
+                return new ResponseEntity(a,HttpStatus.OK);
+
+            }
+
+
+        }
+        throw new RuntimeException("Los parámetros de entrada no son validos");
     }
 
 }
