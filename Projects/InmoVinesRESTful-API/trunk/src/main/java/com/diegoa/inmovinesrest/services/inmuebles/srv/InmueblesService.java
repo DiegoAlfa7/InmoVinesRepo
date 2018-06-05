@@ -24,4 +24,6 @@ public interface InmueblesService {
     public Clientes getClientePropietarioByID(long ID);
 
     List<Clientes> getInteresadosByID(long id);
+
+    List<Inmuebles> listByFilter(String tipo, String pMax, String pMin, String hab, String banos, String mUtiles, String comunidad);
 }

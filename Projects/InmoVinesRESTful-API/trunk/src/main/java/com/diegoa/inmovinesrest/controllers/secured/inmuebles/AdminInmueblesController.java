@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -193,6 +194,35 @@ public class AdminInmueblesController {
         List<Clientes> c = this.inmueblesService.getInteresadosByID(id);
 
         return new ResponseEntity(c, HttpStatus.OK);
+
+    }
+    /**
+     *
+     * Esta operación del controlador se encarga de encontrar las entidades de tipo Inmuebles de la base de datos que tienen como "INMUEBLE DE INTERÉS" el inmueble con el ID que se introdujo en la URL
+     * y devuelve el resultado.
+     *
+     * @return ResponseEntity<Inmuebles> El Cliente propietario del Inmueble, en formato JSON -- <h1>HTTP 200 OK</h1>
+     *
+     * @throws RuntimeException si ocurre algun error durante la búsqueda o el borrado en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
+     * @apiNote <b>ENDPOINT: .../admin/inmuebles/filter
+     *
+     */
+    @RequestMapping(value = "/inmuebles/filter", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<List<Inmuebles>> getInmueblesPageByFilter(
+            @RequestParam(required = false) String tipo,
+            @RequestParam(required = false) String pMin,
+            @RequestParam(required = false) String pMax,
+            @RequestParam(required = false) String hab,
+            @RequestParam(required = false) String banos,
+            @RequestParam(required = false) String mUtiles,
+            @RequestParam(required = false) String comunidad) {
+
+
+        List<Inmuebles> inmueblesList = this.inmueblesService.listByFilter(tipo, pMax, pMin, hab, banos, mUtiles,comunidad);
+        return new ResponseEntity<>(inmueblesList, HttpStatus.OK);
+
+
 
     }
 
