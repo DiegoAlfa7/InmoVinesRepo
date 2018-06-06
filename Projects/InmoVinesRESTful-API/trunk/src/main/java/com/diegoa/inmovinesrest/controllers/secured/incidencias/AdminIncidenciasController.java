@@ -110,10 +110,10 @@ public class AdminIncidenciasController {
     @ResponseBody
     public ResponseEntity<Incidencias> addIncidencia(
             @RequestBody @Valid Incidencias incidencias,
-            @RequestParam long id_inmueble
+            @RequestParam long idInmueble
     ) {
 
-        Incidencias incidenciasCreada = incidenciasService.create(incidencias, id_inmueble);
+        Incidencias incidenciasCreada = incidenciasService.create(incidencias, idInmueble);
 
         if (incidenciasCreada != null) {
 
