@@ -37,7 +37,7 @@ public class AdminClientesController {
      * Esta operación del controlador se encarga de devolver en una Página (Page) de <b> los Clientes que haya en la base de datos.</b>
      * agrupándolos en función del tipo de página que se pida en los parámetros de la URL.
      *
-     * @return ResponseEntity<Page<Clientes>> Respuesta Http con la representación string del JSON de la página de los clientes del la BBDD.
+     * @return ResponseEntity<Page < Clientes>> Respuesta Http con la representación string del JSON de la página de los clientes del la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/clientes/page[?page={page}&size={size}&sort={property},asc|desc]</b>
      */
@@ -97,6 +97,7 @@ public class AdminClientesController {
         }
 
     }
+
     /**
      * Esta operación del controlador se encarga de crear una nueva entidad de tipo Clentes en función de los parámetros introducidos.
      *
@@ -115,16 +116,14 @@ public class AdminClientesController {
     ) {
         Clientes clientesCreado = clientesService.create(clientes, idAgente, idAgenteEntrada, idInteres);
 
-        if(clientesCreado != null) {
+        if (clientesCreado != null) {
 
-            return  new ResponseEntity(clientesCreado, HttpStatus.CREATED);
+            return new ResponseEntity(clientesCreado, HttpStatus.CREATED);
 
         } else {
 
             throw new RuntimeException("El cliente no se ha podido crear");
         }
-
-
 
 
     }
@@ -182,8 +181,8 @@ public class AdminClientesController {
 
         if (!email.isEmpty() && !pass.isEmpty()) {
 
-            this.clientesService.listByEmailAndPass(email, pass);
-            return new ResponseEntity(HttpStatus.OK);
+            Clientes c = this.clientesService.listByEmailAndPass(email, pass);
+            return new ResponseEntity(c, HttpStatus.OK);
         } else {
 
             throw new RuntimeException("Los parametros de entrada no son validos");

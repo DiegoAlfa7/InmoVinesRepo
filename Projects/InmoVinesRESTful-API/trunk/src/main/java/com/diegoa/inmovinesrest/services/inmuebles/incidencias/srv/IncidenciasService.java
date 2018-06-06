@@ -18,7 +18,7 @@ public interface IncidenciasService {
 
     List<Incidencias> listAllByClienteID(long ID);
 
-    public Incidencias create(Incidencias incidencias);
+    public Incidencias create(Incidencias incidencias, long id_inmueble);
 
     public Incidencias update(Incidencias incidencias);
 
