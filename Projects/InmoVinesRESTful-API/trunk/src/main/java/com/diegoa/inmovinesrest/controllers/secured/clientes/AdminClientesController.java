@@ -2,6 +2,7 @@ package com.diegoa.inmovinesrest.controllers.secured.clientes;
 
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.services.clientes.impl.ClientesServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,7 @@ public class AdminClientesController {
      * Esta operación del controlador se encarga de devolver en una Página (Page) de <b> los Clientes que haya en la base de datos.</b>
      * agrupándolos en función del tipo de página que se pida en los parámetros de la URL.
      *
-     * @return ResponseEntity<Page < Clientes>> Respuesta Http con la representación string del JSON de la página de los clientes del la BBDD.
+     * @return ResponseEntity<Page<Clientes>> Respuesta Http con la representación string del JSON de la página de los clientes del la BBDD.
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/clientes/page[?page={page}&size={size}&sort={property},asc|desc]</b>
      */
@@ -96,7 +97,14 @@ public class AdminClientesController {
         }
 
     }
-
+    /**
+     * Esta operación del controlador se encarga de crear una nueva entidad de tipo Clentes en función de los parámetros introducidos.
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del objeto del cliente en cuestión.
+     * @throws JsonProcessingException si ocurre un error durante la creación del objeto.
+     * @apiNote <b>ENDPOINT: ...admin/clientes/nuevo?idAgente={id}&idAgenteEntrada={id}&idInteres={id}</b>
+     * `
+     */
     @RequestMapping(value = "/clientes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Clientes> addCliente(
@@ -138,6 +146,31 @@ public class AdminClientesController {
         this.clientesService.delete(id);
 
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    /**
+     * Esta operación del controlador se encarga de devolver una lista de Inmuebles asociada al cliente introducido en el parámetro de la URL
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON de la lista de Inmuebles del cliente en cuestión.
+     * @throws JsonProcessingException si ocurre un error durante la busqueda del objeto en BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/cliente/{id}/inmuebles</b>
+     * `
+     */
+    @RequestMapping(value = "/cliente/{id}/inmuebles", produces = {"application/json"}, method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<List<Inmuebles>> getClienteInmuebles(@PathVariable("id") long id) {
+
+        List<Inmuebles> i = clientesService.listInmuebleByCliente(id);
+
+        if (i != null) {
+
+            return new ResponseEntity(i, HttpStatus.OK);
+
+        } else {
+
+            throw new RuntimeException("El cliente con id: " + id + " no ha devuelto ningún resultado");
+        }
+
     }
 
     @RequestMapping(value = "/clientes/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, method = {RequestMethod.POST, RequestMethod.OPTIONS})

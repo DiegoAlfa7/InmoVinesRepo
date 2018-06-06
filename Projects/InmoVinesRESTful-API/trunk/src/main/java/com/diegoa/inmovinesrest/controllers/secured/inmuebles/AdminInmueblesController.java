@@ -22,7 +22,7 @@ import java.util.List;
  * de Inmuebles para las aplicaciones identificadas como administrador.
  * <p>
  * <hr/>
- * <br/><b>C O R S</b> eneabled for this Controller --> origins = {"http://localhost:8087","http://localhost:8080" }
+ * <br/><b>C O R S</b> eneabled for this Controller
  *
  * @author Diego Alfaro
  * @since 0.0.1
