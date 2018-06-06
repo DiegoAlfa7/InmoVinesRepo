@@ -1,6 +1,8 @@
 package com.diegoa.inmovinesrest.services.tareas.impl;
 
+import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.agentes.Tareas;
+import com.diegoa.inmovinesrest.repositories.agentes.AgentesRepository;
 import com.diegoa.inmovinesrest.repositories.agentes.TareasRepository;
 import com.diegoa.inmovinesrest.services.tareas.srv.TareasService;
 import org.apache.log4j.Logger;
@@ -17,6 +19,9 @@ public class TareasServiceImpl implements TareasService {
 
     @Autowired
     TareasRepository tareasRepository;
+
+    @Autowired
+    AgentesRepository agentesRepository;
 
     Logger logger = Logger.getLogger(TareasServiceImpl.class);
 
@@ -95,6 +100,21 @@ public class TareasServiceImpl implements TareasService {
 
             logger.error("La tarea con id " + id + " no existe en la base de datos");
             throw new RuntimeException("La tarea con id " + id + " no existe en la base de datos");
+        }
+
+    }
+
+    @Override
+    public List<Tareas> listByIdAgente(long id) {
+        Optional<Agentes> agentesOptional = this.agentesRepository.findById(id);
+        if(agentesOptional.isPresent()){
+
+            return agentesOptional.get().getTareasList();
+
+
+        }else{
+
+            throw new RuntimeException("El Agente con id: "+id+" no devolvió resultados");
         }
 
     }

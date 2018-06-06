@@ -76,14 +76,11 @@ public class AdminTareasController {
     @ResponseBody
     public ResponseEntity<Tareas> getTareaById(@PathVariable("id") long id) throws JsonProcessingException {
 
-        //TODO: Arreglar, no se están listando las tareas por el id de agente
-        Tareas tareas = tareasService.findOneById(id);
 
-        if (tareas != null) {
-            return new ResponseEntity(tareas, HttpStatus.OK);
-        } else {
-            throw new RuntimeException("El id_agente: "+id+" no ha devuelto resultados");
-        }
+       List<Tareas> tareas = tareasService.listByIdAgente(id);
+       return new ResponseEntity(tareas, HttpStatus.OK);
+
+
     }
 
 

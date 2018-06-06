@@ -64,7 +64,6 @@ public class Zonas implements Serializable {
         this.activa = zonas.activa;
         this.nombreAdmin = zonas.nombreAdmin;
         this.municipio =zonas.municipio;
-        this.inmueblesList = zonas.inmueblesList;
     }
 
     public Long getId() {

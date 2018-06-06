@@ -1,5 +1,7 @@
 package com.diegoa.inmovinesrest.services.localizacion.provincias.impl;
 
+import com.diegoa.inmovinesrest.entities.localizacion.Comunidades;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
 import com.diegoa.inmovinesrest.entities.localizacion.Provincias;
 import com.diegoa.inmovinesrest.repositories.localizacion.ProvinciasRepository;
 import com.diegoa.inmovinesrest.services.localizacion.provincias.srv.ProvinciasService;
@@ -23,12 +25,24 @@ public class ProvinciasServiceImpl implements ProvinciasService {
         if (optionalProvincias.isPresent()) {
             return optionalProvincias.get();
         }
-        return null;
+        throw new RuntimeException("La provincia con ID: "+ID+" no produjo ningún resultado");
     }
 
     @Override
     public List<Provincias> listAll() {
 
         return (List<Provincias>) this.provinciasRepository.findAll();
+    }
+
+    @Override
+    public List<Municipios> findMunicipiosById(long ID) {
+
+        Optional<Provincias> optionalProvincias = this.provinciasRepository.findById(ID);
+
+        if (optionalProvincias.isPresent()) {
+            return optionalProvincias.get().getMunicipiosList();
+        }
+
+        throw new RuntimeException("La provincia con ID: "+ID+" no produjo ningún resultado");
     }
 }

@@ -116,8 +116,7 @@ public class Clientes implements Serializable {
         this.agente = clientes.agente;
         this.agenteEntrada = clientes.agenteEntrada;
         this.inmuebleInteres = clientes.inmuebleInteres;
-        this.interesesList = clientes.interesesList;
-        this.inmueblesList = clientes.inmueblesList;
+
     }
 
     public Long getId() {

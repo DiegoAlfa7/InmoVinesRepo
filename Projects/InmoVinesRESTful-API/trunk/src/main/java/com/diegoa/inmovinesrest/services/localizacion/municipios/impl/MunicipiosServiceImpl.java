@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.services.localizacion.municipios.impl;
 
 import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Zonas;
 import com.diegoa.inmovinesrest.repositories.localizacion.MunicipiosRepository;
 import com.diegoa.inmovinesrest.services.localizacion.municipios.srv.MunicipiosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,24 @@ public class MunicipiosServiceImpl implements MunicipiosService {
             return optionalMunicipios.get();
         }
 
-        return null;
+        throw new RuntimeException("El municipio con ID: "+ID+" no produjo ningún resultado");
     }
 
     @Override
     public List<Municipios> listAll() {
 
         return (List<Municipios>) this.municipiosRepository.findAll();
+    }
+
+    @Override
+    public List<Zonas> findZonasById(long ID) {
+
+        Optional<Municipios> optionalProvincias = this.municipiosRepository.findById(ID);
+
+        if (optionalProvincias.isPresent()) {
+            return optionalProvincias.get().getZonasList();
+        }
+
+        throw new RuntimeException("El municipio con ID: "+ID+" no produjo ningún resultado");
     }
 }

@@ -24,7 +24,7 @@ import java.util.List;
  * @since 0.0.1
  */
 
-@CrossOrigin(origins = {"http://localhost:8087", "http://localhost:8080"})
+@CrossOrigin()
 @RestController
 @RequestMapping("admin")
 public class AdminIncidenciasController {

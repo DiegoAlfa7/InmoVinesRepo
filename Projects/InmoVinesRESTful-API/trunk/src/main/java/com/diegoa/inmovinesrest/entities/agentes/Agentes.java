@@ -91,6 +91,9 @@ public class Agentes implements Serializable {
     @OneToMany(mappedBy = "agente")
     private List<Inmuebles> inmuebles;
 
+    @OneToMany(mappedBy = "agente")
+    private List<Tareas> tareasList;
+
     public Agentes() {
     }
 
@@ -122,9 +125,7 @@ public class Agentes implements Serializable {
         this.permisos = agentes.permisos;
         this.password = agentes.password;
         this.cargo = agentes.cargo;
-        this.clientesAsignados = agentes.clientesAsignados;
-        this.clientesCaptados = agentes.clientesCaptados;
-        this.inmuebles = agentes.inmuebles;
+
     }
 
     public Long getId() {
@@ -313,6 +314,14 @@ public class Agentes implements Serializable {
             this.addInmuebleList(inmuebles);
         }
 
+    }
+    @JsonIgnore
+    public List<Tareas> getTareasList() {
+        return tareasList;
+    }
+
+    public void setTareasList(List<Tareas> tareasList) {
+        this.tareasList = tareasList;
     }
 
     public void setIdCargo(Cargos idCargo) {

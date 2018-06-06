@@ -1,6 +1,8 @@
 package com.diegoa.inmovinesrest.controllers.secured.zonas;
 
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
 import com.diegoa.inmovinesrest.entities.localizacion.Zonas;
+import com.diegoa.inmovinesrest.services.localizacion.municipios.impl.MunicipiosServiceImpl;
 import com.diegoa.inmovinesrest.services.localizacion.zonas.impl.ZonasServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class AdminZonasController {
 
     @Autowired
     ZonasServiceImpl zonasService;
+
+    @Autowired
+    MunicipiosServiceImpl municipiosService;
 
     /**
      * Esta operación del controlador se encarga de listar dentro de un pageable las zonas de la base de datos, agrupándolos en
@@ -136,6 +141,26 @@ public class AdminZonasController {
 
         if (this.zonasService.delete(id)) return new ResponseEntity(HttpStatus.OK);
         else return new ResponseEntity(HttpStatus.NOT_MODIFIED);
+    }
+
+
+
+    /**
+     * Esta operación del controlador se encarga de devolver una lista con las Zonas pertenecientes a un Municipio en concreto. Realiza una búsqueda en los DAOS en función de
+     * el ID facilitado.
+     *
+     * @return ResponseEntity<List<Zonas>> Respuesta Http con la representación string del JSON de la lista de Zonas de la BBDD.
+     * @throws RuntimeException si ocurre un error durante la busqueda en BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/zonas/municipio/{id}</b>
+     */
+    @RequestMapping(value = "/zonas/municipio/{id}", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<List<Zonas>> getProvinciasComunidadById(@PathVariable("id") long id) throws JsonProcessingException {
+
+        List<Zonas> provinciasList = municipiosService.findZonasById(id);
+
+        return new ResponseEntity(provinciasList, HttpStatus.OK);
+
     }
 
 

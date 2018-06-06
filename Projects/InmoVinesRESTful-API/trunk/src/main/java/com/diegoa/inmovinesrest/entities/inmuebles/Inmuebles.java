@@ -128,7 +128,6 @@ public class Inmuebles implements Serializable {
         this.precioAlquiler = inmuebles.precioAlquiler;
         this.precioTraspaso = inmuebles.precioTraspaso;
         this.precioAlquilerOpcionCompra = inmuebles.precioAlquilerOpcionCompra;
-        this.clientesList = inmuebles.clientesList;
         this.agente = inmuebles.agente;
         this.clientePropietario = inmuebles.clientePropietario;
         this.tipos = inmuebles.tipos;
