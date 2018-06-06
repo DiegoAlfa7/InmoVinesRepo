@@ -99,11 +99,26 @@ public class AdminClientesController {
 
     @RequestMapping(value = "/clientes/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Clientes> addCliente(@RequestBody @Valid Clientes clientes) {
+    public ResponseEntity<Clientes> addCliente(
+            @RequestBody @Valid Clientes clientes,
+            @RequestParam long idAgente,
+            @RequestParam long idAgenteEntrada,
+            @RequestParam long idInteres
+    ) {
+        Clientes clientesCreado = clientesService.create(clientes, idAgente, idAgenteEntrada, idInteres);
 
-        Clientes clienteCreado = clientesService.create(clientes);
+        if(clientesCreado != null) {
 
-        return new ResponseEntity(clienteCreado, HttpStatus.CREATED);
+            return  new ResponseEntity(clientesCreado, HttpStatus.CREATED);
+
+        } else {
+
+            throw new RuntimeException("El cliente no se ha podido crear");
+        }
+
+
+
+
     }
 
     @RequestMapping(value = "/clientes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
@@ -141,21 +156,6 @@ public class AdminClientesController {
             throw new RuntimeException("Los parametros de entrada no son validos");
         }
 
-
-    }
-
-    @RequestMapping(value = "clientes/nuevo?idAgente={id}&idAgenteEntrada={id}&interes{id}", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
-    @ResponseBody
-    public ResponseEntity<Clientes> addCliente(
-            @RequestBody @Valid Clientes clientes,
-            @RequestParam long idAgente,
-            @RequestParam long idAgenteEntrada,
-            @RequestParam long idInteres
-    ) {
-        Clientes clientesCreado = clientesService.create(clientes);
-
-
-        return new ResponseEntity<>(clientesCreado, HttpStatus.OK);
 
     }
 

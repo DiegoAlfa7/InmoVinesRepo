@@ -1,8 +1,11 @@
 package com.diegoa.inmovinesrest.services.clientes.impl;
 
+import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.diegoa.inmovinesrest.repositories.agentes.AgentesRepository;
 import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
+import com.diegoa.inmovinesrest.repositories.inmuebles.InmueblesRepository;
 import com.diegoa.inmovinesrest.services.clientes.srv.ClientesUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,11 @@ public class ClientesServiceImpl implements ClientesUserService {
     @Autowired
     ClientesRepository clientesRepository;
 
+    @Autowired
+    AgentesRepository agentesRepository;
+
+    @Autowired
+    InmueblesRepository inmueblesRepository;
 
     Logger logger = Logger.getLogger(ClientesServiceImpl.class);
 
@@ -45,11 +53,24 @@ public class ClientesServiceImpl implements ClientesUserService {
     }
 
     @Override
-    public Clientes create(Clientes clientes) {
+    public Clientes create(Clientes clientes, long idAgente, long idAgenteEntrada, long idInteres) {
 
         if (clientes != null) {
 
-            return this.clientesRepository.save(clientes);
+            Agentes agentes = agentesRepository.findById(idAgente).get();
+            Agentes agenteEntrada = agentesRepository.findById(idAgenteEntrada).get();
+            Inmuebles inmuebleInteres = inmueblesRepository.findById(idInteres).get();
+
+            Clientes clientesCreado = new Clientes();
+
+            clientesCreado.copyParameters(clientes);
+            clientesCreado.setAgente(agentes);
+            clientesCreado.setAgenteEntrada(agenteEntrada);
+            clientesCreado.setInmuebleInteres(inmuebleInteres);
+
+            return this.clientesRepository.save(clientesCreado);
+
+
         } else {
 
             logger.error("El cliente a crear viene vacio por parametros");
