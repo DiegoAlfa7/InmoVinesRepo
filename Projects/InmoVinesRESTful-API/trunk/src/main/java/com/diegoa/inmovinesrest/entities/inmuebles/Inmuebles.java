@@ -128,12 +128,10 @@ public class Inmuebles implements Serializable {
         this.precioAlquiler = inmuebles.precioAlquiler;
         this.precioTraspaso = inmuebles.precioTraspaso;
         this.precioAlquilerOpcionCompra = inmuebles.precioAlquilerOpcionCompra;
-        this.agente = inmuebles.agente;
-        this.clientePropietario = inmuebles.clientePropietario;
         this.tipos = inmuebles.tipos;
         this.gestiones = inmuebles.gestiones;
         this.caracteristicas = inmuebles.caracteristicas;
-        this.localizacion = inmuebles.localizacion;
+
     }
 
     public Long getId() {

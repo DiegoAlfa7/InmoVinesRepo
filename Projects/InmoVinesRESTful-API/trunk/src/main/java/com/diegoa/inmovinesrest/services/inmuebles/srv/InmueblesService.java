@@ -15,7 +15,7 @@ public interface InmueblesService {
 
     List<Inmuebles> listAll();
 
-    public Inmuebles create(Inmuebles inmuebles);
+    public Inmuebles create(Inmuebles i, long idCliente, long idAgente, long idComunidad, long idProvincia, long idMunicipio, long idZona, long idGestion, long idTipo);
 
     public Inmuebles update(Inmuebles i);
 

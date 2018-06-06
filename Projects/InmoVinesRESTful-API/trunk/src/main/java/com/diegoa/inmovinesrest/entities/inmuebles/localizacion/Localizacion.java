@@ -74,7 +74,7 @@ public class Localizacion {
         this.provincia = provincia;
     }
 
-    public Municipios getPoblacion() {
+    public Municipios getMunicipio() {
         return municipio;
     }
 

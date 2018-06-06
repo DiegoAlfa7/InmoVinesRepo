@@ -80,9 +80,9 @@ public class Clientes implements Serializable {
     @ManyToOne
     private Inmuebles inmuebleInteres;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCliente")
-    @com.fasterxml.jackson.annotation.JsonIgnore
+    @JsonIgnore
     private List<Intereses> interesesList;
-    @com.fasterxml.jackson.annotation.JsonIgnore
+    @JsonIgnore
     @OneToMany(mappedBy = "clientePropietario")
     private List<Inmuebles> inmueblesList;
 

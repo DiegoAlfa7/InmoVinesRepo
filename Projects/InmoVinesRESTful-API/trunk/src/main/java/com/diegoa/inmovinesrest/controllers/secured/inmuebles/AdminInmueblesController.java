@@ -104,11 +104,21 @@ public class AdminInmueblesController {
      * @throws RuntimeException si ocurre un error durante la inserción del objeto. --<h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/inmuebles/nuevo
      */
-    @RequestMapping(value = "inuebles/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @RequestMapping(value = "inmuebles/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
-    public ResponseEntity<Agentes> addInmueble(@RequestBody @Valid Inmuebles inmueble) {
+    public ResponseEntity<Inmuebles> addInmueble(
+            @RequestBody @Valid Inmuebles inmueble,
+            @RequestParam long idCliente,
+            @RequestParam long idAgente,
+            @RequestParam long idComunidad,
+            @RequestParam long idProvincia,
+            @RequestParam long idMunicipio,
+            @RequestParam long idZona,
+            @RequestParam long idGestion,
+            @RequestParam long idTipo
+    ) {
 
-        Inmuebles inmuebleCreado = inmueblesService.create(inmueble);
+        Inmuebles inmuebleCreado = inmueblesService.create(inmueble, idCliente, idAgente, idComunidad, idProvincia, idMunicipio, idZona, idGestion, idTipo);
 
         return new ResponseEntity(inmuebleCreado, HttpStatus.CREATED);
     }

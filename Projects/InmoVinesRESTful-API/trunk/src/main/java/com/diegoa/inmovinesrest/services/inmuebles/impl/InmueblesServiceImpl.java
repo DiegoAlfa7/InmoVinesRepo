@@ -1,11 +1,25 @@
 package com.diegoa.inmovinesrest.services.inmuebles.impl;
 
+import com.diegoa.inmovinesrest.entities.agentes.Agentes;
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.Gestiones;
 import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
+import com.diegoa.inmovinesrest.entities.inmuebles.Tipos;
+import com.diegoa.inmovinesrest.entities.localizacion.Comunidades;
+import com.diegoa.inmovinesrest.entities.localizacion.Municipios;
+import com.diegoa.inmovinesrest.entities.localizacion.Provincias;
+import com.diegoa.inmovinesrest.entities.localizacion.Zonas;
 import com.diegoa.inmovinesrest.misc.CONSTANTES;
+import com.diegoa.inmovinesrest.repositories.agentes.AgentesRepository;
 import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
 import com.diegoa.inmovinesrest.repositories.clientes.InteresesRepository;
+import com.diegoa.inmovinesrest.repositories.inmuebles.GestionesRepository;
 import com.diegoa.inmovinesrest.repositories.inmuebles.InmueblesRepository;
+import com.diegoa.inmovinesrest.repositories.inmuebles.TiposRepository;
+import com.diegoa.inmovinesrest.repositories.localizacion.ComunidadesRepository;
+import com.diegoa.inmovinesrest.repositories.localizacion.MunicipiosRepository;
+import com.diegoa.inmovinesrest.repositories.localizacion.ProvinciasRepository;
+import com.diegoa.inmovinesrest.repositories.localizacion.ZonasRepository;
 import com.diegoa.inmovinesrest.services.inmuebles.srv.InmueblesService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +47,30 @@ public class InmueblesServiceImpl implements InmueblesService {
     ClientesRepository clientesRepository;
 
     @Autowired
+    AgentesRepository agentesRepository;
+
+    @Autowired
     InmueblesRepository inmueblesRepository;
+
+    @Autowired
+    ComunidadesRepository comunidadesRepository;
+
+    @Autowired
+    ProvinciasRepository provinciasRepository;
+
+    @Autowired
+    MunicipiosRepository municipiosRepository;
+
+    @Autowired
+    ZonasRepository zonasRepository;
+
+    @Autowired
+    GestionesRepository gestionesRepository;
+
+    @Autowired
+    TiposRepository tiposRepository;
+
+
     Logger logger = Logger.getLogger(InmueblesServiceImpl.class);
 
 
@@ -68,13 +105,38 @@ public class InmueblesServiceImpl implements InmueblesService {
 
     /**
      * @param i la instancia de Inmuebles que debe ser guardada en el entorno de persistencia
+     * @param idCliente
+     * @param idAgente
+     * @param idComunidad
+     * @param idProvincia
+     * @param idMunicipio
+     * @param idZona
+     * @param idGestion
+     * @param idTipo
      */
     @Override
-    public Inmuebles create(Inmuebles i) throws RuntimeException {
+    public Inmuebles create(Inmuebles i, long idCliente, long idAgente, long idComunidad, long idProvincia, long idMunicipio, long idZona, long idGestion, long idTipo) throws RuntimeException {
 
         if (i != null) {
 
-            return this.inmueblesRepository.save(i);
+            //Retrieve all entities from database
+            Clientes clientePropietario = clientesRepository.findById(idCliente).get();
+            Agentes agente = agentesRepository.findById(idAgente).get();
+            Comunidades comunidad = comunidadesRepository.findById(idComunidad).get();
+            Provincias provincias = provinciasRepository.findById(idProvincia).get();
+            Municipios municipio = municipiosRepository.findById(idMunicipio).get();
+            Zonas zonas = zonasRepository.findById(idZona).get();
+            Gestiones gestiones = gestionesRepository.findById(idGestion).get();
+            Tipos tipos = tiposRepository.findById(idTipo).get();
+
+            Inmuebles inmuebleBeingCreated = new Inmuebles();
+
+            return inmuebleBeingCreated;
+
+
+
+
+
 
         } else {
 
@@ -103,7 +165,8 @@ public class InmueblesServiceImpl implements InmueblesService {
 
             inmueblesPersistent.copyParameters(i);
 
-            return this.inmueblesRepository.save(inmueblesPersistent);
+
+            return inmueblesPersistent;
         } else {
 
             logger.error("El inmueble con id " + i.getId() + " no existe en la base de datos");
