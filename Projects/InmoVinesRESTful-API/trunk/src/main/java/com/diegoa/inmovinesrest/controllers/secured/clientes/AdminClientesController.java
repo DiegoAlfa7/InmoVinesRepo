@@ -155,6 +155,7 @@ public class AdminClientesController {
         Clientes clientesCreado = clientesService.create(clientes);
 
 
+        return new ResponseEntity<>(clientesCreado, HttpStatus.OK);
 
     }
 

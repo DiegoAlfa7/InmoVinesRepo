@@ -132,15 +132,26 @@ public class InmueblesServiceImpl implements InmueblesService {
             Clientes clientePropietario = clientesRepository.findById(idCliente).get();
             Agentes agente = agentesRepository.findById(idAgente).get();
             Comunidades comunidad = comunidadesRepository.findById(idComunidad).get();
-            Provincias provincias = provinciasRepository.findById(idProvincia).get();
+            Provincias provincia = provinciasRepository.findById(idProvincia).get();
             Municipios municipio = municipiosRepository.findById(idMunicipio).get();
             Zonas zonas = zonasRepository.findById(idZona).get();
-            Gestiones gestiones = gestionesRepository.findById(idGestion).get();
+            Gestiones gestion = gestionesRepository.findById(idGestion).get();
             Tipos tipos = tiposRepository.findById(idTipo).get();
 
             Inmuebles inmuebleBeingCreated = new Inmuebles();
 
-            return inmuebleBeingCreated;
+            inmuebleBeingCreated.copyParameters(i);
+
+            inmuebleBeingCreated.setClientePropietario(clientePropietario);
+            inmuebleBeingCreated.setAgente(agente);
+            inmuebleBeingCreated.getLocalizacion().setComunidad(comunidad);
+            inmuebleBeingCreated.getLocalizacion().setProvincia(provincia);
+            inmuebleBeingCreated.getLocalizacion().setMunicipio(municipio);
+            inmuebleBeingCreated.getLocalizacion().setZona(zonas);
+            inmuebleBeingCreated.setGestiones(gestion);
+            inmuebleBeingCreated.setTipos(tipos);
+
+            return inmueblesRepository.save(inmuebleBeingCreated);
 
 
 
