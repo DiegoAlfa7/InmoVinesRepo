@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.services.clientes.srv;
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +23,8 @@ public interface ClientesUserService {
     public void delete(long id);
 
     Clientes listByEmailAndPass (String email, String pass);
+
+    List <Inmuebles> listInmuebleByCliente (long id);
 
 
 }

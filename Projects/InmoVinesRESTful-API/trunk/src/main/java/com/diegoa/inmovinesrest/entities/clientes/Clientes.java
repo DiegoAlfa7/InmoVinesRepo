@@ -113,10 +113,6 @@ public class Clientes implements Serializable {
         this.presupuestoMax = clientes.presupuestoMax;
         this.canalEntrada = clientes.canalEntrada;
         this.accountHash = clientes.accountHash;
-        this.agente = clientes.agente;
-        this.agenteEntrada = clientes.agenteEntrada;
-        this.inmuebleInteres = clientes.inmuebleInteres;
-
     }
 
     public Long getId() {
