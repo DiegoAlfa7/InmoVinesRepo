@@ -129,6 +129,11 @@ public class Inmuebles implements Serializable {
         this.precioTraspaso = inmuebles.precioTraspaso;
         this.precioAlquilerOpcionCompra = inmuebles.precioAlquilerOpcionCompra;
         this.caracteristicas = inmuebles.caracteristicas;
+        this.localizacion = new Localizacion();
+        this.localizacion.setDireccion(inmuebles.getLocalizacion().getDireccion());
+        this.localizacion.setCp(inmuebles.getLocalizacion().getCp());
+        this.localizacion.setLatitud(inmuebles.getLocalizacion().getLatitud());
+        this.localizacion.setLongitud(inmuebles.getLocalizacion().getLongitud());
 
     }
 

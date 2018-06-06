@@ -144,6 +144,7 @@ public class InmueblesServiceImpl implements InmueblesService {
 
             inmuebleBeingCreated.setClientePropietario(clientePropietario);
             inmuebleBeingCreated.setAgente(agente);
+
             inmuebleBeingCreated.getLocalizacion().setComunidad(comunidad);
             inmuebleBeingCreated.getLocalizacion().setProvincia(provincia);
             inmuebleBeingCreated.getLocalizacion().setMunicipio(municipio);

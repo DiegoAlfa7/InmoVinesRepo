@@ -182,8 +182,8 @@ public class AdminClientesController {
 
         if (!email.isEmpty() && !pass.isEmpty()) {
 
-            this.clientesService.listByEmailAndPass(email, pass);
-            return new ResponseEntity(HttpStatus.OK);
+            Clientes c = this.clientesService.listByEmailAndPass(email, pass);
+            return new ResponseEntity(c,HttpStatus.OK);
         } else {
 
             throw new RuntimeException("Los parametros de entrada no son validos");
