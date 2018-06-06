@@ -127,7 +127,14 @@ public class AdminClientesController {
 
 
     }
-
+    /**
+     * Esta operación del controlador se encarga de modificar cliente introducido en el parámetro de la URL
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON de la lista de Inmuebles del cliente en cuestión.
+     * @throws JsonProcessingException si ocurre un error durante la busqueda del objeto en BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/cliente/{id}/inmuebles</b>
+     * `
+     */
     @RequestMapping(value = "/clientes/modificar", produces = "application/json", method = {RequestMethod.PUT, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Clientes> updateCliente(@RequestBody @Valid Clientes clientes) {
@@ -137,21 +144,29 @@ public class AdminClientesController {
         return new ResponseEntity(clienteModificado, HttpStatus.OK);
 
     }
-
+    /**
+     * Esta operación del controlador se encarga de borrar un cliente por el ID introducido en el parámetro de la URL
+     *
+     * @return ResponseEntity<Void> Respuesta Http vacía. -- <h1>HTTP 200 OK</h1>
+     *          Respuesta Http NOT_MODIFIED vacía. si no se ha borrado la entidad -- <h1>HTTP 304 NOT_MODIFIED</h1>
+     * @throws JsonProcessingException si ocurre un error durante la busqueda del objeto en BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/cliente/{id}/inmuebles</b>
+     * `
+     */
     @RequestMapping(value = "/clientes/{id}", produces = "application/json", method = {RequestMethod.DELETE, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Void> deleteAgente(@PathVariable("id") long id) {
 
-        this.clientesService.delete(id);
+        if(this.clientesService.delete(id)) return new ResponseEntity(HttpStatus.OK);
+        else return new ResponseEntity(HttpStatus.NOT_MODIFIED);
 
-        return new ResponseEntity(HttpStatus.OK);
     }
 
     /**
      * Esta operación del controlador se encarga de devolver una lista de Inmuebles asociada al cliente introducido en el parámetro de la URL
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON de la lista de Inmuebles del cliente en cuestión.
-     * @throws JsonProcessingException si ocurre un error durante la busqueda del objeto en BBDD.
+     * @throws RuntimeException si ocurre un error durante la busqueda del objeto en BBDD.
      * @apiNote <b>ENDPOINT: .../admin/cliente/{id}/inmuebles</b>
      * `
      */
@@ -172,6 +187,15 @@ public class AdminClientesController {
 
     }
 
+    /**
+     * Esta operación del controlador se encarga de hacer una búsqueda en la BBDD mediante las credenciales de autenticación de un cliente,
+     * si el cliente existe y las credenciales coinciden, se devuelve un JSON que representa a dicho usuario.
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON  del cliente en cuestión.
+     * @throws JsonProcessingException si ocurre un error durante la busqueda del objeto en BBDD.
+     * @apiNote <b>ENDPOINT: .../admin/clientes/{id}/inmuebles</b>
+     * `
+     */
     @RequestMapping(value = "/clientes/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, method = {RequestMethod.POST, RequestMethod.OPTIONS})
     @ResponseBody
     public ResponseEntity<Clientes> getClienteByEmailPass(@RequestParam Map<String, String> map) {

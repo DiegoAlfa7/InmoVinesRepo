@@ -24,7 +24,7 @@ public class Tareas {
     private Date fechaCompletada;
 
     public void copyParameters(Tareas tareas) {
-        this.agente = tareas.agente;
+
         this.concepto = tareas.concepto;
         this.descripcion = tareas.descripcion;
         this.fecha = tareas.fecha;

@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -79,6 +80,50 @@ public class AdminTareasController {
 
        List<Tareas> tareas = tareasService.listByIdAgente(id);
        return new ResponseEntity(tareas, HttpStatus.OK);
+
+
+    }
+
+    /**
+     * Esta operación del controlador se encarga de crear una nueva instancia de Tareas en la Base de datos
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON de la tarea creada.
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     * @apiNote <b>ENDPOINT: .../admin/tareas/nuevo
+     * `
+     */
+    @RequestMapping(value = "/tareas/nuevo", consumes = {"application/json"},produces = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Tareas> create(
+            @RequestBody @Valid Tareas tarea,
+            @RequestParam long idAgente
+    ) {
+
+
+        Tareas tareaCreada = this.tareasService.create(tarea, idAgente);
+        return new ResponseEntity(tareaCreada, HttpStatus.OK);
+
+
+    }
+
+    /**
+     * Esta operación del controlador se encarga de modificar una instancia de Tareas de la Base de datos en función de un JSON
+     * con nuevos valores
+     *
+     * @return ResponseEntity<String> Respuesta Http con la representación string del JSON de la tarea creada.
+     * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
+     * @apiNote <b>ENDPOINT: .../admin/tareas/nuevo
+     * `
+     */
+    @RequestMapping(value = "/tareas/modificar", consumes = {"application/json"},produces = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Tareas> update(
+            @RequestBody @Valid Tareas tarea
+    ) {
+
+
+        Tareas tareaCreada = this.tareasService.update(tarea);
+        return new ResponseEntity(tareaCreada, HttpStatus.OK);
 
 
     }

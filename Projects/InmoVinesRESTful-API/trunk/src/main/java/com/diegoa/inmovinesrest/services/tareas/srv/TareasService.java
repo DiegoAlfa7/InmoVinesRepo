@@ -1,7 +1,6 @@
 package com.diegoa.inmovinesrest.services.tareas.srv;
 
 import com.diegoa.inmovinesrest.entities.agentes.Tareas;
-import com.diegoa.inmovinesrest.services.InmoVinesService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -15,11 +14,13 @@ public interface TareasService {
 
     Page<Tareas> listAllByPage(Pageable pageable);
 
-    public void create(Tareas tareas);
 
-    public void update(Tareas tareas);
 
-    public void delete(long id);
+    Tareas create(Tareas tareas, long idAgente);
+
+    public Tareas update(Tareas tareas);
+
+    public boolean delete(long id);
 
 
     List<Tareas> listByIdAgente(long id);

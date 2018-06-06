@@ -49,11 +49,14 @@ public class TareasServiceImpl implements TareasService {
     }
 
     @Override
-    public void create(Tareas tareas) {
+    public Tareas create(Tareas tareas, long idAgente) {
 
         if (tareas != null) {
-
-            this.tareasRepository.save(tareas);
+            Agentes agente = this.agentesRepository.findById(idAgente).get();
+            Tareas tareasCreated = new Tareas();
+            tareasCreated.copyParameters(tareas);
+            tareasCreated.setAgente(agente);
+            return this.tareasRepository.save(tareasCreated);
 
         } else {
 
@@ -64,7 +67,7 @@ public class TareasServiceImpl implements TareasService {
     }
 
     @Override
-    public void update(Tareas tareas) {
+    public Tareas update(Tareas tareas) {
 
         Optional<Tareas> optionalTareas = tareasRepository.findById(tareas.getId());
 
@@ -74,7 +77,7 @@ public class TareasServiceImpl implements TareasService {
 
             tareasPersistant.copyParameters(tareas);
 
-            this.tareasRepository.save(tareasPersistant);
+            return this.tareasRepository.save(tareasPersistant);
 
         } else {
 
@@ -86,7 +89,7 @@ public class TareasServiceImpl implements TareasService {
     }
 
     @Override
-    public void delete(long id) {
+    public boolean delete(long id) {
 
         Optional<Tareas> optionalTareas = tareasRepository.findById(id);
 
@@ -95,6 +98,14 @@ public class TareasServiceImpl implements TareasService {
             Tareas tareas = optionalTareas.get();
 
             this.tareasRepository.delete(tareas);
+
+            if(this.tareasRepository.findById(id).isPresent()){
+
+                return false;
+            }else{
+
+                return true;
+            }
 
         } else {
 

@@ -19,7 +19,7 @@ public interface ClientesUserService {
 
     public Clientes update(Clientes clientes);
 
-    public void delete(long id);
+    public boolean delete(long id);
 
     Clientes listByEmailAndPass (String email, String pass);
 

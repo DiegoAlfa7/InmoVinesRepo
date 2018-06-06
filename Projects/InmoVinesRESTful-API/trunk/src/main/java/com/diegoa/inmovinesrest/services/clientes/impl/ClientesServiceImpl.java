@@ -102,7 +102,7 @@ public class ClientesServiceImpl implements ClientesUserService {
     }
 
     @Override
-    public void delete(long id) {
+    public boolean delete(long id) {
 
         Optional<Clientes> optionalClientes = this.clientesRepository.findById(id);
 
@@ -110,6 +110,16 @@ public class ClientesServiceImpl implements ClientesUserService {
 
             Clientes clientes = optionalClientes.get();
             this.clientesRepository.delete(clientes);
+
+
+            if(this.clientesRepository.findById(id).isPresent()){
+
+                return false;
+
+            }else{
+
+                return true;
+            }
 
 
         } else {

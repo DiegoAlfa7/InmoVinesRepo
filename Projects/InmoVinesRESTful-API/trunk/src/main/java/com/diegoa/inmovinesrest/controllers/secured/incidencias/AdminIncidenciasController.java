@@ -171,7 +171,7 @@ public class AdminIncidenciasController {
      * Esta operación del controlador se encarga de conseguir la lista de incidencias relacionadas con un Inmueble en función
      * del ID de este último
      *
-     * @return ResponseEntity<List       <       Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
+     * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias/inmueble/{id}
      */
