@@ -97,6 +97,7 @@ public class AdminClientesController {
         }
 
     }
+
     /**
      * Esta operación del controlador se encarga de crear una nueva entidad de tipo Clentes en función de los parámetros introducidos.
      *
@@ -115,16 +116,14 @@ public class AdminClientesController {
     ) {
         Clientes clientesCreado = clientesService.create(clientes, idAgente, idAgenteEntrada, idInteres);
 
-        if(clientesCreado != null) {
+        if (clientesCreado != null) {
 
-            return  new ResponseEntity(clientesCreado, HttpStatus.CREATED);
+            return new ResponseEntity(clientesCreado, HttpStatus.CREATED);
 
         } else {
 
             throw new RuntimeException("El cliente no se ha podido crear");
         }
-
-
 
 
     }
@@ -182,7 +181,7 @@ public class AdminClientesController {
 
         if (!email.isEmpty() && !pass.isEmpty()) {
 
-            Clientes c = this.clientesService.listByEmailAndPass(email, pass);
+            Clientes c =this.clientesService.listByEmailAndPass(email, pass);
             return new ResponseEntity(c,HttpStatus.OK);
         } else {
 

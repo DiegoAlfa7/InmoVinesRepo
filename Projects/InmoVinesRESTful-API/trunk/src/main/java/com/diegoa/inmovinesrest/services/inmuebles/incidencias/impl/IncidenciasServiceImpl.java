@@ -62,11 +62,17 @@ public class IncidenciasServiceImpl implements IncidenciasService {
 
 
     @Override
-    public Incidencias create(Incidencias incidencias) {
+    public Incidencias create(Incidencias incidencias, long id_inmueble) {
 
         if (incidencias != null) {
 
-            return this.incidenciasRepository.save(incidencias);
+            Inmuebles inmuebleAsociado = inmueblesRepository.findById(id_inmueble).get();
+
+            Incidencias incidenciaCreada = new Incidencias();
+            incidenciaCreada.copyParameters(incidencias);
+            incidenciaCreada.setInmueble(inmuebleAsociado);
+
+            return  this.incidenciasRepository.save(incidenciaCreada);
 
         } else {
 

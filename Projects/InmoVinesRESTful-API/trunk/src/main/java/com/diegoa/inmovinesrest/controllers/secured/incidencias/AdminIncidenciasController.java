@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.controllers.secured.incidencias;
 
 
+import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.entities.inmuebles.incidencias.Incidencias;
 import com.diegoa.inmovinesrest.services.inmuebles.incidencias.impl.IncidenciasServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,8 +77,6 @@ public class AdminIncidenciasController {
      *
      * @return ResponseEntity<String> Respuesta Http con la representación string del JSON del array de todos las incidencias den la BBDD. -- <h1>HTTP 200 OK</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias
-     *
-     *
      */
     @RequestMapping(value = "/incidencias", produces = "application/json", method = {RequestMethod.GET, RequestMethod.OPTIONS})
     @ResponseBody
@@ -106,6 +105,27 @@ public class AdminIncidenciasController {
 
     }
 
+
+    @RequestMapping(value = "incidencias/nuevo", consumes = "application/json", method = {RequestMethod.POST, RequestMethod.OPTIONS})
+    @ResponseBody
+    public ResponseEntity<Incidencias> addIncidencia(
+            @RequestBody @Valid Incidencias incidencias,
+            @RequestParam long idInmueble
+    ) {
+
+        Incidencias incidenciasCreada = incidenciasService.create(incidencias, idInmueble);
+
+        if (incidenciasCreada != null) {
+
+            return new ResponseEntity(incidenciasCreada, HttpStatus.CREATED);
+
+        } else {
+
+            throw new RuntimeException("TUS PUTOS MUERTOS");
+        }
+
+    }
+
     /**
      * Esta operación del controlador se encarga de eliminar una entidad de tipo Incidencia existente en la BBDD <b>
      * mediante una búsqueda indexada</b> con el ID recogido de los parámetros de la petición.
@@ -124,19 +144,14 @@ public class AdminIncidenciasController {
     }
 
 
-
-
     //CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS -.- -.- -.- CUSTOM METHODS
-
-
 
 
     /**
      * Esta operación del controlador se encarga de conseguir la lista de incidencias relacionadas con un Cliente,
      * mas concretamente las incidencias de todos sus inmuebles.
      *
-     * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el cliente-- <h1>HTTP 200 OK</h1>
-     *
+     * @return ResponseEntity<List       <       Incidencias>> lista de todas las incidencias relacionadas con el cliente-- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias/cliente/{id}
      */
@@ -149,7 +164,6 @@ public class AdminIncidenciasController {
         return new ResponseEntity(incidenciasList, HttpStatus.OK);
 
 
-
     }
 
 
@@ -157,8 +171,7 @@ public class AdminIncidenciasController {
      * Esta operación del controlador se encarga de conseguir la lista de incidencias relacionadas con un Inmueble en función
      * del ID de este último
      *
-     * @return ResponseEntity<List<Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
-     *
+     * @return ResponseEntity<List       <       Incidencias>> lista de todas las incidencias relacionadas con el Inmueble-- <h1>HTTP 200 OK</h1>
      * @throws RuntimeException si ocurre algun error durante la búsqueda en la BBDD -- <h1>HTTP 500 INTERNAL ERROR</h1>
      * @apiNote <b>ENDPOINT: .../admin/incidencias/inmueble/{id}
      */
@@ -169,7 +182,6 @@ public class AdminIncidenciasController {
         List<Incidencias> incidenciasList = this.incidenciasService.listAllByInmuebleID(id);
 
         return new ResponseEntity(incidenciasList, HttpStatus.OK);
-
 
 
     }
