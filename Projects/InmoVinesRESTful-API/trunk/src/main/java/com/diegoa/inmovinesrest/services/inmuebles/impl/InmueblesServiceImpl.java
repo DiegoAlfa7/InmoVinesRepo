@@ -36,6 +36,15 @@ public class InmueblesServiceImpl implements InmueblesService {
     InmueblesRepository inmueblesRepository;
     Logger logger = Logger.getLogger(InmueblesServiceImpl.class);
 
+    public void managePersistence(Inmuebles inmueblesPersistent, Inmuebles inmuebles) {
+
+
+
+
+
+
+    }
+
 
     @Override
     public Page<Inmuebles> listAllByPage(Pageable pageable) {
@@ -229,6 +238,7 @@ public class InmueblesServiceImpl implements InmueblesService {
     /**
      * Uno de los métodos más potentes de este servicio. Realiza una búsqueda exhaustiva entre los inmuebles de la BBDD en función de los parametros introducidos,
      * siempre y cuando estos existan y sean válidos.
+     *
      * @param tipo
      * @param pMax
      * @param pMin
@@ -244,7 +254,6 @@ public class InmueblesServiceImpl implements InmueblesService {
         List<Inmuebles> inmueblesList = (List<Inmuebles>) this.inmueblesRepository.findAll();
 
 
-
         if (tipo != null && !tipo.isEmpty()) {
             //Filter the list with tipo
 
@@ -253,21 +262,21 @@ public class InmueblesServiceImpl implements InmueblesService {
 
         }
 
-        if ( pMax != null && !pMax.isEmpty()) {
+        if (pMax != null && !pMax.isEmpty()) {
             // Filter by precio Máximo
 
             inmueblesList = this.filterByPMax(inmueblesList, pMax);
 
 
         }
-        if (pMin != null && !pMin.isEmpty() ) {
+        if (pMin != null && !pMin.isEmpty()) {
             // Filter by precio Mínimo
 
             inmueblesList = this.filterByPMin(inmueblesList, pMin);
 
 
         }
-        if (hab != null && !hab.isEmpty() ) {
+        if (hab != null && !hab.isEmpty()) {
             // Filter by precio Máximo
 
             inmueblesList = this.filterByNHab(inmueblesList, hab);
@@ -299,7 +308,6 @@ public class InmueblesServiceImpl implements InmueblesService {
         return inmueblesList;
 
 
-
     }
 
     /**
@@ -317,14 +325,14 @@ public class InmueblesServiceImpl implements InmueblesService {
         try {
             idComunidad = Integer.parseInt(comunidad);
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
 
             throw new RuntimeException("El valor del parámetro 'comunidad' no puede convertirse a número");
 
         }
-        for(Inmuebles i : inmueblesList){
+        for (Inmuebles i : inmueblesList) {
 
-            if(i.getLocalizacion().getComunidad().getId() == idComunidad){
+            if (i.getLocalizacion().getComunidad().getId() == idComunidad) {
 
                 filtered.add(i);
 
@@ -349,14 +357,14 @@ public class InmueblesServiceImpl implements InmueblesService {
         try {
             metrosUtiles = Integer.parseInt(mUtiles);
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
 
             throw new RuntimeException("El valor del parámetro 'mUtiles' no puede convertirse a número");
 
         }
-        for(Inmuebles i : inmueblesList){
+        for (Inmuebles i : inmueblesList) {
 
-            if(i.getCaracteristicas().getM2Utiles() >= metrosUtiles){
+            if (i.getCaracteristicas().getM2Utiles() >= metrosUtiles) {
 
                 filtered.add(i);
 
@@ -381,14 +389,14 @@ public class InmueblesServiceImpl implements InmueblesService {
         try {
             numBanos = Integer.parseInt(banos);
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
 
             throw new RuntimeException("El valor del parámetro 'banos' no puede convertirse a número");
 
         }
-        for(Inmuebles i : inmueblesList){
+        for (Inmuebles i : inmueblesList) {
 
-            if(i.getCaracteristicas().getnBanos() >= numBanos){
+            if (i.getCaracteristicas().getnBanos() >= numBanos) {
 
                 filtered.add(i);
 
@@ -406,14 +414,14 @@ public class InmueblesServiceImpl implements InmueblesService {
         try {
             numHabitaciones = Integer.parseInt(hab);
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
 
             throw new RuntimeException("El valor del parámetro 'hab' no puede convertirse a número");
 
         }
-        for(Inmuebles i : inmueblesList){
+        for (Inmuebles i : inmueblesList) {
 
-            if(i.getCaracteristicas().getnHabitaciones() >= numHabitaciones){
+            if (i.getCaracteristicas().getnHabitaciones() >= numHabitaciones) {
 
                 filtered.add(i);
 
@@ -440,41 +448,41 @@ public class InmueblesServiceImpl implements InmueblesService {
         try {
             precioMin = Integer.parseInt(pMin);
 
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
 
             throw new RuntimeException("El valor del parámetro 'pMin' no puede convertirse a número");
 
         }
 
-        for (Inmuebles i : inmueblesList){
+        for (Inmuebles i : inmueblesList) {
 
-            if(i.getGestiones().getId() == CONSTANTES.GESTION_VENTA){
+            if (i.getGestiones().getId() == CONSTANTES.GESTION_VENTA) {
 
-                if(i.getPrecioCompra() > precioMin){
-
-                    filtered.add(i);
-
-                }
-
-            }else if(i.getGestiones().getId() == CONSTANTES.GESTION_AoC){
-
-                if(i.getPrecioAlquilerOpcionCompra() > precioMin){
+                if (i.getPrecioCompra() > precioMin) {
 
                     filtered.add(i);
 
                 }
 
-            }else if(i.getGestiones().getId() == CONSTANTES.GESTION_ALQUILER){
+            } else if (i.getGestiones().getId() == CONSTANTES.GESTION_AoC) {
 
-                if(i.getPrecioAlquiler() > precioMin){
+                if (i.getPrecioAlquilerOpcionCompra() > precioMin) {
 
                     filtered.add(i);
 
                 }
 
-            }else if(i.getGestiones().getId() == CONSTANTES.GESTION_TRASPASO){
+            } else if (i.getGestiones().getId() == CONSTANTES.GESTION_ALQUILER) {
 
-                if(i.getPrecioTraspaso() > precioMin){
+                if (i.getPrecioAlquiler() > precioMin) {
+
+                    filtered.add(i);
+
+                }
+
+            } else if (i.getGestiones().getId() == CONSTANTES.GESTION_TRASPASO) {
+
+                if (i.getPrecioTraspaso() > precioMin) {
 
                     filtered.add(i);
 

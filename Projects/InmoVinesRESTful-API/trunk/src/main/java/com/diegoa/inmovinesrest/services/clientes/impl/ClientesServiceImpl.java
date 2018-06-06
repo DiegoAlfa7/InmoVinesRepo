@@ -1,6 +1,7 @@
 package com.diegoa.inmovinesrest.services.clientes.impl;
 
 import com.diegoa.inmovinesrest.entities.clientes.Clientes;
+import com.diegoa.inmovinesrest.entities.inmuebles.Inmuebles;
 import com.diegoa.inmovinesrest.repositories.clientes.ClientesRepository;
 import com.diegoa.inmovinesrest.services.clientes.srv.ClientesUserService;
 import org.apache.log4j.Logger;
@@ -115,6 +116,20 @@ public class ClientesServiceImpl implements ClientesUserService {
         throw new RuntimeException("No se encuentra ningun cliente con email: " + email + " y con password: " + pass);
 
 
+    }
+
+    @Override
+    public List<Inmuebles> listInmuebleByCliente(long id) {
+
+        Optional<Clientes> cliente = this.clientesRepository.findById(id);
+
+        if (cliente.isPresent()) {
+
+            Clientes cliente1 = cliente.get();
+            return cliente1.getInmueblesList();
+        }
+
+        throw new RuntimeException("No se encuentra ningun cliente con id: " + id);
     }
 
 

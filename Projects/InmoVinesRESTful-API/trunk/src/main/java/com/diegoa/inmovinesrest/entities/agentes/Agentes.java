@@ -124,7 +124,6 @@ public class Agentes implements Serializable {
         this.activacion = agentes.activacion;
         this.permisos = agentes.permisos;
         this.password = agentes.password;
-        this.cargo = agentes.cargo;
 
     }
 

@@ -39,7 +39,7 @@ public class AdminZonasController {
      *
      * @param pageable Se refiere a la PageRequest que se espera que venga junto con la petición, con los parámetros
      *                 'page', 'size' y 'sort' debidamente introducidos
-     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Tareas\></b>
+     * @return ResponseEntity<String> Respuesta Http con el la representación string del JSON del objeto de la <b>Page<\Zonas\></b>
      * @throws JsonProcessingException si ocurre un error durante la serialización del objeto.
      * @apiNote <b>ENDPOINT: .../admin/zonas/page[?page=PAGE&size=SIZE&sort=SHORT,asc|desc]</b>
      */
